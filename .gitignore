@@ -1,0 +1,9 @@
+target/
+.idea/
+*.iml
+node_modules/
+reports/**
+!reports/.gitkeep
+ui-tests/src/test/resources/secret/
+.DS_Store
+Thumbs.db
