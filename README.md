@@ -4,8 +4,6 @@ Dự án chứa **Selenium + TestNG** cho PIS. Mỗi module (vd **PIS-2: Quản 
 
 ## 🏗️ Cấu trúc thư mục
 
-## 🏗️ Cấu trúc thư mục
-
 ````bash
 Pharmacy-Inventory-System-QA/
 ├── .github/
