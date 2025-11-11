@@ -4,28 +4,35 @@ Dự án chứa **Selenium + TestNG** cho PIS. Mỗi module (vd **PIS-2: Quản 
 
 ## 🏗️ Cấu trúc thư mục
 
-├── 📁 .github
-│ └── 📁 workflows # CI (GitHub Actions)
-├── 📁 reports # Báo cáo (Surefire/Allure)
-├── 📁 testdata # Dữ liệu test
-├── 📁 ui-tests # UI automation (Selenium + TestNG)
-│ ├── 📁 src/test/java/vn/pis/ui
-│ │ ├── 📁 base
-│ │ │ └── BaseTest.java
-│ │ ├── 📁 pages
-│ │ │ ├── CategoriesPage.java
-│ │ │ └── LoginPage.java
-│ │ ├── 📁 tests
-│ │ │ ├── PIS2_Categories.java
-│ │ │ └── PIS2_ConsoleLogger.java
-│ │ └── 📁 util
-│ │ ├── Config.java
-│ │ └── TestEnv.java
-│ └── 📁 src/test/resources
-│ ├── 📁 config
-│ │ └── common.properties
-│ └── testng.xml
+````bash
+Pharmacy-Inventory-System-QA/
+├── .github/
+│   └── workflows/                  # CI (GitHub Actions)
+│
+├── reports/                        # Báo cáo test (Surefire / Allure)
+├── testdata/                       # Dữ liệu kiểm thử (Excel, JSON...)
+│
+├── ui-tests/                       # UI Automation (Selenium + TestNG)
+│   ├── src/test/java/vn/pis/ui/
+│   │   ├── base/
+│   │   │   └── BaseTest.java
+│   │   ├── pages/
+│   │   │   ├── CategoriesPage.java
+│   │   │   └── LoginPage.java
+│   │   ├── tests/
+│   │   │   ├── PIS2_Categories.java
+│   │   │   └── PIS2_ConsoleLogger.java
+│   │   └── util/
+│   │       ├── Config.java
+│   │       └── TestEnv.java
+│   │
+│   └── src/test/resources/
+│       ├── config/
+│       │   └── common.properties
+│       └── testng.xml
+│
 └── .gitignore
+
 
 ## 💻 Yêu cầu
 - Java **17/21**, Maven **3.9+**, IntelliJ **2023.3+**, Selenium **4.x**, TestNG **7.x**, Chrome mới.
@@ -54,3 +61,4 @@ main → release (tag)
 
 Không push trực tiếp main/develop; dùng PR + squash.
 
+````
