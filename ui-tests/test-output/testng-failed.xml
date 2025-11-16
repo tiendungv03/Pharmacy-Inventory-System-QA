@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
+  <test thread-count="5" name="Default test(failed)">
+    <classes>
+      <class name="vn.pis.ui.tests.PIS1_User">
+        <methods>
+          <include name="setup"/>
+          <include name="tearDown"/>
+          <include name="afterMethod"/>
+          <include name="TC03_Search_User_Success"/>
+          <include name="TC04_Edit_User_Success"/>
+          <include name="beforeMethod"/>
+        </methods>
+      </class> <!-- vn.pis.ui.tests.PIS1_User -->
+    </classes>
+  </test> <!-- Default test(failed) -->
+</suite> <!-- Failed suite [Default suite] -->

@@ -1,0 +1,188 @@
+<html>
+<head>
+<title>TestNG:  Default test</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>Default test</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>6/0/0</td>
+</tr><tr>
+<td>Started on:</td><td>Sun Nov 16 13:11:54 ICT 2025</td>
+</tr>
+<tr><td>Total time:</td><td>17 seconds (17872 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td></td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td><b>Attribute(s)</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='vn.pis.ui.tests.PIS1_User.TC01_Display_User_List()'><b>TC01_Display_User_List</b><br>Test class: vn.pis.ui.tests.PIS1_User<br/>
+<a href="#Output-1526296937" onClick='toggleBox("Output-1526296937", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1526296937" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1526296937">
+[PIS2][Listener] START: TC01_Display_User_List<br/>
+[PIS1] MỞ trang login và đăng nhập<br/>
+[PIS1] Đi tới trang Quản lý người dùng<br/>
+[PIS1] Xác minh các cột cơ bản và số lượng hàng<br/>
+[PIS1] TC01 OK - Hiển thị danh sách người dùng thành công<br/>
+[PIS2][Listener] PASS : TC01_Display_User_List<br/>
+</div>
+</td>
+<td></td>
+<td>1</td>
+<td>vn.pis.ui.tests.PIS1_User@3c9754d8</td></tr>
+<tr>
+<td title='vn.pis.ui.tests.PIS1_User.TC05_Lock_User_Success()'><b>TC05_Lock_User_Success</b><br>Test class: vn.pis.ui.tests.PIS1_User<br/>
+<a href="#Output-1378612814" onClick='toggleBox("Output-1378612814", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1378612814" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1378612814">
+[PIS2][Listener] START: TC05_Lock_User_Success<br/>
+[PIS1] MỞ trang Quản lý người dùng<br/>
+[PIS1] Lấy 1 user đang Hoạt động để test khóa<br/>
+[PIS1] Thực hiện Khóa user: auto_user_1763273519160<br/>
+[PIS1] KIỂM TRA: trạng thái đã đổi sang Khóa<br/>
+[PIS2][Listener] PASS : TC05_Lock_User_Success<br/>
+</div>
+</td>
+<td></td>
+<td>2</td>
+<td>vn.pis.ui.tests.PIS1_User@3c9754d8</td></tr>
+<tr>
+<td title='vn.pis.ui.tests.PIS1_User.TC04_Edit_User_Success()'><b>TC04_Edit_User_Success</b><br>Test class: vn.pis.ui.tests.PIS1_User<br/>
+<a href="#Output-605201451" onClick='toggleBox("Output-605201451", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-605201451" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-605201451">
+[PIS2][Listener] START: TC04_Edit_User_Success<br/>
+[PIS1] MỞ trang Quản lý người dùng<br/>
+[PIS1] Chọn user đầu tiên để chỉnh sửa (bỏ qua 'Đang tải...')<br/>
+[PIS1] Mở popup Chỉnh sửa user: auto_user_1763273519160<br/>
+[PIS1] Điền form chỉnh sửa: Updated Name 1763273525899, 0969156512<br/>
+[PIS1] Lưu thay đổi<br/>
+[PIS1] KIỂM TRA: Dòng user đã có giá trị cập nhật<br/>
+[PIS1] TC04 OK - Chỉnh sửa người dùng thành công<br/>
+[PIS2][Listener] PASS : TC04_Edit_User_Success<br/>
+</div>
+</td>
+<td></td>
+<td>3</td>
+<td>vn.pis.ui.tests.PIS1_User@3c9754d8</td></tr>
+<tr>
+<td title='vn.pis.ui.tests.PIS1_User.TC06_Unlock_User_Success()'><b>TC06_Unlock_User_Success</b><br>Test class: vn.pis.ui.tests.PIS1_User<br/>
+<a href="#Output-1728465884" onClick='toggleBox("Output-1728465884", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1728465884" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1728465884">
+[PIS2][Listener] START: TC06_Unlock_User_Success<br/>
+[PIS1] MỞ trang Quản lý người dùng<br/>
+[PIS1] Mở khóa user: auto_user_1763273519160<br/>
+[PIS1] KIỂM TRA: trạng thái đã đổi sang Hoạt động<br/>
+[PIS2][Listener] PASS : TC06_Unlock_User_Success<br/>
+</div>
+</td>
+<td></td>
+<td>2</td>
+<td>vn.pis.ui.tests.PIS1_User@3c9754d8</td></tr>
+<tr>
+<td title='vn.pis.ui.tests.PIS1_User.TC03_Search_User_Success()'><b>TC03_Search_User_Success</b><br>Test class: vn.pis.ui.tests.PIS1_User<br/>
+<a href="#Output-81722690" onClick='toggleBox("Output-81722690", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-81722690" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-81722690">
+[PIS2][Listener] START: TC03_Search_User_Success<br/>
+[PIS1] Đi tới trang Quản lý người dùng<br/>
+[PIS1] Lấy username ở hàng đầu tiên làm dữ liệu tìm kiếm<br/>
+[PIS1] Nhập keyword vào ô tìm kiếm: auto_user_1763273519160<br/>
+[PIS1] Kiểm tra kết quả sau khi search<br/>
+[PIS1] TC03 OK - Tìm kiếm người dùng hoạt động (có trả về kết quả khớp keyword)<br/>
+[PIS2][Listener] PASS : TC03_Search_User_Success<br/>
+</div>
+</td>
+<td></td>
+<td>1</td>
+<td>vn.pis.ui.tests.PIS1_User@3c9754d8</td></tr>
+<tr>
+<td title='vn.pis.ui.tests.PIS1_User.TC02_Create_New_User_Success()'><b>TC02_Create_New_User_Success</b><br>Test class: vn.pis.ui.tests.PIS1_User<br/>
+<a href="#Output-604990529" onClick='toggleBox("Output-604990529", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-604990529" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-604990529">
+[PIS2][Listener] START: TC02_Create_New_User_Success<br/>
+[PIS1] Chuẩn bị test data (username, email...)<br/>
+[PIS1] Mở trang Quản lý người dùng (Nếu chưa mở)<br/>
+[PIS1] Mở dialog 'Thêm người dùng mới'<br/>
+[PIS1] Điền form với Tên đăng nhập: auto_user_1763273519160<br/>
+[PIS1] Submit form<br/>
+[PIS1] Xác minh: Kiểm tra user mới xuất hiện trong bảng<br/>
+[PIS1] TC02 OK - Thêm mới thành công auto_user_1763273519160<br/>
+[PIS2][Listener] PASS : TC02_Create_New_User_Success<br/>
+</div>
+</td>
+<td></td>
+<td>3</td>
+<td>vn.pis.ui.tests.PIS1_User@3c9754d8</td></tr>
+</table><p>
+</body>
+</html>
