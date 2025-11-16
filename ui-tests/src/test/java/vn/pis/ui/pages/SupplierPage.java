@@ -313,7 +313,17 @@ public class SupplierPage {
     public void clickActionMenu() {
         List<WebElement> menus = driver.findElements(actionMenuButton);
         if (menus.size() > 0) {
-            wait.until(ExpectedConditions.elementToBeClickable(menus.get(0))).click();
+            WebElement btn = menus.get(0);
+            // Scroll into view để tránh bị overlay che
+            ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", btn);
+            try { Thread.sleep(300); } catch (InterruptedException ignored) {}
+            
+            try {
+                wait.until(ExpectedConditions.elementToBeClickable(btn)).click();
+            } catch (ElementClickInterceptedException e) {
+                // Nếu bị overlay che, dùng JS click fallback
+                ((JavascriptExecutor) driver).executeScript("arguments[0].click();", btn);
+            }
         }
     }
 
