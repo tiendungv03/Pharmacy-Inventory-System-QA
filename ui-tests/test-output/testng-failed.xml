@@ -9,7 +9,6 @@
           <include name="tearDown"/>
           <include name="afterMethod"/>
           <include name="TC03_Search_User_Success"/>
-          <include name="TC04_Edit_User_Success"/>
           <include name="beforeMethod"/>
         </methods>
       </class> <!-- vn.pis.ui.tests.PIS1_User -->

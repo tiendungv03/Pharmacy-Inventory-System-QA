@@ -14,16 +14,16 @@
       <![CDATA[[PIS2][Listener] START: TC01_Display_User_List]]>
     </line>
     <line>
-      <![CDATA[[PIS1] MỞ trang login và đăng nhập]]>
+      <![CDATA[[PIS1] Bước 1: Mở trang login và đăng nhập Admin]]>
     </line>
     <line>
-      <![CDATA[[PIS1] Đi tới trang Quản lý người dùng]]>
+      <![CDATA[[PIS1] Bước 2: Đi tới trang Quản lý người dùng]]>
     </line>
     <line>
-      <![CDATA[[PIS1] Xác minh các cột cơ bản và số lượng hàng]]>
+      <![CDATA[[PIS1] Bước 3: Xác minh bảng hiển thị]]>
     </line>
     <line>
-      <![CDATA[[PIS1] TC01 OK - Hiển thị danh sách người dùng thành công]]>
+      <![CDATA[[PIS1] Các cột tìm thấy: [Tên đăng nhập, Họ và tên, Email, Số điện thoại, Vai trò, Trạng thái, Đăng nhập cuối, ]]]>
     </line>
     <line>
       <![CDATA[[PIS2][Listener] PASS : TC01_Display_User_List]]>
@@ -32,37 +32,46 @@
       <![CDATA[[PIS1] ■ KẾT THÚC TC: TC01_Display_User_List]]>
     </line>
     <line>
-      <![CDATA[[PIS1] ▶ BẮT ĐẦU TC: TC02_Create_New_User_Success]]>
+      <![CDATA[[PIS1] ▶ BẮT ĐẦU TC: TC02_A_Verify_Create_User_Popup_UI]]>
     </line>
     <line>
-      <![CDATA[[PIS2][Listener] START: TC02_Create_New_User_Success]]>
+      <![CDATA[[PIS2][Listener] START: TC02_A_Verify_Create_User_Popup_UI]]>
     </line>
     <line>
-      <![CDATA[[PIS1] Chuẩn bị test data (username, email...)]]>
+      <![CDATA[[PIS1] Bước 1: Mở trang Quản lý người dùng]]>
     </line>
     <line>
-      <![CDATA[[PIS1] Mở trang Quản lý người dùng (Nếu chưa mở)]]>
+      <![CDATA[[PIS1] Bước 2: Click nút 'Thêm người dùng mới']]>
     </line>
     <line>
-      <![CDATA[[PIS1] Mở dialog 'Thêm người dùng mới']]>
+      <![CDATA[[PIS1] 📸 Đã lưu ảnh tại: ./ScreenShots/Hinh_4_4_3_Popup_Them_Nguoi_Dung.png]]>
     </line>
     <line>
-      <![CDATA[[PIS1] Điền form với Tên đăng nhập: auto_user_1763273519160]]>
+      <![CDATA[[PIS1] TC02_A OK]]>
     </line>
     <line>
-      <![CDATA[[PIS1] Submit form]]>
+      <![CDATA[[PIS2][Listener] PASS : TC02_A_Verify_Create_User_Popup_UI]]>
     </line>
     <line>
-      <![CDATA[[PIS1] Xác minh: Kiểm tra user mới xuất hiện trong bảng]]>
+      <![CDATA[[PIS1] ■ KẾT THÚC TC: TC02_A_Verify_Create_User_Popup_UI]]>
     </line>
     <line>
-      <![CDATA[[PIS1] TC02 OK - Thêm mới thành công auto_user_1763273519160]]>
+      <![CDATA[[PIS1] ▶ BẮT ĐẦU TC: TC02_B_Create_New_User_Success]]>
     </line>
     <line>
-      <![CDATA[[PIS2][Listener] PASS : TC02_Create_New_User_Success]]>
+      <![CDATA[[PIS2][Listener] START: TC02_B_Create_New_User_Success]]>
     </line>
     <line>
-      <![CDATA[[PIS1] ■ KẾT THÚC TC: TC02_Create_New_User_Success]]>
+      <![CDATA[[PIS1] 📸 Đã lưu ảnh tại: ./ScreenShots/Hinh_4_4_4_Them_Thanh_Cong.png]]>
+    </line>
+    <line>
+      <![CDATA[[PIS1] TC02_B OK]]>
+    </line>
+    <line>
+      <![CDATA[[PIS2][Listener] PASS : TC02_B_Create_New_User_Success]]>
+    </line>
+    <line>
+      <![CDATA[[PIS1] ■ KẾT THÚC TC: TC02_B_Create_New_User_Success]]>
     </line>
     <line>
       <![CDATA[[PIS1] ▶ BẮT ĐẦU TC: TC03_Search_User_Success]]>
@@ -71,19 +80,10 @@
       <![CDATA[[PIS2][Listener] START: TC03_Search_User_Success]]>
     </line>
     <line>
-      <![CDATA[[PIS1] Đi tới trang Quản lý người dùng]]>
+      <![CDATA[[PIS1] Từ khóa tìm kiếm: user_1763386372108]]>
     </line>
     <line>
-      <![CDATA[[PIS1] Lấy username ở hàng đầu tiên làm dữ liệu tìm kiếm]]>
-    </line>
-    <line>
-      <![CDATA[[PIS1] Nhập keyword vào ô tìm kiếm: auto_user_1763273519160]]>
-    </line>
-    <line>
-      <![CDATA[[PIS1] Kiểm tra kết quả sau khi search]]>
-    </line>
-    <line>
-      <![CDATA[[PIS1] TC03 OK - Tìm kiếm người dùng hoạt động (có trả về kết quả khớp keyword)]]>
+      <![CDATA[[PIS1] TC03 OK - Tìm kiếm hoạt động tốt.]]>
     </line>
     <line>
       <![CDATA[[PIS2][Listener] PASS : TC03_Search_User_Success]]>
@@ -98,25 +98,16 @@
       <![CDATA[[PIS2][Listener] START: TC04_Edit_User_Success]]>
     </line>
     <line>
-      <![CDATA[[PIS1] MỞ trang Quản lý người dùng]]>
+      <![CDATA[[PIS1] User được chọn để sửa: user_1763386372108]]>
     </line>
     <line>
-      <![CDATA[[PIS1] Chọn user đầu tiên để chỉnh sửa (bỏ qua 'Đang tải...')]]>
+      <![CDATA[[PIS1] Nhập thông tin mới: Updated 1763386381304]]>
     </line>
     <line>
-      <![CDATA[[PIS1] Mở popup Chỉnh sửa user: auto_user_1763273519160]]>
+      <![CDATA[[PIS1] Kiểm tra thông tin sau khi sửa]]>
     </line>
     <line>
-      <![CDATA[[PIS1] Điền form chỉnh sửa: Updated Name 1763273525899, 0969156512]]>
-    </line>
-    <line>
-      <![CDATA[[PIS1] Lưu thay đổi]]>
-    </line>
-    <line>
-      <![CDATA[[PIS1] KIỂM TRA: Dòng user đã có giá trị cập nhật]]>
-    </line>
-    <line>
-      <![CDATA[[PIS1] TC04 OK - Chỉnh sửa người dùng thành công]]>
+      <![CDATA[[PIS1] TC04 OK - Chỉnh sửa thành công.]]>
     </line>
     <line>
       <![CDATA[[PIS2][Listener] PASS : TC04_Edit_User_Success]]>
@@ -125,61 +116,37 @@
       <![CDATA[[PIS1] ■ KẾT THÚC TC: TC04_Edit_User_Success]]>
     </line>
     <line>
-      <![CDATA[[PIS1] ▶ BẮT ĐẦU TC: TC05_Lock_User_Success]]>
+      <![CDATA[[PIS1] ▶ BẮT ĐẦU TC: TC05_Lock_Unlock_User]]>
     </line>
     <line>
-      <![CDATA[[PIS2][Listener] START: TC05_Lock_User_Success]]>
+      <![CDATA[[PIS2][Listener] START: TC05_Lock_Unlock_User]]>
     </line>
     <line>
-      <![CDATA[[PIS1] MỞ trang Quản lý người dùng]]>
+      <![CDATA[[PIS1] 1. Thực hiện KHÓA user: user_1763386372108]]>
     </line>
     <line>
-      <![CDATA[[PIS1] Lấy 1 user đang Hoạt động để test khóa]]>
+      <![CDATA[[PIS1] 2. Thực hiện MỞ KHÓA user: user_1763386372108]]>
     </line>
     <line>
-      <![CDATA[[PIS1] Thực hiện Khóa user: auto_user_1763273519160]]>
+      <![CDATA[[PIS1] TC05 OK - Khóa/Mở khóa hoạt động tốt.]]>
     </line>
     <line>
-      <![CDATA[[PIS1] KIỂM TRA: trạng thái đã đổi sang Khóa]]>
+      <![CDATA[[PIS2][Listener] PASS : TC05_Lock_Unlock_User]]>
     </line>
     <line>
-      <![CDATA[[PIS2][Listener] PASS : TC05_Lock_User_Success]]>
-    </line>
-    <line>
-      <![CDATA[[PIS1] ■ KẾT THÚC TC: TC05_Lock_User_Success]]>
-    </line>
-    <line>
-      <![CDATA[[PIS1] ▶ BẮT ĐẦU TC: TC06_Unlock_User_Success]]>
-    </line>
-    <line>
-      <![CDATA[[PIS2][Listener] START: TC06_Unlock_User_Success]]>
-    </line>
-    <line>
-      <![CDATA[[PIS1] MỞ trang Quản lý người dùng]]>
-    </line>
-    <line>
-      <![CDATA[[PIS1] Mở khóa user: auto_user_1763273519160]]>
-    </line>
-    <line>
-      <![CDATA[[PIS1] KIỂM TRA: trạng thái đã đổi sang Hoạt động]]>
-    </line>
-    <line>
-      <![CDATA[[PIS2][Listener] PASS : TC06_Unlock_User_Success]]>
-    </line>
-    <line>
-      <![CDATA[[PIS1] ■ KẾT THÚC TC: TC06_Unlock_User_Success]]>
+      <![CDATA[[PIS1] ■ KẾT THÚC TC: TC05_Lock_Unlock_User]]>
     </line>
   </reporter-output>
-  <suite started-at="2025-11-16T13:11:54 ICT" name="Default suite" finished-at="2025-11-16T13:12:12 ICT" duration-ms="17872">
+  <suite started-at="2025-11-17T20:32:46 ICT" name="Default suite" finished-at="2025-11-17T20:33:07 ICT" duration-ms="21327">
     <groups>
     </groups>
-    <test started-at="2025-11-16T13:11:54 ICT" name="Default test" finished-at="2025-11-16T13:12:12 ICT" duration-ms="17872">
+    <test started-at="2025-11-17T20:32:46 ICT" name="Default test" finished-at="2025-11-17T20:33:07 ICT" duration-ms="21327">
       <class name="vn.pis.ui.tests.PIS1_User">
-        <test-method is-config="true" signature="setup()[pri:0, instance:vn.pis.ui.tests.PIS1_User@3c9754d8]" started-at="2025-11-16T13:11:54 ICT" name="setup" finished-at="2025-11-16T13:11:57 ICT" duration-ms="2877" status="PASS">
+        <test-method is-config="true" signature="setup()[pri:0, instance:vn.pis.ui.tests.PIS1_User@3bf7ca37]" started-at="2025-11-17T20:32:46 ICT" name="setup" finished-at="2025-11-17T20:32:47 ICT" duration-ms="1670" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method is-config="true" signature="beforeMethod(java.lang.reflect.Method)[pri:0, instance:vn.pis.ui.tests.PIS1_User@3c9754d8]" started-at="2025-11-16T13:11:57 ICT" name="beforeMethod" finished-at="2025-11-16T13:11:57 ICT" duration-ms="2" status="PASS">
+        <test-method is-config="true" signature="beforeMethod(java.lang.reflect.Method)[pri:0, instance:vn.pis.ui.tests.PIS1_User@3bf7ca37]" started-at="2025-11-17T20:32:47 ICT" name="beforeMethod" finished-at="2025-11-17T20:32:47 ICT" duration-ms="7" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -193,29 +160,29 @@
             </line>
           </reporter-output>
         </test-method> <!-- beforeMethod -->
-        <test-method signature="TC01_Display_User_List()[pri:1, instance:vn.pis.ui.tests.PIS1_User@3c9754d8]" started-at="2025-11-16T13:11:57 ICT" name="TC01_Display_User_List" finished-at="2025-11-16T13:11:59 ICT" duration-ms="1929" status="PASS">
+        <test-method signature="TC01_Display_User_List()[pri:1, instance:vn.pis.ui.tests.PIS1_User@3bf7ca37]" started-at="2025-11-17T20:32:47 ICT" name="TC01_Display_User_List" finished-at="2025-11-17T20:32:50 ICT" duration-ms="2272" status="PASS">
           <reporter-output>
             <line>
               <![CDATA[[PIS2][Listener] START: TC01_Display_User_List]]>
             </line>
             <line>
-              <![CDATA[[PIS1] MỞ trang login và đăng nhập]]>
+              <![CDATA[[PIS1] Bước 1: Mở trang login và đăng nhập Admin]]>
             </line>
             <line>
-              <![CDATA[[PIS1] Đi tới trang Quản lý người dùng]]>
+              <![CDATA[[PIS1] Bước 2: Đi tới trang Quản lý người dùng]]>
             </line>
             <line>
-              <![CDATA[[PIS1] Xác minh các cột cơ bản và số lượng hàng]]>
+              <![CDATA[[PIS1] Bước 3: Xác minh bảng hiển thị]]>
             </line>
             <line>
-              <![CDATA[[PIS1] TC01 OK - Hiển thị danh sách người dùng thành công]]>
+              <![CDATA[[PIS1] Các cột tìm thấy: [Tên đăng nhập, Họ và tên, Email, Số điện thoại, Vai trò, Trạng thái, Đăng nhập cuối, ]]]>
             </line>
             <line>
               <![CDATA[[PIS2][Listener] PASS : TC01_Display_User_List]]>
             </line>
           </reporter-output>
         </test-method> <!-- TC01_Display_User_List -->
-        <test-method is-config="true" signature="afterMethod(java.lang.reflect.Method)[pri:0, instance:vn.pis.ui.tests.PIS1_User@3c9754d8]" started-at="2025-11-16T13:11:59 ICT" name="afterMethod" finished-at="2025-11-16T13:11:59 ICT" duration-ms="1" status="PASS">
+        <test-method is-config="true" signature="afterMethod(java.lang.reflect.Method)[pri:0, instance:vn.pis.ui.tests.PIS1_User@3bf7ca37]" started-at="2025-11-17T20:32:50 ICT" name="afterMethod" finished-at="2025-11-17T20:32:50 ICT" duration-ms="1" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -229,66 +196,101 @@
             </line>
           </reporter-output>
         </test-method> <!-- afterMethod -->
-        <test-method signature="TC02_Create_New_User_Success()[pri:2, instance:vn.pis.ui.tests.PIS1_User@3c9754d8]" started-at="2025-11-16T13:11:59 ICT" name="TC02_Create_New_User_Success" finished-at="2025-11-16T13:12:03 ICT" duration-ms="3951" status="PASS">
-          <reporter-output>
-            <line>
-              <![CDATA[[PIS2][Listener] START: TC02_Create_New_User_Success]]>
-            </line>
-            <line>
-              <![CDATA[[PIS1] Chuẩn bị test data (username, email...)]]>
-            </line>
-            <line>
-              <![CDATA[[PIS1] Mở trang Quản lý người dùng (Nếu chưa mở)]]>
-            </line>
-            <line>
-              <![CDATA[[PIS1] Mở dialog 'Thêm người dùng mới']]>
-            </line>
-            <line>
-              <![CDATA[[PIS1] Điền form với Tên đăng nhập: auto_user_1763273519160]]>
-            </line>
-            <line>
-              <![CDATA[[PIS1] Submit form]]>
-            </line>
-            <line>
-              <![CDATA[[PIS1] Xác minh: Kiểm tra user mới xuất hiện trong bảng]]>
-            </line>
-            <line>
-              <![CDATA[[PIS1] TC02 OK - Thêm mới thành công auto_user_1763273519160]]>
-            </line>
-            <line>
-              <![CDATA[[PIS2][Listener] PASS : TC02_Create_New_User_Success]]>
-            </line>
-          </reporter-output>
-        </test-method> <!-- TC02_Create_New_User_Success -->
-        <test-method is-config="true" signature="beforeMethod(java.lang.reflect.Method)[pri:0, instance:vn.pis.ui.tests.PIS1_User@3c9754d8]" started-at="2025-11-16T13:11:59 ICT" name="beforeMethod" finished-at="2025-11-16T13:11:59 ICT" duration-ms="0" status="PASS">
+        <test-method is-config="true" signature="beforeMethod(java.lang.reflect.Method)[pri:0, instance:vn.pis.ui.tests.PIS1_User@3bf7ca37]" started-at="2025-11-17T20:32:50 ICT" name="beforeMethod" finished-at="2025-11-17T20:32:50 ICT" duration-ms="1" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void vn.pis.ui.tests.PIS1_User.TC02_Create_New_User_Success()]]>
+                <![CDATA[public void vn.pis.ui.tests.PIS1_User.TC02_A_Verify_Create_User_Popup_UI()]]>
               </value>
             </param>
           </params>
           <reporter-output>
             <line>
-              <![CDATA[[PIS1] ▶ BẮT ĐẦU TC: TC02_Create_New_User_Success]]>
+              <![CDATA[[PIS1] ▶ BẮT ĐẦU TC: TC02_A_Verify_Create_User_Popup_UI]]>
             </line>
           </reporter-output>
         </test-method> <!-- beforeMethod -->
-        <test-method is-config="true" signature="afterMethod(java.lang.reflect.Method)[pri:0, instance:vn.pis.ui.tests.PIS1_User@3c9754d8]" started-at="2025-11-16T13:12:03 ICT" name="afterMethod" finished-at="2025-11-16T13:12:03 ICT" duration-ms="1" status="PASS">
+        <test-method signature="TC02_A_Verify_Create_User_Popup_UI()[pri:2, instance:vn.pis.ui.tests.PIS1_User@3bf7ca37]" started-at="2025-11-17T20:32:50 ICT" name="TC02_A_Verify_Create_User_Popup_UI" finished-at="2025-11-17T20:32:52 ICT" duration-ms="1867" status="PASS">
+          <reporter-output>
+            <line>
+              <![CDATA[[PIS2][Listener] START: TC02_A_Verify_Create_User_Popup_UI]]>
+            </line>
+            <line>
+              <![CDATA[[PIS1] Bước 1: Mở trang Quản lý người dùng]]>
+            </line>
+            <line>
+              <![CDATA[[PIS1] Bước 2: Click nút 'Thêm người dùng mới']]>
+            </line>
+            <line>
+              <![CDATA[[PIS1] 📸 Đã lưu ảnh tại: ./ScreenShots/Hinh_4_4_3_Popup_Them_Nguoi_Dung.png]]>
+            </line>
+            <line>
+              <![CDATA[[PIS1] TC02_A OK]]>
+            </line>
+            <line>
+              <![CDATA[[PIS2][Listener] PASS : TC02_A_Verify_Create_User_Popup_UI]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- TC02_A_Verify_Create_User_Popup_UI -->
+        <test-method is-config="true" signature="afterMethod(java.lang.reflect.Method)[pri:0, instance:vn.pis.ui.tests.PIS1_User@3bf7ca37]" started-at="2025-11-17T20:32:52 ICT" name="afterMethod" finished-at="2025-11-17T20:32:52 ICT" duration-ms="1" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void vn.pis.ui.tests.PIS1_User.TC02_Create_New_User_Success()]]>
+                <![CDATA[public void vn.pis.ui.tests.PIS1_User.TC02_A_Verify_Create_User_Popup_UI()]]>
               </value>
             </param>
           </params>
           <reporter-output>
             <line>
-              <![CDATA[[PIS1] ■ KẾT THÚC TC: TC02_Create_New_User_Success]]>
+              <![CDATA[[PIS1] ■ KẾT THÚC TC: TC02_A_Verify_Create_User_Popup_UI]]>
             </line>
           </reporter-output>
         </test-method> <!-- afterMethod -->
-        <test-method is-config="true" signature="beforeMethod(java.lang.reflect.Method)[pri:0, instance:vn.pis.ui.tests.PIS1_User@3c9754d8]" started-at="2025-11-16T13:12:03 ICT" name="beforeMethod" finished-at="2025-11-16T13:12:03 ICT" duration-ms="1" status="PASS">
+        <test-method signature="TC02_B_Create_New_User_Success()[pri:3, instance:vn.pis.ui.tests.PIS1_User@3bf7ca37]" started-at="2025-11-17T20:32:52 ICT" name="TC02_B_Create_New_User_Success" finished-at="2025-11-17T20:32:57 ICT" duration-ms="5610" status="PASS">
+          <reporter-output>
+            <line>
+              <![CDATA[[PIS2][Listener] START: TC02_B_Create_New_User_Success]]>
+            </line>
+            <line>
+              <![CDATA[[PIS1] 📸 Đã lưu ảnh tại: ./ScreenShots/Hinh_4_4_4_Them_Thanh_Cong.png]]>
+            </line>
+            <line>
+              <![CDATA[[PIS1] TC02_B OK]]>
+            </line>
+            <line>
+              <![CDATA[[PIS2][Listener] PASS : TC02_B_Create_New_User_Success]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- TC02_B_Create_New_User_Success -->
+        <test-method is-config="true" signature="beforeMethod(java.lang.reflect.Method)[pri:0, instance:vn.pis.ui.tests.PIS1_User@3bf7ca37]" started-at="2025-11-17T20:32:52 ICT" name="beforeMethod" finished-at="2025-11-17T20:32:52 ICT" duration-ms="0" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void vn.pis.ui.tests.PIS1_User.TC02_B_Create_New_User_Success()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+            <line>
+              <![CDATA[[PIS1] ▶ BẮT ĐẦU TC: TC02_B_Create_New_User_Success]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- beforeMethod -->
+        <test-method is-config="true" signature="afterMethod(java.lang.reflect.Method)[pri:0, instance:vn.pis.ui.tests.PIS1_User@3bf7ca37]" started-at="2025-11-17T20:32:57 ICT" name="afterMethod" finished-at="2025-11-17T20:32:57 ICT" duration-ms="1" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void vn.pis.ui.tests.PIS1_User.TC02_B_Create_New_User_Success()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+            <line>
+              <![CDATA[[PIS1] ■ KẾT THÚC TC: TC02_B_Create_New_User_Success]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- afterMethod -->
+        <test-method is-config="true" signature="beforeMethod(java.lang.reflect.Method)[pri:0, instance:vn.pis.ui.tests.PIS1_User@3bf7ca37]" started-at="2025-11-17T20:32:57 ICT" name="beforeMethod" finished-at="2025-11-17T20:32:57 ICT" duration-ms="1" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -302,32 +304,23 @@
             </line>
           </reporter-output>
         </test-method> <!-- beforeMethod -->
-        <test-method signature="TC03_Search_User_Success()[pri:3, instance:vn.pis.ui.tests.PIS1_User@3c9754d8]" started-at="2025-11-16T13:12:03 ICT" name="TC03_Search_User_Success" finished-at="2025-11-16T13:12:04 ICT" duration-ms="1326" status="PASS">
+        <test-method signature="TC03_Search_User_Success()[pri:4, instance:vn.pis.ui.tests.PIS1_User@3bf7ca37]" started-at="2025-11-17T20:32:57 ICT" name="TC03_Search_User_Success" finished-at="2025-11-17T20:32:59 ICT" duration-ms="1379" status="PASS">
           <reporter-output>
             <line>
               <![CDATA[[PIS2][Listener] START: TC03_Search_User_Success]]>
             </line>
             <line>
-              <![CDATA[[PIS1] Đi tới trang Quản lý người dùng]]>
+              <![CDATA[[PIS1] Từ khóa tìm kiếm: user_1763386372108]]>
             </line>
             <line>
-              <![CDATA[[PIS1] Lấy username ở hàng đầu tiên làm dữ liệu tìm kiếm]]>
-            </line>
-            <line>
-              <![CDATA[[PIS1] Nhập keyword vào ô tìm kiếm: auto_user_1763273519160]]>
-            </line>
-            <line>
-              <![CDATA[[PIS1] Kiểm tra kết quả sau khi search]]>
-            </line>
-            <line>
-              <![CDATA[[PIS1] TC03 OK - Tìm kiếm người dùng hoạt động (có trả về kết quả khớp keyword)]]>
+              <![CDATA[[PIS1] TC03 OK - Tìm kiếm hoạt động tốt.]]>
             </line>
             <line>
               <![CDATA[[PIS2][Listener] PASS : TC03_Search_User_Success]]>
             </line>
           </reporter-output>
         </test-method> <!-- TC03_Search_User_Success -->
-        <test-method is-config="true" signature="afterMethod(java.lang.reflect.Method)[pri:0, instance:vn.pis.ui.tests.PIS1_User@3c9754d8]" started-at="2025-11-16T13:12:04 ICT" name="afterMethod" finished-at="2025-11-16T13:12:04 ICT" duration-ms="0" status="PASS">
+        <test-method is-config="true" signature="afterMethod(java.lang.reflect.Method)[pri:0, instance:vn.pis.ui.tests.PIS1_User@3bf7ca37]" started-at="2025-11-17T20:32:59 ICT" name="afterMethod" finished-at="2025-11-17T20:32:59 ICT" duration-ms="0" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -341,38 +334,29 @@
             </line>
           </reporter-output>
         </test-method> <!-- afterMethod -->
-        <test-method signature="TC04_Edit_User_Success()[pri:3, instance:vn.pis.ui.tests.PIS1_User@3c9754d8]" started-at="2025-11-16T13:12:04 ICT" name="TC04_Edit_User_Success" finished-at="2025-11-16T13:12:07 ICT" duration-ms="3058" status="PASS">
+        <test-method signature="TC04_Edit_User_Success()[pri:5, instance:vn.pis.ui.tests.PIS1_User@3bf7ca37]" started-at="2025-11-17T20:32:59 ICT" name="TC04_Edit_User_Success" finished-at="2025-11-17T20:33:03 ICT" duration-ms="4329" status="PASS">
           <reporter-output>
             <line>
               <![CDATA[[PIS2][Listener] START: TC04_Edit_User_Success]]>
             </line>
             <line>
-              <![CDATA[[PIS1] MỞ trang Quản lý người dùng]]>
+              <![CDATA[[PIS1] User được chọn để sửa: user_1763386372108]]>
             </line>
             <line>
-              <![CDATA[[PIS1] Chọn user đầu tiên để chỉnh sửa (bỏ qua 'Đang tải...')]]>
+              <![CDATA[[PIS1] Nhập thông tin mới: Updated 1763386381304]]>
             </line>
             <line>
-              <![CDATA[[PIS1] Mở popup Chỉnh sửa user: auto_user_1763273519160]]>
+              <![CDATA[[PIS1] Kiểm tra thông tin sau khi sửa]]>
             </line>
             <line>
-              <![CDATA[[PIS1] Điền form chỉnh sửa: Updated Name 1763273525899, 0969156512]]>
-            </line>
-            <line>
-              <![CDATA[[PIS1] Lưu thay đổi]]>
-            </line>
-            <line>
-              <![CDATA[[PIS1] KIỂM TRA: Dòng user đã có giá trị cập nhật]]>
-            </line>
-            <line>
-              <![CDATA[[PIS1] TC04 OK - Chỉnh sửa người dùng thành công]]>
+              <![CDATA[[PIS1] TC04 OK - Chỉnh sửa thành công.]]>
             </line>
             <line>
               <![CDATA[[PIS2][Listener] PASS : TC04_Edit_User_Success]]>
             </line>
           </reporter-output>
         </test-method> <!-- TC04_Edit_User_Success -->
-        <test-method is-config="true" signature="beforeMethod(java.lang.reflect.Method)[pri:0, instance:vn.pis.ui.tests.PIS1_User@3c9754d8]" started-at="2025-11-16T13:12:04 ICT" name="beforeMethod" finished-at="2025-11-16T13:12:04 ICT" duration-ms="0" status="PASS">
+        <test-method is-config="true" signature="beforeMethod(java.lang.reflect.Method)[pri:0, instance:vn.pis.ui.tests.PIS1_User@3bf7ca37]" started-at="2025-11-17T20:32:59 ICT" name="beforeMethod" finished-at="2025-11-17T20:32:59 ICT" duration-ms="0" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -386,7 +370,7 @@
             </line>
           </reporter-output>
         </test-method> <!-- beforeMethod -->
-        <test-method is-config="true" signature="afterMethod(java.lang.reflect.Method)[pri:0, instance:vn.pis.ui.tests.PIS1_User@3c9754d8]" started-at="2025-11-16T13:12:07 ICT" name="afterMethod" finished-at="2025-11-16T13:12:07 ICT" duration-ms="1" status="PASS">
+        <test-method is-config="true" signature="afterMethod(java.lang.reflect.Method)[pri:0, instance:vn.pis.ui.tests.PIS1_User@3bf7ca37]" started-at="2025-11-17T20:33:03 ICT" name="afterMethod" finished-at="2025-11-17T20:33:03 ICT" duration-ms="0" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -400,104 +384,54 @@
             </line>
           </reporter-output>
         </test-method> <!-- afterMethod -->
-        <test-method signature="TC05_Lock_User_Success()[pri:5, instance:vn.pis.ui.tests.PIS1_User@3c9754d8]" started-at="2025-11-16T13:12:07 ICT" name="TC05_Lock_User_Success" finished-at="2025-11-16T13:12:09 ICT" duration-ms="2202" status="PASS">
-          <reporter-output>
-            <line>
-              <![CDATA[[PIS2][Listener] START: TC05_Lock_User_Success]]>
-            </line>
-            <line>
-              <![CDATA[[PIS1] MỞ trang Quản lý người dùng]]>
-            </line>
-            <line>
-              <![CDATA[[PIS1] Lấy 1 user đang Hoạt động để test khóa]]>
-            </line>
-            <line>
-              <![CDATA[[PIS1] Thực hiện Khóa user: auto_user_1763273519160]]>
-            </line>
-            <line>
-              <![CDATA[[PIS1] KIỂM TRA: trạng thái đã đổi sang Khóa]]>
-            </line>
-            <line>
-              <![CDATA[[PIS2][Listener] PASS : TC05_Lock_User_Success]]>
-            </line>
-          </reporter-output>
-        </test-method> <!-- TC05_Lock_User_Success -->
-        <test-method is-config="true" signature="beforeMethod(java.lang.reflect.Method)[pri:0, instance:vn.pis.ui.tests.PIS1_User@3c9754d8]" started-at="2025-11-16T13:12:07 ICT" name="beforeMethod" finished-at="2025-11-16T13:12:07 ICT" duration-ms="0" status="PASS">
+        <test-method is-config="true" signature="beforeMethod(java.lang.reflect.Method)[pri:0, instance:vn.pis.ui.tests.PIS1_User@3bf7ca37]" started-at="2025-11-17T20:33:03 ICT" name="beforeMethod" finished-at="2025-11-17T20:33:03 ICT" duration-ms="1" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void vn.pis.ui.tests.PIS1_User.TC05_Lock_User_Success()]]>
+                <![CDATA[public void vn.pis.ui.tests.PIS1_User.TC05_Lock_Unlock_User()]]>
               </value>
             </param>
           </params>
           <reporter-output>
             <line>
-              <![CDATA[[PIS1] ▶ BẮT ĐẦU TC: TC05_Lock_User_Success]]>
+              <![CDATA[[PIS1] ▶ BẮT ĐẦU TC: TC05_Lock_Unlock_User]]>
             </line>
           </reporter-output>
         </test-method> <!-- beforeMethod -->
-        <test-method is-config="true" signature="afterMethod(java.lang.reflect.Method)[pri:0, instance:vn.pis.ui.tests.PIS1_User@3c9754d8]" started-at="2025-11-16T13:12:09 ICT" name="afterMethod" finished-at="2025-11-16T13:12:09 ICT" duration-ms="0" status="PASS">
+        <test-method signature="TC05_Lock_Unlock_User()[pri:6, instance:vn.pis.ui.tests.PIS1_User@3bf7ca37]" started-at="2025-11-17T20:33:03 ICT" name="TC05_Lock_Unlock_User" finished-at="2025-11-17T20:33:07 ICT" duration-ms="3955" status="PASS">
+          <reporter-output>
+            <line>
+              <![CDATA[[PIS2][Listener] START: TC05_Lock_Unlock_User]]>
+            </line>
+            <line>
+              <![CDATA[[PIS1] 1. Thực hiện KHÓA user: user_1763386372108]]>
+            </line>
+            <line>
+              <![CDATA[[PIS1] 2. Thực hiện MỞ KHÓA user: user_1763386372108]]>
+            </line>
+            <line>
+              <![CDATA[[PIS1] TC05 OK - Khóa/Mở khóa hoạt động tốt.]]>
+            </line>
+            <line>
+              <![CDATA[[PIS2][Listener] PASS : TC05_Lock_Unlock_User]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- TC05_Lock_Unlock_User -->
+        <test-method is-config="true" signature="afterMethod(java.lang.reflect.Method)[pri:0, instance:vn.pis.ui.tests.PIS1_User@3bf7ca37]" started-at="2025-11-17T20:33:07 ICT" name="afterMethod" finished-at="2025-11-17T20:33:07 ICT" duration-ms="0" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void vn.pis.ui.tests.PIS1_User.TC05_Lock_User_Success()]]>
+                <![CDATA[public void vn.pis.ui.tests.PIS1_User.TC05_Lock_Unlock_User()]]>
               </value>
             </param>
           </params>
           <reporter-output>
             <line>
-              <![CDATA[[PIS1] ■ KẾT THÚC TC: TC05_Lock_User_Success]]>
+              <![CDATA[[PIS1] ■ KẾT THÚC TC: TC05_Lock_Unlock_User]]>
             </line>
           </reporter-output>
         </test-method> <!-- afterMethod -->
-        <test-method is-config="true" signature="beforeMethod(java.lang.reflect.Method)[pri:0, instance:vn.pis.ui.tests.PIS1_User@3c9754d8]" started-at="2025-11-16T13:12:09 ICT" name="beforeMethod" finished-at="2025-11-16T13:12:09 ICT" duration-ms="2" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void vn.pis.ui.tests.PIS1_User.TC06_Unlock_User_Success()]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-            <line>
-              <![CDATA[[PIS1] ▶ BẮT ĐẦU TC: TC06_Unlock_User_Success]]>
-            </line>
-          </reporter-output>
-        </test-method> <!-- beforeMethod -->
-        <test-method signature="TC06_Unlock_User_Success()[pri:6, instance:vn.pis.ui.tests.PIS1_User@3c9754d8]" started-at="2025-11-16T13:12:09 ICT" name="TC06_Unlock_User_Success" finished-at="2025-11-16T13:12:11 ICT" duration-ms="2244" status="PASS">
-          <reporter-output>
-            <line>
-              <![CDATA[[PIS2][Listener] START: TC06_Unlock_User_Success]]>
-            </line>
-            <line>
-              <![CDATA[[PIS1] MỞ trang Quản lý người dùng]]>
-            </line>
-            <line>
-              <![CDATA[[PIS1] Mở khóa user: auto_user_1763273519160]]>
-            </line>
-            <line>
-              <![CDATA[[PIS1] KIỂM TRA: trạng thái đã đổi sang Hoạt động]]>
-            </line>
-            <line>
-              <![CDATA[[PIS2][Listener] PASS : TC06_Unlock_User_Success]]>
-            </line>
-          </reporter-output>
-        </test-method> <!-- TC06_Unlock_User_Success -->
-        <test-method is-config="true" signature="afterMethod(java.lang.reflect.Method)[pri:0, instance:vn.pis.ui.tests.PIS1_User@3c9754d8]" started-at="2025-11-16T13:12:11 ICT" name="afterMethod" finished-at="2025-11-16T13:12:11 ICT" duration-ms="0" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void vn.pis.ui.tests.PIS1_User.TC06_Unlock_User_Success()]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-            <line>
-              <![CDATA[[PIS1] ■ KẾT THÚC TC: TC06_Unlock_User_Success]]>
-            </line>
-          </reporter-output>
-        </test-method> <!-- afterMethod -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:vn.pis.ui.tests.PIS1_User@3c9754d8]" started-at="2025-11-16T13:12:11 ICT" name="tearDown" finished-at="2025-11-16T13:12:12 ICT" duration-ms="215" status="PASS">
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:vn.pis.ui.tests.PIS1_User@3bf7ca37]" started-at="2025-11-17T20:33:07 ICT" name="tearDown" finished-at="2025-11-17T20:33:07 ICT" duration-ms="155" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->

@@ -8,8 +8,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 /**
- * UserPage – Page Object cho màn Quản lý người dùng
- * (Đã thêm code cho Task 3, Task 4, Search, Edit, Lock/Unlock)
+
  */
 public class UserPage {
 
