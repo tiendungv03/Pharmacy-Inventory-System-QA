@@ -5,4 +5,16 @@
             <class name="vn.pis.ui.tests.PIS2_Categories"/>
         </classes>
     </test>
+    
+    <test name="Suppliers (PIS-3 | FE-UI1)">
+        <classes>
+            <class name="vn.pis.ui.tests.PIS3_Suppliers"/>
+        </classes>
+    </test>
+    
+    <test name="Add Supplier (PIS-3 | FE-UI2)">
+        <classes>
+            <class name="vn.pis.ui.tests.PIS3_AddSupplier"/>
+        </classes>
+    </test>
 </suite>
