@@ -1,0 +1,220 @@
+<html>
+<head>
+<title>TestNG:  Categories</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>Categories</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>8/0/0</td>
+</tr><tr>
+<td>Started on:</td><td>Tue Nov 11 16:41:17 ICT 2025</td>
+</tr>
+<tr><td>Total time:</td><td>30 seconds (30142 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td></td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td><b>Attribute(s)</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='vn.pis.ui.tests.PIS2_Categories.TC04_AddCategory_DuplicateName()'><b>TC04_AddCategory_DuplicateName</b><br>Test class: vn.pis.ui.tests.PIS2_Categories<br/>
+<a href="#Output-1659452474" onClick='toggleBox("Output-1659452474", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1659452474" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1659452474">
+[PIS2][Listener] START: TC04_AddCategory_DuplicateName<br/>
+[PIS2] Seed danh mục lần 1: Cat-Dup-1762854090212<br/>
+[PIS2] Seed feedback: Tạo danh mục thành công!<br/>
+[PIS2] Thêm trùng tên để kiểm tra duplicate<br/>
+[PIS2] Duplicate feedback: Category with this name already exists<br/>
+[PIS2] TC04 OK - Validate trùng tên hoạt động<br/>
+[PIS2][Listener] PASS : TC04_AddCategory_DuplicateName<br/>
+</div>
+</td>
+<td></td>
+<td>3</td>
+<td>vn.pis.ui.tests.PIS2_Categories@79079097</td></tr>
+<tr>
+<td title='vn.pis.ui.tests.PIS2_Categories.TC06_DeleteCategory_WhenZeroDrug()'><b>TC06_DeleteCategory_WhenZeroDrug</b><br>Test class: vn.pis.ui.tests.PIS2_Categories<br/>
+<a href="#Output-718130408" onClick='toggleBox("Output-718130408", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-718130408" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-718130408">
+[PIS2][Listener] START: TC06_DeleteCategory_WhenZeroDrug<br/>
+[PIS2] Seed danh mục để xoá: Cat-Del0-1762854098847<br/>
+[PIS2] Seed feedback: Tạo danh mục thành công!<br/>
+[PIS2] Thực hiện xoá danh mục: Cat-Del0-1762854098847<br/>
+[PIS2] Delete feedback: Xóa danh mục thành công!<br/>
+[PIS2] TC06 OK - Đã xoá thành công<br/>
+[PIS2][Listener] PASS : TC06_DeleteCategory_WhenZeroDrug<br/>
+</div>
+</td>
+<td></td>
+<td>3</td>
+<td>vn.pis.ui.tests.PIS2_Categories@79079097</td></tr>
+<tr>
+<td title='vn.pis.ui.tests.PIS2_Categories.TC03_AddCategory_EmptyName()'><b>TC03_AddCategory_EmptyName</b><br>Test class: vn.pis.ui.tests.PIS2_Categories<br/>
+<a href="#Output-1798180728" onClick='toggleBox("Output-1798180728", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1798180728" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1798180728">
+[PIS2][Listener] START: TC03_AddCategory_EmptyName<br/>
+[PIS2] Kiểm tra validate tên rỗng<br/>
+[PIS2] Thông báo validate: Tên danh mục không được để trống<br/>
+[PIS2] TC03 OK - Validate tên rỗng hoạt động<br/>
+[PIS2][Listener] PASS : TC03_AddCategory_EmptyName<br/>
+</div>
+</td>
+<td></td>
+<td>5</td>
+<td>vn.pis.ui.tests.PIS2_Categories@79079097</td></tr>
+<tr>
+<td title='vn.pis.ui.tests.PIS2_Categories.TC05_EditCategory_Success()'><b>TC05_EditCategory_Success</b><br>Test class: vn.pis.ui.tests.PIS2_Categories<br/>
+<a href="#Output-1505123790" onClick='toggleBox("Output-1505123790", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1505123790" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1505123790">
+[PIS2][Listener] START: TC05_EditCategory_Success<br/>
+[PIS2] Seed danh mục để edit: Danh mục thử nghiệm-1762854094185<br/>
+[PIS2] Seed feedback: Tạo danh mục thành công!<br/>
+[PIS2] Mở popup Edit cho: Danh mục thử nghiệm-1762854094185<br/>
+[PIS2] Update feedback: Cập nhật danh mục thành công!<br/>
+[PIS2] Xác minh tên mới xuất hiện và tên cũ biến mất<br/>
+[PIS2] TC05 OK - Cập nhật thành công<br/>
+[PIS2][Listener] PASS : TC05_EditCategory_Success<br/>
+</div>
+</td>
+<td></td>
+<td>4</td>
+<td>vn.pis.ui.tests.PIS2_Categories@79079097</td></tr>
+<tr>
+<td title='vn.pis.ui.tests.PIS2_Categories.TC07_SearchByName()'><b>TC07_SearchByName</b><br>Test class: vn.pis.ui.tests.PIS2_Categories<br/>
+<a href="#Output-222927891" onClick='toggleBox("Output-222927891", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-222927891" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-222927891">
+[PIS2][Listener] START: TC07_SearchByName<br/>
+[PIS2] Seed danh mục để search: Cat-Search-1762854102493<br/>
+[PIS2] Seed feedback: Tạo danh mục thành công!<br/>
+[PIS2] Tìm kiếm theo tên: Cat-Search-1762854102493<br/>
+[PIS2] TC07 OK - Search hoạt động<br/>
+[PIS2][Listener] PASS : TC07_SearchByName<br/>
+</div>
+</td>
+<td></td>
+<td>2</td>
+<td>vn.pis.ui.tests.PIS2_Categories@79079097</td></tr>
+<tr>
+<td title='vn.pis.ui.tests.PIS2_Categories.TC08_Pagination_PageSize()'><b>TC08_Pagination_PageSize</b><br>Test class: vn.pis.ui.tests.PIS2_Categories<br/>
+<a href="#Output-1756064432" onClick='toggleBox("Output-1756064432", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1756064432" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1756064432">
+[PIS2][Listener] START: TC08_Pagination_PageSize<br/>
+[PIS2] Trang hiện tại: 1/10 | Hiển thị 1-10 / 100<br/>
+[PIS2] Bấm 'Sau' → đã chuyển trang<br/>
+[PIS2] Trang mới: 2/10<br/>
+[PIS2] Bấm 'Trước' → đã quay lại<br/>
+[PIS2] Trang quay về: 1/10<br/>
+[PIS2] TC08 OK - Phân trang vận hành<br/>
+[PIS2][Listener] PASS : TC08_Pagination_PageSize<br/>
+</div>
+</td>
+<td></td>
+<td>2</td>
+<td>vn.pis.ui.tests.PIS2_Categories@79079097</td></tr>
+<tr>
+<td title='vn.pis.ui.tests.PIS2_Categories.TC01_OpenCategoriesPage()'><b>TC01_OpenCategoriesPage</b><br>Test class: vn.pis.ui.tests.PIS2_Categories<br/>
+<a href="#Output-844872102" onClick='toggleBox("Output-844872102", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-844872102" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-844872102">
+[PIS2][Listener] START: TC01_OpenCategoriesPage<br/>
+[PIS2] MỞ trang login và đăng nhập<br/>
+[PIS2] Đi tới trang Quản lý danh mục<br/>
+[PIS2] Xác minh cột và nút cơ bản xuất hiện<br/>
+[PIS2] TC01 OK<br/>
+[PIS2][Listener] PASS : TC01_OpenCategoriesPage<br/>
+</div>
+</td>
+<td></td>
+<td>2</td>
+<td>vn.pis.ui.tests.PIS2_Categories@79079097</td></tr>
+<tr>
+<td title='vn.pis.ui.tests.PIS2_Categories.TC02_AddCategory_Success()'><b>TC02_AddCategory_Success</b><br>Test class: vn.pis.ui.tests.PIS2_Categories<br/>
+<a href="#Output-727119352" onClick='toggleBox("Output-727119352", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-727119352" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-727119352">
+[PIS2][Listener] START: TC02_AddCategory_Success<br/>
+[PIS2] Thêm danh mục mới: Cat-Auto-1762854082355<br/>
+[PIS2] Feedback khi submit: Tạo danh mục thành công!<br/>
+[PIS2] TC02 OK - Đã thêm thành công Cat-Auto-1762854082355<br/>
+[PIS2][Listener] PASS : TC02_AddCategory_Success<br/>
+</div>
+</td>
+<td></td>
+<td>2</td>
+<td>vn.pis.ui.tests.PIS2_Categories@79079097</td></tr>
+</table><p>
+</body>
+</html>
