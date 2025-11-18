@@ -69,7 +69,7 @@ public class PIS2_Categories extends BaseTest {
 
     @Test(priority = 2)
     public void TC02_AddCategory_Success() {
-        String name = unique("Cat-Auto");
+        String name = unique("Kháng sinh");
         log("Thêm danh mục mới: " + name);
 
         CategoriesPage cat = new CategoriesPage(driver);
@@ -140,7 +140,7 @@ public class PIS2_Categories extends BaseTest {
 
     @Test(priority = 5)
     public void TC05_EditCategory_Success() {
-        String name = unique("Danh mục thử nghiệm");
+        String name = unique("Kháng sinh");
         String newName = name + " (đã cập nhật)";
         log("Seed danh mục để edit: " + name);
 

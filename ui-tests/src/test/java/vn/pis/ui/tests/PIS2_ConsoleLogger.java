@@ -5,7 +5,7 @@ import org.testng.*;
 public class PIS2_ConsoleLogger implements ITestListener, ISuiteListener {
 
     private void say(String msg){
-        String line = "[PIS2][Listener] " + msg;
+        String line = "[Listener] " + msg;
         System.out.println(line);
         Reporter.log(line, true);
     }
