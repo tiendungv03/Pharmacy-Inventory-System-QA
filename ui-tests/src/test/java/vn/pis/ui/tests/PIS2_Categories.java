@@ -1,5 +1,6 @@
 package vn.pis.ui.tests;
 
+import org.openqa.selenium.WebElement;
 import vn.pis.ui.base.BaseTest;
 import vn.pis.ui.pages.*;
 
@@ -69,7 +70,7 @@ public class PIS2_Categories extends BaseTest {
 
     @Test(priority = 2)
     public void TC02_AddCategory_Success() {
-        String name = unique("Cat-Auto");
+        String name = unique("Kháng sinh");
         log("Thêm danh mục mới: " + name);
 
         CategoriesPage cat = new CategoriesPage(driver);
@@ -140,7 +141,7 @@ public class PIS2_Categories extends BaseTest {
 
     @Test(priority = 5)
     public void TC05_EditCategory_Success() {
-        String name = unique("Danh mục thử nghiệm");
+        String name = unique("Kháng sinh");
         String newName = name + " (đã cập nhật)";
         log("Seed danh mục để edit: " + name);
 
@@ -254,4 +255,367 @@ public class PIS2_Categories extends BaseTest {
         }
         log("TC08 OK - Phân trang vận hành");
     }
+
+    @Test(priority = 9)
+    public void TC09_View_AllColumns() {
+        log("TC09 - Kiểm tra đủ các cột trên bảng danh mục");
+
+        CategoriesPage cat = new CategoriesPage(driver);
+        cat.open();
+
+        Assert.assertTrue(
+                driver.findElements(By.xpath("//th[normalize-space()='Mã danh mục']")).size() > 0,
+                "Không thấy cột 'Mã danh mục'"
+        );
+        Assert.assertTrue(
+                driver.findElements(By.xpath("//th[normalize-space()='Tên danh mục']")).size() > 0,
+                "Không thấy cột 'Tên danh mục'"
+        );
+        Assert.assertTrue(
+                driver.findElements(By.xpath("//th[normalize-space()='Mô tả']")).size() > 0,
+                "Không thấy cột 'Mô tả'"
+        );
+        Assert.assertTrue(
+                driver.findElements(By.xpath("//th[normalize-space()='Số loại thuốc']")).size() > 0,
+                "Không thấy cột 'Số loại thuốc'"
+        );
+        Assert.assertTrue(
+                driver.findElements(By.xpath("//th[normalize-space()='Ngày tạo']")).size() > 0,
+                "Không thấy cột 'Ngày tạo'"
+        );
+        Assert.assertTrue(
+                driver.findElements(By.xpath("//th[normalize-space()='Hành động']")).size() > 0,
+                "Không thấy cột 'Hành động'"
+        );
+
+        log("TC09 OK - Đã thấy đủ 6 cột trên header");
+    }
+
+    @Test(priority = 10)
+    public void TC10_StatsLabel_Correct() {
+        log("TC10 - Kiểm tra label thống kê hiển thị");
+
+        CategoriesPage cat = new CategoriesPage(driver);
+        cat.open();
+
+        int[] range = cat.getVisibleRange();   // {from, to, total}
+        int visible = cat.visibleRowCount();
+
+        log(String.format("Range: %d-%d / %d, visible rows = %d",
+                range[0], range[1], range[2], visible));
+
+        // Trang đầu tiên thì from phải là 1
+        Assert.assertTrue(range[0] == 1, "from != 1 trên trang đầu. Thực tế: " + range[0]);
+        // to >= from
+        Assert.assertTrue(range[1] >= range[0], "to < from, range sai");
+        // tổng phải >= to
+        Assert.assertTrue(range[2] >= range[1], "total < to, range sai");
+
+        // Số dòng nhìn thấy phải khớp với (to - from + 1) trên trang không phải trang cuối
+        int expectedRows = range[1] - range[0] + 1;
+        Assert.assertEquals(visible, expectedRows,
+                "visibleRowCount không khớp với khoảng hiển thị");
+
+        log("TC10 OK - Label 'Hiển thị x-y trong tổng số z danh mục' khớp với số dòng thực tế");
+    }
+
+
+    @Test(priority = 11)
+    public void TC11_Pagination_PageSize_25_50_100() {
+        log("TC11 - Kiểm tra số dòng hiển thị khi chọn 25/50/100");
+
+        CategoriesPage cat = new CategoriesPage(driver);
+        cat.open();
+
+        int[] sizes = {25, 50, 100};
+
+        for (int size : sizes) {
+            log("Đổi page size = " + size);
+            boolean ok = cat.setPageSize(size);
+            Assert.assertTrue(ok, "Không set được page size = " + size +
+                    " (có thể UI chưa có dropdown page size)");
+
+            int[] range = cat.getVisibleRange();
+            int visible = cat.visibleRowCount();
+            int expectedMax = size;
+            int actualCount = range[1] - range[0] + 1;
+
+            log(String.format("Size %d → range %d-%d (=%d items), visible rows = %d",
+                    size, range[0], range[1], actualCount, visible));
+
+            // Trừ trường hợp trang cuối cùng ít hơn size, còn lại phải <= size
+            Assert.assertTrue(actualCount <= expectedMax,
+                    "Số bản ghi trên trang > page size. actual=" + actualCount + ", size=" + size);
+            Assert.assertEquals(visible, actualCount,
+                    "visibleRowCount không khớp với range cho size " + size);
+        }
+
+        log("TC11 OK - Page size 25/50/100 hiển thị đúng số dòng (nếu UI đã hỗ trợ)");
+    }
+
+    @Test(priority = 12)
+    public void TC12_Add_PopupLayout() {
+        log("TC12 - Kiểm tra layout popup 'Thêm danh mục thuốc'");
+
+        CategoriesPage cat = new CategoriesPage(driver);
+        cat.open();
+        cat.clickAddCategory();
+
+        // Tiêu đề dialog
+        By dlgTitle = By.xpath(
+                "//*[@role='dialog']//h1[contains(.,'Thêm danh mục')]" +
+                        " | //*[@role='dialog']//h2[contains(.,'Thêm danh mục')]"
+        );
+        Assert.assertTrue(
+                driver.findElements(dlgTitle).size() > 0,
+                "Không thấy tiêu đề 'Thêm danh mục thuốc' trong dialog"
+        );
+
+        // Field Tên danh mục & Mô tả
+        Assert.assertTrue(
+                driver.findElements(By.xpath("//*[@role='dialog']//*[contains(.,'Tên danh mục')]")).size() > 0,
+                "Không thấy label 'Tên danh mục' trong popup"
+        );
+        Assert.assertTrue(
+                driver.findElements(By.xpath("//*[@role='dialog']//*[contains(.,'Mô tả')]")).size() > 0,
+                "Không thấy label 'Mô tả' trong popup"
+        );
+
+        cat.closeDialogIfOpen();
+        log("TC12 OK - Popup Thêm danh mục hiển thị đúng tiêu đề & field");
+    }
+
+
+    @Test(priority = 13)
+    public void TC13_ActionMenu_HasEditAndDelete() {
+        log("TC13 - Kiểm tra menu Hành động có 'Chỉnh sửa' & 'Xóa'");
+
+        CategoriesPage cat = new CategoriesPage(driver);
+        cat.open();
+
+        // Lấy tên danh mục ở dòng đầu tiên
+        WebElement firstNameCell = driver.findElement(
+                By.xpath("(//table//tbody/tr)[1]/td[2]//p")
+        );
+        String name = firstNameCell.getText().trim();
+        log("Dùng dòng đầu tiên với tên: " + name);
+
+        // Mở menu '...'
+        WebElement kebab = new WebDriverWait(driver, Duration.ofSeconds(10))
+                .until(ExpectedConditions.elementToBeClickable(
+                        By.xpath("(//table//tbody/tr)[1]//button[@aria-haspopup='menu']")
+                ));
+        kebab.click();
+
+        // Chờ menu xuất hiện
+        By menuRoot = By.xpath("//*[(@role='menu') or contains(@class,'DropdownMenu') or contains(@class,'menu')]");
+        new WebDriverWait(driver, Duration.ofSeconds(5))
+                .until(ExpectedConditions.visibilityOfElementLocated(menuRoot));
+
+        // Kiểm tra item Chỉnh sửa & Xóa
+        By editItem = By.xpath("//*[(@role='menu') or contains(@class,'menu')]//*[contains(normalize-space(),'Chỉnh sửa')]");
+        By deleteItem = By.xpath("//*[(@role='menu') or contains(@class,'menu')]//*[contains(normalize-space(),'Xóa') or contains(normalize-space(),'Xoá')]");
+
+        Assert.assertTrue(
+                driver.findElements(editItem).size() > 0,
+                "Không thấy item 'Chỉnh sửa' trong menu Hành động"
+        );
+        Assert.assertTrue(
+                driver.findElements(deleteItem).size() > 0,
+                "Không thấy item 'Xóa' trong menu Hành động"
+        );
+
+        log("TC13 OK - Menu Hành động có đủ 'Chỉnh sửa' & 'Xóa'");
+    }
+
+
+//    @Test(priority = 14)
+//    public void TC14_Delete_ShowConfirmDialog() {
+//        String name = unique("Cat-ConfirmDel");
+//        log("TC14 - Seed danh mục để test confirm delete: " + name);
+//
+//        CategoriesPage cat = new CategoriesPage(driver);
+//        cat.open();
+//
+//        // Seed 1 danh mục
+//        cat.clickAddCategory();
+//        cat.fillCategoryForm(name, "desc");
+//        String seedMsg = cat.submitCategoryForm();
+//        log("Seed feedback: " + seedMsg);
+//        cat.assertContainsAny(seedMsg, "thành công", "success", "created");
+//        cat.waitRowPresent(name);
+//
+//        // Mở menu xoá
+//        WebElement kebab = new WebDriverWait(driver, Duration.ofSeconds(10))
+//                .until(ExpectedConditions.elementToBeClickable(
+//                        By.xpath("//tr[td[normalize-space()='" + name + "']]//button[@aria-haspopup='menu']")
+//                ));
+//        kebab.click();
+//
+//        By deleteItem = By.xpath("//*[(@role='menu') or contains(@class,'menu')]//*[contains(normalize-space(),'Xóa') or contains(normalize-space(),'Xoá')]");
+//        new WebDriverWait(driver, Duration.ofSeconds(5))
+//                .until(ExpectedConditions.elementToBeClickable(deleteItem))
+//                .click();
+//
+//        // Hộp thoại confirm
+//        By confirmDialog = By.xpath("//*[contains(@role,'alertdialog') or @role='dialog']");
+//        new WebDriverWait(driver, Duration.ofSeconds(5))
+//                .until(ExpectedConditions.visibilityOfElementLocated(confirmDialog));
+//
+//        // Text confirm + nút Hủy / Xác nhận
+//        By msg = By.xpath("//*[contains(@role,'alertdialog') or @role='dialog']//*[contains(.,'xóa') or contains(.,'xoá')]");
+//        Assert.assertTrue(
+//                driver.findElements(msg).size() > 0,
+//                "Không thấy message xác nhận xóa"
+//        );
+//
+//        By btnCancel = By.xpath("//button[.='Hủy' or .='Huỷ' or .='Cancel']");
+//        By btnConfirm = By.xpath("//button[.='Xác nhận' or .='Xóa' or .='Xoá']");
+//
+//        Assert.assertTrue(driver.findElements(btnCancel).size() > 0, "Không thấy nút Hủy trong confirm");
+//        Assert.assertTrue(driver.findElements(btnConfirm).size() > 0, "Không thấy nút Xác nhận trong confirm");
+//
+//        // Bấm Hủy → danh mục vẫn còn
+//        driver.findElement(btnCancel).click();
+//        new WebDriverWait(driver, Duration.ofSeconds(5))
+//                .until(ExpectedConditions.invisibilityOfElementLocated(confirmDialog));
+//
+//        Assert.assertTrue(cat.isAdded(name), "Sau khi Hủy confirm mà danh mục bị mất");
+//        log("TC14 OK - Confirm delete hiển thị đúng, Hủy không xoá dữ liệu");
+//    }
+//
+//    @Test(priority = 15)
+//    public void TC15_Delete_Cancel_ShouldKeepRow() {
+//        String name = unique("Cat-DelCancel");
+//        log("TC15 - Seed danh mục để test cancel delete: " + name);
+//
+//        CategoriesPage cat = new CategoriesPage(driver);
+//        cat.open();
+//
+//        // 1) Seed 1 danh mục
+//        cat.clickAddCategory();
+//        cat.fillCategoryForm(name, "desc");
+//        String seedMsg = cat.submitCategoryForm();
+//        log("Seed feedback: " + seedMsg);
+//        cat.assertContainsAny(seedMsg, "thành công", "success", "created");
+//        cat.waitRowPresent(name);
+//
+//        // 2) Mở menu Hành động → Xóa
+//        WebDriverWait w = new WebDriverWait(driver, Duration.ofSeconds(10));
+//        WebElement kebab = w.until(ExpectedConditions.elementToBeClickable(
+//                By.xpath("//tr[td[normalize-space()='" + name + "']]//button[@aria-haspopup='menu']")));
+//        kebab.click();
+//
+//        By deleteItem = By.xpath(
+//                "//*[(@role='menu') or contains(@class,'menu')]//*[contains(normalize-space(),'Xóa') or contains(normalize-space(),'Xoá')]");
+//        w.until(ExpectedConditions.elementToBeClickable(deleteItem)).click();
+//
+//        // 3) Hộp thoại confirm xuất hiện
+//        By confirmDialog = By.xpath("//*[contains(@role,'alertdialog') or @role='dialog']");
+//        w.until(ExpectedConditions.visibilityOfElementLocated(confirmDialog));
+//
+//        // 4) Bấm Hủy
+//        By btnCancel = By.xpath("//button[.='Hủy' or .='Huỷ' or .='Cancel']");
+//        w.until(ExpectedConditions.elementToBeClickable(btnCancel)).click();
+//        w.until(ExpectedConditions.invisibilityOfElementLocated(confirmDialog));
+//
+//        // 5) Xác minh danh mục vẫn còn
+//        Assert.assertTrue(cat.isAdded(name),
+//                "Sau khi bấm Hủy confirm mà danh mục '" + name + "' bị mất");
+//        log("TC15 OK - Cancel trong confirm delete không xoá danh mục");
+//    }
+//
+//    @Test(priority = 16)
+//    public void TC16_Delete_ConfirmYes_ShouldRemoveRow() {
+//        String name = unique("Cat-DelYes");
+//        log("TC16 - Seed danh mục để test confirm YES delete: " + name);
+//
+//        CategoriesPage cat = new CategoriesPage(driver);
+//        cat.open();
+//
+//        // 1) Seed 1 danh mục với Số loại thuốc = 0
+//        cat.clickAddCategory();
+//        cat.fillCategoryForm(name, "desc");
+//        String seedMsg = cat.submitCategoryForm();
+//        log("Seed feedback: " + seedMsg);
+//        cat.assertContainsAny(seedMsg, "thành công", "success", "created");
+//        cat.waitRowPresent(name);
+//
+//        WebDriverWait w = new WebDriverWait(driver, Duration.ofSeconds(10));
+//
+//        // 2) Mở menu Hành động → chọn Xóa
+//        WebElement kebab = w.until(ExpectedConditions.elementToBeClickable(
+//                By.xpath("//tr[td[normalize-space()='" + name + "']]//button[@aria-haspopup='menu']")));
+//        kebab.click();
+//
+//        By deleteItem = By.xpath(
+//                "//*[(@role='menu') or contains(@class,'menu')]//*[contains(normalize-space(),'Xóa') or contains(normalize-space(),'Xoá')]");
+//        w.until(ExpectedConditions.elementToBeClickable(deleteItem)).click();
+//
+//        // 3) Hộp thoại confirm
+//        By confirmDialog = By.xpath("//*[contains(@role,'alertdialog') or @role='dialog']");
+//        w.until(ExpectedConditions.visibilityOfElementLocated(confirmDialog));
+//
+//        // 4) Bấm Xác nhận
+//        By btnConfirm = By.xpath("//button[.='Xác nhận' or .='Xóa' or .='Xoá']");
+//        w.until(ExpectedConditions.elementToBeClickable(btnConfirm)).click();
+//
+//        // 5) Chờ dialog biến mất + toast (nếu có)
+//        w.until(ExpectedConditions.invisibilityOfElementLocated(confirmDialog));
+//
+//        String msg = cat.readFeedbackMessage();
+//        log("Delete feedback: " + msg);
+//        // Không bắt buộc phải đúng từng chữ, chỉ cần có từ khoá
+//        cat.assertContainsAny(msg,
+//                "xóa", "xoá", "đã xóa", "đã xoá", "deleted", "success");
+//
+//        // 6) Xác minh row không còn
+//        Assert.assertEquals(
+//                driver.findElements(By.xpath("//table//td[normalize-space()='" + name + "']")).size(),
+//                0,
+//                "Danh mục '" + name + "' vẫn còn sau khi xác nhận Xóa"
+//        );
+//
+//        log("TC16 OK - Confirm YES delete xoá danh mục khỏi bảng");
+//    }
+
+
+    // @Test(priority = 17)
+//    public void TC17_Delete_Disabled_WhenHasDrugs() {
+//        String catName = unique("Cat-HasDrug");
+//        log("TC17 - (Skeleton) Không cho xoá khi Số loại thuốc > 0: " + catName);
+//
+//        CategoriesPage cat = new CategoriesPage(driver);
+//        cat.open();
+//
+//        // 1) Seed danh mục
+//        cat.clickAddCategory();
+//        cat.fillCategoryForm(catName, "desc");
+//        String seedMsg = cat.submitCategoryForm();
+//        cat.assertContainsAny(seedMsg, "thành công", "success", "created");
+//        cat.waitRowPresent(catName);
+//
+//        // 2) Gắn thuốc vào danh mục này (TODO: tự implement)
+//        // TestDataSeeder.attachDrugToCategory(catName);
+//
+//        // 3) Mở menu
+//        WebElement kebab = new WebDriverWait(driver, Duration.ofSeconds(10))
+//                .until(ExpectedConditions.elementToBeClickable(
+//                        By.xpath("//tr[td[normalize-space()='" + catName + "']]//button[@aria-haspopup='menu']")
+//                ));
+//        kebab.click();
+//
+//        By deleteItem = By.xpath("//*[(@role='menu') or contains(@class,'menu')]//*[contains(normalize-space(),'Xóa') or contains(normalize-space(),'Xoá')]");
+//        WebElement delBtn = new WebDriverWait(driver, Duration.ofSeconds(5))
+//                .until(ExpectedConditions.presenceOfElementLocated(deleteItem));
+//
+//        String ariaDisabled = delBtn.getAttribute("aria-disabled");
+//        boolean disabled = !delBtn.isEnabled() || "true".equalsIgnoreCase(ariaDisabled);
+//
+//        Assert.assertTrue(disabled,
+//                "Nút Xóa không bị vô hiệu hoá khi Số loại thuốc > 0 (cần xử lý BE/UI)");
+//
+//        log("TC17 OK - Nút Xóa bị vô hiệu hóa khi danh mục đã có thuốc");
+//    }
+
 }
