@@ -8,7 +8,7 @@ public final class TestEnv {
     // Nếu muốn hardcode luôn thì bỏ System.getProperty đi:
     // public static final String BASE_URL = "http://localhost:5173";
 
-    public static final String ADMIN_USER = "dung09";
+    public static final String ADMIN_USER = "dieu09";
     public static final String ADMIN_PASS = "123456";
 
     private TestEnv() {} // chặn khởi tạo

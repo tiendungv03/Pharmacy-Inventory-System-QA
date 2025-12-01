@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="6" passed="6" failed="0" skipped="0">
+<testng-results ignored="0" total="4" passed="2" failed="2" skipped="0">
   <reporter-output>
     <line>
       <![CDATA[[PIS2][Listener] BẮT ĐẦU SUITE: Default suite]]>
@@ -8,434 +8,318 @@
       <![CDATA[[PIS2][Listener] Context start: Default test]]>
     </line>
     <line>
-      <![CDATA[[PIS1] ▶ BẮT ĐẦU TC: TC01_Display_User_List]]>
+      <![CDATA[[PIS6] === SETUP: Login & Init ===]]>
     </line>
     <line>
-      <![CDATA[[PIS2][Listener] START: TC01_Display_User_List]]>
+      <![CDATA[[PIS6] ▶ START TC: TC01_OpenPage]]>
     </line>
     <line>
-      <![CDATA[[PIS1] Bước 1: Mở trang login và đăng nhập Admin]]>
+      <![CDATA[[PIS2][Listener] START: TC01_OpenPage]]>
     </line>
     <line>
-      <![CDATA[[PIS1] Bước 2: Đi tới trang Quản lý người dùng]]>
+      <![CDATA[[PIS2][Listener] PASS : TC01_OpenPage]]>
     </line>
     <line>
-      <![CDATA[[PIS1] Bước 3: Xác minh bảng hiển thị]]>
+      <![CDATA[[PIS6] ■ END TC: TC01_OpenPage]]>
     </line>
     <line>
-      <![CDATA[[PIS1] Các cột tìm thấy: [Tên đăng nhập, Họ và tên, Email, Số điện thoại, Vai trò, Trạng thái, Đăng nhập cuối, ]]]>
+      <![CDATA[[PIS6] ▶ START TC: TC02_FillGeneralInfo]]>
     </line>
     <line>
-      <![CDATA[[PIS2][Listener] PASS : TC01_Display_User_List]]>
+      <![CDATA[[PIS2][Listener] START: TC02_FillGeneralInfo]]>
     </line>
     <line>
-      <![CDATA[[PIS1] ■ KẾT THÚC TC: TC01_Display_User_List]]>
+      <![CDATA[[PIS6] General Info OK]]>
     </line>
     <line>
-      <![CDATA[[PIS1] ▶ BẮT ĐẦU TC: TC02_A_Verify_Create_User_Popup_UI]]>
+      <![CDATA[[PIS2][Listener] PASS : TC02_FillGeneralInfo]]>
     </line>
     <line>
-      <![CDATA[[PIS2][Listener] START: TC02_A_Verify_Create_User_Popup_UI]]>
+      <![CDATA[[PIS6] ■ END TC: TC02_FillGeneralInfo]]>
     </line>
     <line>
-      <![CDATA[[PIS1] Bước 1: Mở trang Quản lý người dùng]]>
+      <![CDATA[[PIS6] ▶ START TC: TC03_AddMedicineAndCalc]]>
     </line>
     <line>
-      <![CDATA[[PIS1] Bước 2: Click nút 'Thêm người dùng mới']]>
+      <![CDATA[[PIS2][Listener] START: TC03_AddMedicineAndCalc]]>
     </line>
     <line>
-      <![CDATA[[PIS1] 📸 Đã lưu ảnh tại: ./ScreenShots/Hinh_4_4_3_Popup_Them_Nguoi_Dung.png]]>
+      <![CDATA[[PIS2][Listener] FAIL : TC03_AddMedicineAndCalc | java.lang.RuntimeException: ❌ LỖI: Gõ 'Salonpas' nhưng không thấy menu gợi ý (hoặc API lỗi)!]]>
     </line>
     <line>
-      <![CDATA[[PIS1] TC02_A OK]]>
+      <![CDATA[[PIS6] ■ END TC: TC03_AddMedicineAndCalc]]>
     </line>
     <line>
-      <![CDATA[[PIS2][Listener] PASS : TC02_A_Verify_Create_User_Popup_UI]]>
+      <![CDATA[[PIS6] ▶ START TC: TC04_SaveSuccess]]>
     </line>
     <line>
-      <![CDATA[[PIS1] ■ KẾT THÚC TC: TC02_A_Verify_Create_User_Popup_UI]]>
+      <![CDATA[[PIS6] ⚠️ Re-logging in...]]>
     </line>
     <line>
-      <![CDATA[[PIS1] ▶ BẮT ĐẦU TC: TC02_B_Create_New_User_Success]]>
+      <![CDATA[[PIS2][Listener] START: TC04_SaveSuccess]]>
     </line>
     <line>
-      <![CDATA[[PIS2][Listener] START: TC02_B_Create_New_User_Success]]>
+      <![CDATA[[PIS2][Listener] FAIL : TC04_SaveSuccess | java.lang.AssertionError: Modal thành công không hiện! expected [true] but found [false]]]>
     </line>
     <line>
-      <![CDATA[[PIS1] 📸 Đã lưu ảnh tại: ./ScreenShots/Hinh_4_4_4_Them_Thanh_Cong.png]]>
-    </line>
-    <line>
-      <![CDATA[[PIS1] TC02_B OK]]>
-    </line>
-    <line>
-      <![CDATA[[PIS2][Listener] PASS : TC02_B_Create_New_User_Success]]>
-    </line>
-    <line>
-      <![CDATA[[PIS1] ■ KẾT THÚC TC: TC02_B_Create_New_User_Success]]>
-    </line>
-    <line>
-      <![CDATA[[PIS1] ▶ BẮT ĐẦU TC: TC03_Search_User_Success]]>
-    </line>
-    <line>
-      <![CDATA[[PIS2][Listener] START: TC03_Search_User_Success]]>
-    </line>
-    <line>
-      <![CDATA[[PIS1] Từ khóa tìm kiếm: user_1763386372108]]>
-    </line>
-    <line>
-      <![CDATA[[PIS1] TC03 OK - Tìm kiếm hoạt động tốt.]]>
-    </line>
-    <line>
-      <![CDATA[[PIS2][Listener] PASS : TC03_Search_User_Success]]>
-    </line>
-    <line>
-      <![CDATA[[PIS1] ■ KẾT THÚC TC: TC03_Search_User_Success]]>
-    </line>
-    <line>
-      <![CDATA[[PIS1] ▶ BẮT ĐẦU TC: TC04_Edit_User_Success]]>
-    </line>
-    <line>
-      <![CDATA[[PIS2][Listener] START: TC04_Edit_User_Success]]>
-    </line>
-    <line>
-      <![CDATA[[PIS1] User được chọn để sửa: user_1763386372108]]>
-    </line>
-    <line>
-      <![CDATA[[PIS1] Nhập thông tin mới: Updated 1763386381304]]>
-    </line>
-    <line>
-      <![CDATA[[PIS1] Kiểm tra thông tin sau khi sửa]]>
-    </line>
-    <line>
-      <![CDATA[[PIS1] TC04 OK - Chỉnh sửa thành công.]]>
-    </line>
-    <line>
-      <![CDATA[[PIS2][Listener] PASS : TC04_Edit_User_Success]]>
-    </line>
-    <line>
-      <![CDATA[[PIS1] ■ KẾT THÚC TC: TC04_Edit_User_Success]]>
-    </line>
-    <line>
-      <![CDATA[[PIS1] ▶ BẮT ĐẦU TC: TC05_Lock_Unlock_User]]>
-    </line>
-    <line>
-      <![CDATA[[PIS2][Listener] START: TC05_Lock_Unlock_User]]>
-    </line>
-    <line>
-      <![CDATA[[PIS1] 1. Thực hiện KHÓA user: user_1763386372108]]>
-    </line>
-    <line>
-      <![CDATA[[PIS1] 2. Thực hiện MỞ KHÓA user: user_1763386372108]]>
-    </line>
-    <line>
-      <![CDATA[[PIS1] TC05 OK - Khóa/Mở khóa hoạt động tốt.]]>
-    </line>
-    <line>
-      <![CDATA[[PIS2][Listener] PASS : TC05_Lock_Unlock_User]]>
-    </line>
-    <line>
-      <![CDATA[[PIS1] ■ KẾT THÚC TC: TC05_Lock_Unlock_User]]>
+      <![CDATA[[PIS6] ■ END TC: TC04_SaveSuccess]]>
     </line>
   </reporter-output>
-  <suite started-at="2025-11-17T20:32:46 ICT" name="Default suite" finished-at="2025-11-17T20:33:07 ICT" duration-ms="21327">
+  <suite started-at="2025-12-01T22:37:41 ICT" name="Default suite" finished-at="2025-12-01T22:38:33 ICT" duration-ms="51728">
     <groups>
     </groups>
-    <test started-at="2025-11-17T20:32:46 ICT" name="Default test" finished-at="2025-11-17T20:33:07 ICT" duration-ms="21327">
-      <class name="vn.pis.ui.tests.PIS1_User">
-        <test-method is-config="true" signature="setup()[pri:0, instance:vn.pis.ui.tests.PIS1_User@3bf7ca37]" started-at="2025-11-17T20:32:46 ICT" name="setup" finished-at="2025-11-17T20:32:47 ICT" duration-ms="1670" status="PASS">
+    <test started-at="2025-12-01T22:37:41 ICT" name="Default test" finished-at="2025-12-01T22:38:33 ICT" duration-ms="51728">
+      <class name="vn.pis.ui.tests.PIS6_Export">
+        <test-method is-config="true" signature="setup()[pri:0, instance:vn.pis.ui.tests.PIS6_Export@3a52dba3]" started-at="2025-12-01T22:37:41 ICT" name="setup" finished-at="2025-12-01T22:37:43 ICT" duration-ms="1877" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method is-config="true" signature="beforeMethod(java.lang.reflect.Method)[pri:0, instance:vn.pis.ui.tests.PIS1_User@3bf7ca37]" started-at="2025-11-17T20:32:47 ICT" name="beforeMethod" finished-at="2025-11-17T20:32:47 ICT" duration-ms="7" status="PASS">
+        <test-method is-config="true" signature="setupOnce()[pri:0, instance:vn.pis.ui.tests.PIS6_Export@3a52dba3]" started-at="2025-12-01T22:37:43 ICT" name="setupOnce" finished-at="2025-12-01T22:37:44 ICT" duration-ms="1256" status="PASS">
+          <reporter-output>
+            <line>
+              <![CDATA[[PIS6] === SETUP: Login & Init ===]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- setupOnce -->
+        <test-method is-config="true" signature="checkPageState(java.lang.reflect.Method)[pri:0, instance:vn.pis.ui.tests.PIS6_Export@3a52dba3]" started-at="2025-12-01T22:37:44 ICT" name="checkPageState" finished-at="2025-12-01T22:37:55 ICT" duration-ms="10374" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void vn.pis.ui.tests.PIS1_User.TC01_Display_User_List()]]>
+                <![CDATA[public void vn.pis.ui.tests.PIS6_Export.TC01_OpenPage()]]>
               </value>
             </param>
           </params>
           <reporter-output>
             <line>
-              <![CDATA[[PIS1] ▶ BẮT ĐẦU TC: TC01_Display_User_List]]>
+              <![CDATA[[PIS6] ▶ START TC: TC01_OpenPage]]>
             </line>
           </reporter-output>
-        </test-method> <!-- beforeMethod -->
-        <test-method signature="TC01_Display_User_List()[pri:1, instance:vn.pis.ui.tests.PIS1_User@3bf7ca37]" started-at="2025-11-17T20:32:47 ICT" name="TC01_Display_User_List" finished-at="2025-11-17T20:32:50 ICT" duration-ms="2272" status="PASS">
+        </test-method> <!-- checkPageState -->
+        <test-method signature="TC01_OpenPage()[pri:1, instance:vn.pis.ui.tests.PIS6_Export@3a52dba3]" started-at="2025-12-01T22:37:55 ICT" name="TC01_OpenPage" description="PIS-6-TC-01: Mở màn hình" finished-at="2025-12-01T22:37:55 ICT" duration-ms="34" status="PASS">
           <reporter-output>
             <line>
-              <![CDATA[[PIS2][Listener] START: TC01_Display_User_List]]>
+              <![CDATA[[PIS2][Listener] START: TC01_OpenPage]]>
             </line>
             <line>
-              <![CDATA[[PIS1] Bước 1: Mở trang login và đăng nhập Admin]]>
-            </line>
-            <line>
-              <![CDATA[[PIS1] Bước 2: Đi tới trang Quản lý người dùng]]>
-            </line>
-            <line>
-              <![CDATA[[PIS1] Bước 3: Xác minh bảng hiển thị]]>
-            </line>
-            <line>
-              <![CDATA[[PIS1] Các cột tìm thấy: [Tên đăng nhập, Họ và tên, Email, Số điện thoại, Vai trò, Trạng thái, Đăng nhập cuối, ]]]>
-            </line>
-            <line>
-              <![CDATA[[PIS2][Listener] PASS : TC01_Display_User_List]]>
+              <![CDATA[[PIS2][Listener] PASS : TC01_OpenPage]]>
             </line>
           </reporter-output>
-        </test-method> <!-- TC01_Display_User_List -->
-        <test-method is-config="true" signature="afterMethod(java.lang.reflect.Method)[pri:0, instance:vn.pis.ui.tests.PIS1_User@3bf7ca37]" started-at="2025-11-17T20:32:50 ICT" name="afterMethod" finished-at="2025-11-17T20:32:50 ICT" duration-ms="1" status="PASS">
+        </test-method> <!-- TC01_OpenPage -->
+        <test-method is-config="true" signature="afterMethod(java.lang.reflect.Method)[pri:0, instance:vn.pis.ui.tests.PIS6_Export@3a52dba3]" started-at="2025-12-01T22:37:55 ICT" name="afterMethod" finished-at="2025-12-01T22:37:55 ICT" duration-ms="1" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void vn.pis.ui.tests.PIS1_User.TC01_Display_User_List()]]>
+                <![CDATA[public void vn.pis.ui.tests.PIS6_Export.TC01_OpenPage()]]>
               </value>
             </param>
           </params>
           <reporter-output>
             <line>
-              <![CDATA[[PIS1] ■ KẾT THÚC TC: TC01_Display_User_List]]>
+              <![CDATA[[PIS6] ■ END TC: TC01_OpenPage]]>
             </line>
           </reporter-output>
         </test-method> <!-- afterMethod -->
-        <test-method is-config="true" signature="beforeMethod(java.lang.reflect.Method)[pri:0, instance:vn.pis.ui.tests.PIS1_User@3bf7ca37]" started-at="2025-11-17T20:32:50 ICT" name="beforeMethod" finished-at="2025-11-17T20:32:50 ICT" duration-ms="1" status="PASS">
+        <test-method is-config="true" signature="checkPageState(java.lang.reflect.Method)[pri:0, instance:vn.pis.ui.tests.PIS6_Export@3a52dba3]" started-at="2025-12-01T22:37:55 ICT" name="checkPageState" finished-at="2025-12-01T22:38:05 ICT" duration-ms="10396" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void vn.pis.ui.tests.PIS1_User.TC02_A_Verify_Create_User_Popup_UI()]]>
+                <![CDATA[public void vn.pis.ui.tests.PIS6_Export.TC02_FillGeneralInfo()]]>
               </value>
             </param>
           </params>
           <reporter-output>
             <line>
-              <![CDATA[[PIS1] ▶ BẮT ĐẦU TC: TC02_A_Verify_Create_User_Popup_UI]]>
+              <![CDATA[[PIS6] ▶ START TC: TC02_FillGeneralInfo]]>
             </line>
           </reporter-output>
-        </test-method> <!-- beforeMethod -->
-        <test-method signature="TC02_A_Verify_Create_User_Popup_UI()[pri:2, instance:vn.pis.ui.tests.PIS1_User@3bf7ca37]" started-at="2025-11-17T20:32:50 ICT" name="TC02_A_Verify_Create_User_Popup_UI" finished-at="2025-11-17T20:32:52 ICT" duration-ms="1867" status="PASS">
+        </test-method> <!-- checkPageState -->
+        <test-method signature="TC02_FillGeneralInfo()[pri:2, instance:vn.pis.ui.tests.PIS6_Export@3a52dba3]" started-at="2025-12-01T22:38:05 ICT" name="TC02_FillGeneralInfo" description="PIS-6-TC-02: Điền Thông tin chung" finished-at="2025-12-01T22:38:06 ICT" duration-ms="630" status="PASS">
           <reporter-output>
             <line>
-              <![CDATA[[PIS2][Listener] START: TC02_A_Verify_Create_User_Popup_UI]]>
+              <![CDATA[[PIS2][Listener] START: TC02_FillGeneralInfo]]>
             </line>
             <line>
-              <![CDATA[[PIS1] Bước 1: Mở trang Quản lý người dùng]]>
+              <![CDATA[[PIS6] General Info OK]]>
             </line>
             <line>
-              <![CDATA[[PIS1] Bước 2: Click nút 'Thêm người dùng mới']]>
-            </line>
-            <line>
-              <![CDATA[[PIS1] 📸 Đã lưu ảnh tại: ./ScreenShots/Hinh_4_4_3_Popup_Them_Nguoi_Dung.png]]>
-            </line>
-            <line>
-              <![CDATA[[PIS1] TC02_A OK]]>
-            </line>
-            <line>
-              <![CDATA[[PIS2][Listener] PASS : TC02_A_Verify_Create_User_Popup_UI]]>
+              <![CDATA[[PIS2][Listener] PASS : TC02_FillGeneralInfo]]>
             </line>
           </reporter-output>
-        </test-method> <!-- TC02_A_Verify_Create_User_Popup_UI -->
-        <test-method is-config="true" signature="afterMethod(java.lang.reflect.Method)[pri:0, instance:vn.pis.ui.tests.PIS1_User@3bf7ca37]" started-at="2025-11-17T20:32:52 ICT" name="afterMethod" finished-at="2025-11-17T20:32:52 ICT" duration-ms="1" status="PASS">
+        </test-method> <!-- TC02_FillGeneralInfo -->
+        <test-method is-config="true" signature="afterMethod(java.lang.reflect.Method)[pri:0, instance:vn.pis.ui.tests.PIS6_Export@3a52dba3]" started-at="2025-12-01T22:38:06 ICT" name="afterMethod" finished-at="2025-12-01T22:38:06 ICT" duration-ms="1" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void vn.pis.ui.tests.PIS1_User.TC02_A_Verify_Create_User_Popup_UI()]]>
+                <![CDATA[public void vn.pis.ui.tests.PIS6_Export.TC02_FillGeneralInfo()]]>
               </value>
             </param>
           </params>
           <reporter-output>
             <line>
-              <![CDATA[[PIS1] ■ KẾT THÚC TC: TC02_A_Verify_Create_User_Popup_UI]]>
+              <![CDATA[[PIS6] ■ END TC: TC02_FillGeneralInfo]]>
             </line>
           </reporter-output>
         </test-method> <!-- afterMethod -->
-        <test-method signature="TC02_B_Create_New_User_Success()[pri:3, instance:vn.pis.ui.tests.PIS1_User@3bf7ca37]" started-at="2025-11-17T20:32:52 ICT" name="TC02_B_Create_New_User_Success" finished-at="2025-11-17T20:32:57 ICT" duration-ms="5610" status="PASS">
-          <reporter-output>
-            <line>
-              <![CDATA[[PIS2][Listener] START: TC02_B_Create_New_User_Success]]>
-            </line>
-            <line>
-              <![CDATA[[PIS1] 📸 Đã lưu ảnh tại: ./ScreenShots/Hinh_4_4_4_Them_Thanh_Cong.png]]>
-            </line>
-            <line>
-              <![CDATA[[PIS1] TC02_B OK]]>
-            </line>
-            <line>
-              <![CDATA[[PIS2][Listener] PASS : TC02_B_Create_New_User_Success]]>
-            </line>
-          </reporter-output>
-        </test-method> <!-- TC02_B_Create_New_User_Success -->
-        <test-method is-config="true" signature="beforeMethod(java.lang.reflect.Method)[pri:0, instance:vn.pis.ui.tests.PIS1_User@3bf7ca37]" started-at="2025-11-17T20:32:52 ICT" name="beforeMethod" finished-at="2025-11-17T20:32:52 ICT" duration-ms="0" status="PASS">
+        <test-method is-config="true" signature="checkPageState(java.lang.reflect.Method)[pri:0, instance:vn.pis.ui.tests.PIS6_Export@3a52dba3]" started-at="2025-12-01T22:38:06 ICT" name="checkPageState" finished-at="2025-12-01T22:38:16 ICT" duration-ms="10388" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void vn.pis.ui.tests.PIS1_User.TC02_B_Create_New_User_Success()]]>
+                <![CDATA[public void vn.pis.ui.tests.PIS6_Export.TC03_AddMedicineAndCalc()]]>
               </value>
             </param>
           </params>
           <reporter-output>
             <line>
-              <![CDATA[[PIS1] ▶ BẮT ĐẦU TC: TC02_B_Create_New_User_Success]]>
+              <![CDATA[[PIS6] ▶ START TC: TC03_AddMedicineAndCalc]]>
             </line>
           </reporter-output>
-        </test-method> <!-- beforeMethod -->
-        <test-method is-config="true" signature="afterMethod(java.lang.reflect.Method)[pri:0, instance:vn.pis.ui.tests.PIS1_User@3bf7ca37]" started-at="2025-11-17T20:32:57 ICT" name="afterMethod" finished-at="2025-11-17T20:32:57 ICT" duration-ms="1" status="PASS">
+        </test-method> <!-- checkPageState -->
+        <test-method signature="TC03_AddMedicineAndCalc()[pri:3, instance:vn.pis.ui.tests.PIS6_Export@3a52dba3]" started-at="2025-12-01T22:38:16 ICT" name="TC03_AddMedicineAndCalc" description="PIS-6-TC-03: Thêm thuốc &amp; Kiểm tra tính tiền" finished-at="2025-12-01T22:38:22 ICT" duration-ms="5674" status="FAIL">
+          <exception class="java.lang.RuntimeException">
+            <message>
+              <![CDATA[❌ LỖI: Gõ 'Salonpas' nhưng không thấy menu gợi ý (hoặc API lỗi)!]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.RuntimeException: ❌ LỖI: Gõ 'Salonpas' nhưng không thấy menu gợi ý (hoặc API lỗi)!
+at vn.pis.ui.pages.ExportReceipt.fillMedicine(ExportReceipt.java:567)
+at vn.pis.ui.tests.PIS6_Export.TC03_AddMedicineAndCalc(PIS6_Export.java:92)
+at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+at java.base/java.lang.reflect.Method.invoke(Method.java:578)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:686)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:992)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+at org.testng.TestRunner.privateRun(TestRunner.java:739)
+at org.testng.TestRunner.run(TestRunner.java:614)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+at org.testng.TestNG.runSuites(TestNG.java:1112)
+at org.testng.TestNG.run(TestNG.java:1079)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.RuntimeException -->
+          <reporter-output>
+            <line>
+              <![CDATA[[PIS2][Listener] START: TC03_AddMedicineAndCalc]]>
+            </line>
+            <line>
+              <![CDATA[[PIS2][Listener] FAIL : TC03_AddMedicineAndCalc | java.lang.RuntimeException: ❌ LỖI: Gõ 'Salonpas' nhưng không thấy menu gợi ý (hoặc API lỗi)!]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- TC03_AddMedicineAndCalc -->
+        <test-method is-config="true" signature="afterMethod(java.lang.reflect.Method)[pri:0, instance:vn.pis.ui.tests.PIS6_Export@3a52dba3]" started-at="2025-12-01T22:38:22 ICT" name="afterMethod" finished-at="2025-12-01T22:38:22 ICT" duration-ms="0" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void vn.pis.ui.tests.PIS1_User.TC02_B_Create_New_User_Success()]]>
+                <![CDATA[public void vn.pis.ui.tests.PIS6_Export.TC03_AddMedicineAndCalc()]]>
               </value>
             </param>
           </params>
           <reporter-output>
             <line>
-              <![CDATA[[PIS1] ■ KẾT THÚC TC: TC02_B_Create_New_User_Success]]>
+              <![CDATA[[PIS6] ■ END TC: TC03_AddMedicineAndCalc]]>
             </line>
           </reporter-output>
         </test-method> <!-- afterMethod -->
-        <test-method is-config="true" signature="beforeMethod(java.lang.reflect.Method)[pri:0, instance:vn.pis.ui.tests.PIS1_User@3bf7ca37]" started-at="2025-11-17T20:32:57 ICT" name="beforeMethod" finished-at="2025-11-17T20:32:57 ICT" duration-ms="1" status="PASS">
+        <test-method is-config="true" signature="checkPageState(java.lang.reflect.Method)[pri:0, instance:vn.pis.ui.tests.PIS6_Export@3a52dba3]" started-at="2025-12-01T22:38:22 ICT" name="checkPageState" finished-at="2025-12-01T22:38:22 ICT" duration-ms="502" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void vn.pis.ui.tests.PIS1_User.TC03_Search_User_Success()]]>
+                <![CDATA[public void vn.pis.ui.tests.PIS6_Export.TC04_SaveSuccess()]]>
               </value>
             </param>
           </params>
           <reporter-output>
             <line>
-              <![CDATA[[PIS1] ▶ BẮT ĐẦU TC: TC03_Search_User_Success]]>
+              <![CDATA[[PIS6] ▶ START TC: TC04_SaveSuccess]]>
+            </line>
+            <line>
+              <![CDATA[[PIS6] ⚠️ Re-logging in...]]>
             </line>
           </reporter-output>
-        </test-method> <!-- beforeMethod -->
-        <test-method signature="TC03_Search_User_Success()[pri:4, instance:vn.pis.ui.tests.PIS1_User@3bf7ca37]" started-at="2025-11-17T20:32:57 ICT" name="TC03_Search_User_Success" finished-at="2025-11-17T20:32:59 ICT" duration-ms="1379" status="PASS">
+        </test-method> <!-- checkPageState -->
+        <test-method signature="TC04_SaveSuccess()[pri:4, instance:vn.pis.ui.tests.PIS6_Export@3a52dba3]" started-at="2025-12-01T22:38:22 ICT" name="TC04_SaveSuccess" description="PIS-6-TC-04: Lưu phiếu thành công" finished-at="2025-12-01T22:38:33 ICT" duration-ms="10397" status="FAIL">
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[Modal thành công không hiện! expected [true] but found [false]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: Modal thành công không hiện! expected [true] but found [false]
+at org.testng.Assert.fail(Assert.java:111)
+at org.testng.Assert.failNotEquals(Assert.java:1578)
+at org.testng.Assert.assertTrue(Assert.java:57)
+at vn.pis.ui.tests.PIS6_Export.TC04_SaveSuccess(PIS6_Export.java:121)
+at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+at java.base/java.lang.reflect.Method.invoke(Method.java:578)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:686)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:992)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+at org.testng.TestRunner.privateRun(TestRunner.java:739)
+at org.testng.TestRunner.run(TestRunner.java:614)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+at org.testng.TestNG.runSuites(TestNG.java:1112)
+at org.testng.TestNG.run(TestNG.java:1079)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
           <reporter-output>
             <line>
-              <![CDATA[[PIS2][Listener] START: TC03_Search_User_Success]]>
+              <![CDATA[[PIS2][Listener] START: TC04_SaveSuccess]]>
             </line>
             <line>
-              <![CDATA[[PIS1] Từ khóa tìm kiếm: user_1763386372108]]>
-            </line>
-            <line>
-              <![CDATA[[PIS1] TC03 OK - Tìm kiếm hoạt động tốt.]]>
-            </line>
-            <line>
-              <![CDATA[[PIS2][Listener] PASS : TC03_Search_User_Success]]>
+              <![CDATA[[PIS2][Listener] FAIL : TC04_SaveSuccess | java.lang.AssertionError: Modal thành công không hiện! expected [true] but found [false]]]>
             </line>
           </reporter-output>
-        </test-method> <!-- TC03_Search_User_Success -->
-        <test-method is-config="true" signature="afterMethod(java.lang.reflect.Method)[pri:0, instance:vn.pis.ui.tests.PIS1_User@3bf7ca37]" started-at="2025-11-17T20:32:59 ICT" name="afterMethod" finished-at="2025-11-17T20:32:59 ICT" duration-ms="0" status="PASS">
+        </test-method> <!-- TC04_SaveSuccess -->
+        <test-method is-config="true" signature="afterMethod(java.lang.reflect.Method)[pri:0, instance:vn.pis.ui.tests.PIS6_Export@3a52dba3]" started-at="2025-12-01T22:38:33 ICT" name="afterMethod" finished-at="2025-12-01T22:38:33 ICT" duration-ms="0" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void vn.pis.ui.tests.PIS1_User.TC03_Search_User_Success()]]>
+                <![CDATA[public void vn.pis.ui.tests.PIS6_Export.TC04_SaveSuccess()]]>
               </value>
             </param>
           </params>
           <reporter-output>
             <line>
-              <![CDATA[[PIS1] ■ KẾT THÚC TC: TC03_Search_User_Success]]>
+              <![CDATA[[PIS6] ■ END TC: TC04_SaveSuccess]]>
             </line>
           </reporter-output>
         </test-method> <!-- afterMethod -->
-        <test-method signature="TC04_Edit_User_Success()[pri:5, instance:vn.pis.ui.tests.PIS1_User@3bf7ca37]" started-at="2025-11-17T20:32:59 ICT" name="TC04_Edit_User_Success" finished-at="2025-11-17T20:33:03 ICT" duration-ms="4329" status="PASS">
-          <reporter-output>
-            <line>
-              <![CDATA[[PIS2][Listener] START: TC04_Edit_User_Success]]>
-            </line>
-            <line>
-              <![CDATA[[PIS1] User được chọn để sửa: user_1763386372108]]>
-            </line>
-            <line>
-              <![CDATA[[PIS1] Nhập thông tin mới: Updated 1763386381304]]>
-            </line>
-            <line>
-              <![CDATA[[PIS1] Kiểm tra thông tin sau khi sửa]]>
-            </line>
-            <line>
-              <![CDATA[[PIS1] TC04 OK - Chỉnh sửa thành công.]]>
-            </line>
-            <line>
-              <![CDATA[[PIS2][Listener] PASS : TC04_Edit_User_Success]]>
-            </line>
-          </reporter-output>
-        </test-method> <!-- TC04_Edit_User_Success -->
-        <test-method is-config="true" signature="beforeMethod(java.lang.reflect.Method)[pri:0, instance:vn.pis.ui.tests.PIS1_User@3bf7ca37]" started-at="2025-11-17T20:32:59 ICT" name="beforeMethod" finished-at="2025-11-17T20:32:59 ICT" duration-ms="0" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void vn.pis.ui.tests.PIS1_User.TC04_Edit_User_Success()]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-            <line>
-              <![CDATA[[PIS1] ▶ BẮT ĐẦU TC: TC04_Edit_User_Success]]>
-            </line>
-          </reporter-output>
-        </test-method> <!-- beforeMethod -->
-        <test-method is-config="true" signature="afterMethod(java.lang.reflect.Method)[pri:0, instance:vn.pis.ui.tests.PIS1_User@3bf7ca37]" started-at="2025-11-17T20:33:03 ICT" name="afterMethod" finished-at="2025-11-17T20:33:03 ICT" duration-ms="0" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void vn.pis.ui.tests.PIS1_User.TC04_Edit_User_Success()]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-            <line>
-              <![CDATA[[PIS1] ■ KẾT THÚC TC: TC04_Edit_User_Success]]>
-            </line>
-          </reporter-output>
-        </test-method> <!-- afterMethod -->
-        <test-method is-config="true" signature="beforeMethod(java.lang.reflect.Method)[pri:0, instance:vn.pis.ui.tests.PIS1_User@3bf7ca37]" started-at="2025-11-17T20:33:03 ICT" name="beforeMethod" finished-at="2025-11-17T20:33:03 ICT" duration-ms="1" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void vn.pis.ui.tests.PIS1_User.TC05_Lock_Unlock_User()]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-            <line>
-              <![CDATA[[PIS1] ▶ BẮT ĐẦU TC: TC05_Lock_Unlock_User]]>
-            </line>
-          </reporter-output>
-        </test-method> <!-- beforeMethod -->
-        <test-method signature="TC05_Lock_Unlock_User()[pri:6, instance:vn.pis.ui.tests.PIS1_User@3bf7ca37]" started-at="2025-11-17T20:33:03 ICT" name="TC05_Lock_Unlock_User" finished-at="2025-11-17T20:33:07 ICT" duration-ms="3955" status="PASS">
-          <reporter-output>
-            <line>
-              <![CDATA[[PIS2][Listener] START: TC05_Lock_Unlock_User]]>
-            </line>
-            <line>
-              <![CDATA[[PIS1] 1. Thực hiện KHÓA user: user_1763386372108]]>
-            </line>
-            <line>
-              <![CDATA[[PIS1] 2. Thực hiện MỞ KHÓA user: user_1763386372108]]>
-            </line>
-            <line>
-              <![CDATA[[PIS1] TC05 OK - Khóa/Mở khóa hoạt động tốt.]]>
-            </line>
-            <line>
-              <![CDATA[[PIS2][Listener] PASS : TC05_Lock_Unlock_User]]>
-            </line>
-          </reporter-output>
-        </test-method> <!-- TC05_Lock_Unlock_User -->
-        <test-method is-config="true" signature="afterMethod(java.lang.reflect.Method)[pri:0, instance:vn.pis.ui.tests.PIS1_User@3bf7ca37]" started-at="2025-11-17T20:33:07 ICT" name="afterMethod" finished-at="2025-11-17T20:33:07 ICT" duration-ms="0" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void vn.pis.ui.tests.PIS1_User.TC05_Lock_Unlock_User()]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-            <line>
-              <![CDATA[[PIS1] ■ KẾT THÚC TC: TC05_Lock_Unlock_User]]>
-            </line>
-          </reporter-output>
-        </test-method> <!-- afterMethod -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:vn.pis.ui.tests.PIS1_User@3bf7ca37]" started-at="2025-11-17T20:33:07 ICT" name="tearDown" finished-at="2025-11-17T20:33:07 ICT" duration-ms="155" status="PASS">
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:vn.pis.ui.tests.PIS6_Export@3a52dba3]" started-at="2025-12-01T22:38:33 ICT" name="tearDown" finished-at="2025-12-01T22:38:33 ICT" duration-ms="121" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-      </class> <!-- vn.pis.ui.tests.PIS1_User -->
+      </class> <!-- vn.pis.ui.tests.PIS6_Export -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
