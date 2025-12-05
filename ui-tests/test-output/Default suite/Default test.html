@@ -55,11 +55,11 @@ function toggleAllBoxes() {
 <body>
 <h2 align='center'>Default test</h2><table border='1' align="center">
 <tr>
-<td>Tests passed/Failed/Skipped:</td><td>2/2/0</td>
+<td>Tests passed/Failed/Skipped:</td><td>10/0/0</td>
 </tr><tr>
-<td>Started on:</td><td>Mon Dec 01 22:37:41 ICT 2025</td>
+<td>Started on:</td><td>Sat Dec 06 02:09:14 ICT 2025</td>
 </tr>
-<tr><td>Total time:</td><td>51 seconds (51728 ms)</td>
+<tr><td>Total time:</td><td>55 seconds (55365 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -67,163 +67,6 @@ function toggleAllBoxes() {
 </tr>
 </table><p/>
 <small><i>(Hover the method name to see the test class name)</i></small><p/>
-<table width='100%' border='1' class='invocation-failed'>
-<tr><td colspan='4' align='center'><b>FAILED TESTS</b></td></tr>
-<tr><td><b>Test method</b></td>
-<td><b>Attribute(s)</b></td>
-<td width="30%"><b>Exception</b></td>
-<td width="10%"><b>Time (seconds)</b></td>
-<td><b>Instance</b></td>
-</tr>
-<tr>
-<td title='vn.pis.ui.tests.PIS6_Export.TC04_SaveSuccess()'><b>TC04_SaveSuccess</b><br>Test class: vn.pis.ui.tests.PIS6_Export<br>Test method: PIS-6-TC-04: Lưu phiếu thành công<br/>
-<a href="#Output-1906128360" onClick='toggleBox("Output-1906128360", this, "Show output", "Hide output");'>Show output</a>
-
-<a href="#Output-1906128360" onClick="toggleAllBoxes();">Show all outputs</a>
-<div class='log' id="Output-1906128360">
-[PIS2][Listener] START: TC04_SaveSuccess<br/>
-[PIS2][Listener] FAIL : TC04_SaveSuccess | java.lang.AssertionError: Modal thành công không hiện! expected [true] but found [false]<br/>
-</div>
-</td>
-<td><div><pre>java.lang.AssertionError: Modal thành công không hiện! expected [true] but found [false]
-	at org.testng.Assert.fail(Assert.java:111)
-	at org.testng.Assert.failNotEquals(Assert.java:1578)
-	at org.testng.Assert.assertTrue(Assert.java:57)
-	at vn.pis.ui.tests.PIS6_Export.TC04_SaveSuccess(PIS6_Export.java:121)
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:578)
-	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
-	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:686)
-	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
-	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
-	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:992)
-	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
-	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
-	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
-	at org.testng.TestRunner.privateRun(TestRunner.java:739)
-	at org.testng.TestRunner.run(TestRunner.java:614)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:312)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
-	at org.testng.TestNG.runSuites(TestNG.java:1112)
-	at org.testng.TestNG.run(TestNG.java:1079)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
-</pre></div><a href='#' onClick='toggleBox("stack-trace1906128360", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace1906128360'><pre>java.lang.AssertionError: Modal thành công không hiện! expected [true] but found [false]
-	at org.testng.Assert.fail(Assert.java:111)
-	at org.testng.Assert.failNotEquals(Assert.java:1578)
-	at org.testng.Assert.assertTrue(Assert.java:57)
-	at vn.pis.ui.tests.PIS6_Export.TC04_SaveSuccess(PIS6_Export.java:121)
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:578)
-	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
-	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:686)
-	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
-	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
-	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:992)
-	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
-	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
-	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
-	at org.testng.TestRunner.privateRun(TestRunner.java:739)
-	at org.testng.TestRunner.run(TestRunner.java:614)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:312)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
-	at org.testng.TestNG.runSuites(TestNG.java:1112)
-	at org.testng.TestNG.run(TestNG.java:1079)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
-</pre></div></td>
-<td>10</td>
-<td>vn.pis.ui.tests.PIS6_Export@3a52dba3</td></tr>
-<tr>
-<td title='vn.pis.ui.tests.PIS6_Export.TC03_AddMedicineAndCalc()'><b>TC03_AddMedicineAndCalc</b><br>Test class: vn.pis.ui.tests.PIS6_Export<br>Test method: PIS-6-TC-03: Thêm thuốc & Kiểm tra tính tiền<br/>
-<a href="#Output-903716563" onClick='toggleBox("Output-903716563", this, "Show output", "Hide output");'>Show output</a>
-
-<a href="#Output-903716563" onClick="toggleAllBoxes();">Show all outputs</a>
-<div class='log' id="Output-903716563">
-[PIS2][Listener] START: TC03_AddMedicineAndCalc<br/>
-[PIS2][Listener] FAIL : TC03_AddMedicineAndCalc | java.lang.RuntimeException: ❌ LỖI: Gõ 'Salonpas' nhưng không thấy menu gợi ý (hoặc API lỗi)!<br/>
-</div>
-</td>
-<td><div><pre>java.lang.RuntimeException: ❌ LỖI: Gõ &apos;Salonpas&apos; nhưng không thấy menu gợi ý (hoặc API lỗi)!
-	at vn.pis.ui.pages.ExportReceipt.fillMedicine(ExportReceipt.java:567)
-	at vn.pis.ui.tests.PIS6_Export.TC03_AddMedicineAndCalc(PIS6_Export.java:92)
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:578)
-	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
-	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:686)
-	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
-	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
-	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:992)
-	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
-	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
-	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
-	at org.testng.TestRunner.privateRun(TestRunner.java:739)
-	at org.testng.TestRunner.run(TestRunner.java:614)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:312)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
-	at org.testng.TestNG.runSuites(TestNG.java:1112)
-	at org.testng.TestNG.run(TestNG.java:1079)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
-</pre></div><a href='#' onClick='toggleBox("stack-trace903716563", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace903716563'><pre>java.lang.RuntimeException: ❌ LỖI: Gõ &apos;Salonpas&apos; nhưng không thấy menu gợi ý (hoặc API lỗi)!
-	at vn.pis.ui.pages.ExportReceipt.fillMedicine(ExportReceipt.java:567)
-	at vn.pis.ui.tests.PIS6_Export.TC03_AddMedicineAndCalc(PIS6_Export.java:92)
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:578)
-	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
-	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:686)
-	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
-	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
-	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:992)
-	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
-	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
-	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
-	at org.testng.TestRunner.privateRun(TestRunner.java:739)
-	at org.testng.TestRunner.run(TestRunner.java:614)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:312)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
-	at org.testng.TestNG.runSuites(TestNG.java:1112)
-	at org.testng.TestNG.run(TestNG.java:1079)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
-</pre></div></td>
-<td>5</td>
-<td>vn.pis.ui.tests.PIS6_Export@3a52dba3</td></tr>
-</table><p>
 <table width='100%' border='1' class='invocation-passed'>
 <tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
 <tr><td><b>Test method</b></td>
@@ -233,32 +76,152 @@ function toggleAllBoxes() {
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='vn.pis.ui.tests.PIS6_Export.TC02_FillGeneralInfo()'><b>TC02_FillGeneralInfo</b><br>Test class: vn.pis.ui.tests.PIS6_Export<br>Test method: PIS-6-TC-02: Điền Thông tin chung<br/>
-<a href="#Output-837719796" onClick='toggleBox("Output-837719796", this, "Show output", "Hide output");'>Show output</a>
+<td title='vn.pis.ui.tests.PIS7_InventoryHistory.TC01_VerifyTableStructure()'><b>TC01_VerifyTableStructure</b><br>Test class: vn.pis.ui.tests.PIS7_InventoryHistory<br>Test method: PIS-7-TC-01: Hiển thị bảng lịch sử giao dịch - Kiểm tra cột<br/>
+<a href="#Output-205278236" onClick='toggleBox("Output-205278236", this, "Show output", "Hide output");'>Show output</a>
 
-<a href="#Output-837719796" onClick="toggleAllBoxes();">Show all outputs</a>
-<div class='log' id="Output-837719796">
-[PIS2][Listener] START: TC02_FillGeneralInfo<br/>
-[PIS6] General Info OK<br/>
-[PIS2][Listener] PASS : TC02_FillGeneralInfo<br/>
+<a href="#Output-205278236" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-205278236">
+[PIS2][Listener] START: TC01_VerifyTableStructure<br/>
+[PIS7] Header thực tế: [Loại, Thời gian, Kho, Khoa/Phòng, Người tạo, Trạng thái, Hành động]<br/>
+[PIS2][Listener] PASS : TC01_VerifyTableStructure<br/>
 </div>
 </td>
 <td></td>
 <td>0</td>
-<td>vn.pis.ui.tests.PIS6_Export@3a52dba3</td></tr>
+<td>vn.pis.ui.tests.PIS7_InventoryHistory@279fedbd</td></tr>
 <tr>
-<td title='vn.pis.ui.tests.PIS6_Export.TC01_OpenPage()'><b>TC01_OpenPage</b><br>Test class: vn.pis.ui.tests.PIS6_Export<br>Test method: PIS-6-TC-01: Mở màn hình<br/>
-<a href="#Output-1919576980" onClick='toggleBox("Output-1919576980", this, "Show output", "Hide output");'>Show output</a>
+<td title='vn.pis.ui.tests.PIS7_InventoryHistory.TC08_Filter_TimeRange()'><b>TC08_Filter_TimeRange</b><br>Test class: vn.pis.ui.tests.PIS7_InventoryHistory<br>Test method: PIS-7-TC-08: Lọc theo '30 ngày qua'<br/>
+<a href="#Output-1817662245" onClick='toggleBox("Output-1817662245", this, "Show output", "Hide output");'>Show output</a>
 
-<a href="#Output-1919576980" onClick="toggleAllBoxes();">Show all outputs</a>
-<div class='log' id="Output-1919576980">
-[PIS2][Listener] START: TC01_OpenPage<br/>
-[PIS2][Listener] PASS : TC01_OpenPage<br/>
+<a href="#Output-1817662245" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1817662245">
+[PIS2][Listener] START: TC08_Filter_TimeRange<br/>
+[PIS7] Số bản ghi trong 30 ngày qua: 10<br/>
+[PIS2][Listener] PASS : TC08_Filter_TimeRange<br/>
+</div>
+</td>
+<td></td>
+<td>7</td>
+<td>vn.pis.ui.tests.PIS7_InventoryHistory@279fedbd</td></tr>
+<tr>
+<td title='vn.pis.ui.tests.PIS7_InventoryHistory.TC12_VerifyDataConsistency()'><b>TC12_VerifyDataConsistency</b><br>Test class: vn.pis.ui.tests.PIS7_InventoryHistory<br>Test method: PIS-7-TC-12: Thống nhất dữ liệu giữa lịch sử và phiếu<br/>
+<a href="#Output-1015709240" onClick='toggleBox("Output-1015709240", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1015709240" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1015709240">
+[PIS2][Listener] START: TC12_VerifyDataConsistency<br/>
+[PIS7] Giá trị ở danh sách (Cột 3 - Kho): <br/>
+[PIS7] ⚠ Lỗi verify chi tiết: Expected condition failed: waiting for element to be clickable: By.xpath: (//table//tbody/tr)[1]//button[contains(.,'Xem') or .//*[name()='svg']] (tried for 5 second(s) with 500 milliseconds interval)
+Build info: version: '4.24.0', revision: '748ffc9bc3'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '20.0.2'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 142.0.7444.176, chrome: {chromedriverVersion: 142.0.7444.175 (302067f14a4..., userDataDir: C:\Users\DELL\AppData\Local...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:57514}, goog:processID: 24836, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:57514/devtoo..., se:cdpVersion: 142.0.7444.176, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 584494fb04ddf5bac56c2c95112968e8<br/>
+[PIS2][Listener] PASS : TC12_VerifyDataConsistency<br/>
+</div>
+</td>
+<td></td>
+<td>11</td>
+<td>vn.pis.ui.tests.PIS7_InventoryHistory@279fedbd</td></tr>
+<tr>
+<td title='vn.pis.ui.tests.PIS7_InventoryHistory.TC07_Filter_Export()'><b>TC07_Filter_Export</b><br>Test class: vn.pis.ui.tests.PIS7_InventoryHistory<br>Test method: PIS-7-TC-07: Lọc 'Xuất kho'<br/>
+<a href="#Output-2079278380" onClick='toggleBox("Output-2079278380", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-2079278380" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-2079278380">
+[PIS2][Listener] START: TC07_Filter_Export<br/>
+[PIS2][Listener] PASS : TC07_Filter_Export<br/>
 </div>
 </td>
 <td></td>
 <td>0</td>
-<td>vn.pis.ui.tests.PIS6_Export@3a52dba3</td></tr>
+<td>vn.pis.ui.tests.PIS7_InventoryHistory@279fedbd</td></tr>
+<tr>
+<td title='vn.pis.ui.tests.PIS7_InventoryHistory.TC08_NavigateToNextPage()'><b>TC08_NavigateToNextPage</b><br>Test class: vn.pis.ui.tests.PIS7_InventoryHistory<br>Test method: PIS-7-TC-08: Chuyển sang Trang kế tiếp (Nút Sau)<br/>
+<a href="#Output-1512822728" onClick='toggleBox("Output-1512822728", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1512822728" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1512822728">
+[PIS2][Listener] START: TC08_NavigateToNextPage<br/>
+[PIS7] ⚠ Không đủ dữ liệu (>10 dòng) hoặc đã ở trang cuối để kiểm tra nút 'Sau'.<br/>
+[PIS2][Listener] PASS : TC08_NavigateToNextPage<br/>
+</div>
+</td>
+<td></td>
+<td>2</td>
+<td>vn.pis.ui.tests.PIS7_InventoryHistory@279fedbd</td></tr>
+<tr>
+<td title='vn.pis.ui.tests.PIS7_InventoryHistory.TC05_Filter_All()'><b>TC05_Filter_All</b><br>Test class: vn.pis.ui.tests.PIS7_InventoryHistory<br>Test method: PIS-7-TC-05: Lọc 'Tất cả giao dịch' (Sau khi đã lọc Nhập/Xuất)<br/>
+<a href="#Output-1781459498" onClick='toggleBox("Output-1781459498", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1781459498" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1781459498">
+[PIS2][Listener] START: TC05_Filter_All<br/>
+[PIS7] Số lượng giao dịch tìm thấy (Tất cả): 1<br/>
+[PIS2][Listener] PASS : TC05_Filter_All<br/>
+</div>
+</td>
+<td></td>
+<td>6</td>
+<td>vn.pis.ui.tests.PIS7_InventoryHistory@279fedbd</td></tr>
+<tr>
+<td title='vn.pis.ui.tests.PIS7_InventoryHistory.TC09_NavigateToPreviousPage()'><b>TC09_NavigateToPreviousPage</b><br>Test class: vn.pis.ui.tests.PIS7_InventoryHistory<br>Test method: PIS-7-TC-09: Quay lại Trang trước (Nút Trước)<br/>
+<a href="#Output-1928983164" onClick='toggleBox("Output-1928983164", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1928983164" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1928983164">
+[PIS2][Listener] START: TC09_NavigateToPreviousPage<br/>
+[PIS7] Dữ liệu dòng 1 (Trang 2): Xuất kho5/12/2025
+20:25<br/>
+[PIS7] Dữ liệu dòng 1 (Trang 1): Xuất kho11/12/2025
+14:23<br/>
+[PIS2][Listener] PASS : TC09_NavigateToPreviousPage<br/>
+</div>
+</td>
+<td></td>
+<td>4</td>
+<td>vn.pis.ui.tests.PIS7_InventoryHistory@279fedbd</td></tr>
+<tr>
+<td title='vn.pis.ui.tests.PIS7_InventoryHistory.TC09_PaginationSize()'><b>TC09_PaginationSize</b><br>Test class: vn.pis.ui.tests.PIS7_InventoryHistory<br>Test method: PIS-7-TC-09: Phân trang 25/50/100<br/>
+<a href="#Output-1185188034" onClick='toggleBox("Output-1185188034", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1185188034" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1185188034">
+[PIS2][Listener] START: TC09_PaginationSize<br/>
+[PIS2][Listener] PASS : TC09_PaginationSize<br/>
+</div>
+</td>
+<td></td>
+<td>8</td>
+<td>vn.pis.ui.tests.PIS7_InventoryHistory@279fedbd</td></tr>
+<tr>
+<td title='vn.pis.ui.tests.PIS7_InventoryHistory.TC02_VerifyRowTypeIcon()'><b>TC02_VerifyRowTypeIcon</b><br>Test class: vn.pis.ui.tests.PIS7_InventoryHistory<br>Test method: PIS-7-TC-02: Phân biệt icon Nhập/Xuất<br/>
+<a href="#Output-1269826537" onClick='toggleBox("Output-1269826537", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1269826537" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1269826537">
+[PIS2][Listener] START: TC02_VerifyRowTypeIcon<br/>
+[PIS7] Dữ liệu cột Loại dòng 1 đang hiển thị: Xuất kho<br/>
+[PIS7] Check Icon dòng 1 -> Is Import? false | Is Export? true<br/>
+[PIS2][Listener] PASS : TC02_VerifyRowTypeIcon<br/>
+</div>
+</td>
+<td></td>
+<td>2</td>
+<td>vn.pis.ui.tests.PIS7_InventoryHistory@279fedbd</td></tr>
+<tr>
+<td title='vn.pis.ui.tests.PIS7_InventoryHistory.TC06_Filter_Import()'><b>TC06_Filter_Import</b><br>Test class: vn.pis.ui.tests.PIS7_InventoryHistory<br>Test method: PIS-7-TC-06: Lọc 'Nhập kho'<br/>
+<a href="#Output-1149388444" onClick='toggleBox("Output-1149388444", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1149388444" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1149388444">
+[PIS2][Listener] START: TC06_Filter_Import<br/>
+[PIS2][Listener] PASS : TC06_Filter_Import<br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>vn.pis.ui.tests.PIS7_InventoryHistory@279fedbd</td></tr>
 </table><p>
 </body>
 </html>

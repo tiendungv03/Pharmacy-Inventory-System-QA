@@ -9,73 +9,26 @@
 <table>
 <tr><th>Test</th><th># Passed</th><th># Skipped</th><th># Retried</th><th># Failed</th><th>Time (ms)</th><th>Included Groups</th><th>Excluded Groups</th></tr>
 <tr><th colspan="8">Default suite</th></tr>
-<tr><td><a href="#t0">Default test</a></td><td class="num">2</td><td class="num">0</td><td class="num">0</td><td class="num attn">2</td><td class="num">51,728</td><td></td><td></td></tr>
+<tr><td><a href="#t0">Default test</a></td><td class="num">10</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">55,365</td><td></td><td></td></tr>
 </table>
-<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">Default suite</th></tr></tbody><tbody id="t0"><tr><th colspan="4">Default test &#8212; failed</th></tr><tr class="failedeven"><td rowspan="2">vn.pis.ui.tests.PIS6_Export</td><td><a href="#m0">TC03_AddMedicineAndCalc</a></td><td rowspan="1">1764603496659</td><td rowspan="1">5674</td></tr><tr class="failedeven"><td><a href="#m1">TC04_SaveSuccess</a></td><td rowspan="1">1764603502842</td><td rowspan="1">10397</td></tr><tr><th colspan="4">Default test &#8212; passed</th></tr><tr class="passedeven"><td rowspan="2">vn.pis.ui.tests.PIS6_Export</td><td><a href="#m2">TC01_OpenPage</a></td><td rowspan="1">1764603475200</td><td rowspan="1">34</td></tr><tr class="passedeven"><td><a href="#m3">TC02_FillGeneralInfo</a></td><td rowspan="1">1764603485637</td><td rowspan="1">630</td></tr></tbody>
+<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">Default suite</th></tr></tbody><tbody id="t0"><tr><th colspan="4">Default test &#8212; passed</th></tr><tr class="passedeven"><td rowspan="10">vn.pis.ui.tests.PIS7_InventoryHistory</td><td><a href="#m0">TC01_VerifyTableStructure</a></td><td rowspan="1">1764961758822</td><td rowspan="1">214</td></tr><tr class="passedeven"><td><a href="#m1">TC02_VerifyRowTypeIcon</a></td><td rowspan="1">1764961769036</td><td rowspan="1">2704</td></tr><tr class="passedeven"><td><a href="#m2">TC05_Filter_All</a></td><td rowspan="1">1764961762261</td><td rowspan="1">6258</td></tr><tr class="passedeven"><td><a href="#m3">TC06_Filter_Import</a></td><td rowspan="1">1764961759435</td><td rowspan="1">885</td></tr><tr class="passedeven"><td><a href="#m4">TC07_Filter_Export</a></td><td rowspan="1">1764961760829</td><td rowspan="1">981</td></tr><tr class="passedeven"><td><a href="#m5">TC08_Filter_TimeRange</a></td><td rowspan="1">1764961772150</td><td rowspan="1">7609</td></tr><tr class="passedeven"><td><a href="#m6">TC08_NavigateToNextPage</a></td><td rowspan="1">1764961780280</td><td rowspan="1">2643</td></tr><tr class="passedeven"><td><a href="#m7">TC09_NavigateToPreviousPage</a></td><td rowspan="1">1764961783403</td><td rowspan="1">4425</td></tr><tr class="passedeven"><td><a href="#m8">TC09_PaginationSize</a></td><td rowspan="1">1764961788282</td><td rowspan="1">8805</td></tr><tr class="passedeven"><td><a href="#m9">TC12_VerifyDataConsistency</a></td><td rowspan="1">1764961797603</td><td rowspan="1">11771</td></tr></tbody>
 </table>
-<h2>Default test</h2><h3 id="m0">vn.pis.ui.tests.PIS6_Export#TC03_AddMedicineAndCalc</h3><table class="result"><tr><th>Messages</th></tr><tr><td><div class="messages">[PIS2][Listener] START: TC03_AddMedicineAndCalc<br/>[PIS2][Listener] FAIL : TC03_AddMedicineAndCalc | java.lang.RuntimeException: ❌ LỖI: Gõ 'Salonpas' nhưng không thấy menu gợi ý (hoặc API lỗi)!</div></td></tr><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.RuntimeException: ❌ LỖI: Gõ &apos;Salonpas&apos; nhưng không thấy menu gợi ý (hoặc API lỗi)!
-	at vn.pis.ui.pages.ExportReceipt.fillMedicine(ExportReceipt.java:567)
-	at vn.pis.ui.tests.PIS6_Export.TC03_AddMedicineAndCalc(PIS6_Export.java:92)
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:578)
-	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
-	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:686)
-	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
-	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
-	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:992)
-	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
-	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
-	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
-	at org.testng.TestRunner.privateRun(TestRunner.java:739)
-	at org.testng.TestRunner.run(TestRunner.java:614)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:312)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
-	at org.testng.TestNG.runSuites(TestNG.java:1112)
-	at org.testng.TestNG.run(TestNG.java:1079)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
-</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m1">vn.pis.ui.tests.PIS6_Export#TC04_SaveSuccess</h3><table class="result"><tr><th>Messages</th></tr><tr><td><div class="messages">[PIS2][Listener] START: TC04_SaveSuccess<br/>[PIS2][Listener] FAIL : TC04_SaveSuccess | java.lang.AssertionError: Modal thành công không hiện! expected [true] but found [false]</div></td></tr><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.AssertionError: Modal thành công không hiện! expected [true] but found [false]
-	at org.testng.Assert.fail(Assert.java:111)
-	at org.testng.Assert.failNotEquals(Assert.java:1578)
-	at org.testng.Assert.assertTrue(Assert.java:57)
-	at vn.pis.ui.tests.PIS6_Export.TC04_SaveSuccess(PIS6_Export.java:121)
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:578)
-	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
-	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:686)
-	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
-	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
-	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:992)
-	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
-	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
-	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
-	at org.testng.TestRunner.privateRun(TestRunner.java:739)
-	at org.testng.TestRunner.run(TestRunner.java:614)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:312)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
-	at org.testng.TestNG.runSuites(TestNG.java:1112)
-	at org.testng.TestNG.run(TestNG.java:1079)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
-</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m2">vn.pis.ui.tests.PIS6_Export#TC01_OpenPage</h3><table class="result"><tr><th>Messages</th></tr><tr><td><div class="messages">[PIS2][Listener] START: TC01_OpenPage<br/>[PIS2][Listener] PASS : TC01_OpenPage</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m3">vn.pis.ui.tests.PIS6_Export#TC02_FillGeneralInfo</h3><table class="result"><tr><th>Messages</th></tr><tr><td><div class="messages">[PIS2][Listener] START: TC02_FillGeneralInfo<br/>[PIS6] General Info OK<br/>[PIS2][Listener] PASS : TC02_FillGeneralInfo</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h2>Default test</h2><h3 id="m0">vn.pis.ui.tests.PIS7_InventoryHistory#TC01_VerifyTableStructure</h3><table class="result"><tr><th>Messages</th></tr><tr><td><div class="messages">[PIS2][Listener] START: TC01_VerifyTableStructure<br/>[PIS7] Header thực tế: [Loại, Thời gian, Kho, Khoa/Phòng, Người tạo, Trạng thái, Hành động]<br/>[PIS2][Listener] PASS : TC01_VerifyTableStructure</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m1">vn.pis.ui.tests.PIS7_InventoryHistory#TC02_VerifyRowTypeIcon</h3><table class="result"><tr><th>Messages</th></tr><tr><td><div class="messages">[PIS2][Listener] START: TC02_VerifyRowTypeIcon<br/>[PIS7] Dữ liệu cột Loại dòng 1 đang hiển thị: Xuất kho<br/>[PIS7] Check Icon dòng 1 -> Is Import? false | Is Export? true<br/>[PIS2][Listener] PASS : TC02_VerifyRowTypeIcon</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m2">vn.pis.ui.tests.PIS7_InventoryHistory#TC05_Filter_All</h3><table class="result"><tr><th>Messages</th></tr><tr><td><div class="messages">[PIS2][Listener] START: TC05_Filter_All<br/>[PIS7] Số lượng giao dịch tìm thấy (Tất cả): 1<br/>[PIS2][Listener] PASS : TC05_Filter_All</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m3">vn.pis.ui.tests.PIS7_InventoryHistory#TC06_Filter_Import</h3><table class="result"><tr><th>Messages</th></tr><tr><td><div class="messages">[PIS2][Listener] START: TC06_Filter_Import<br/>[PIS2][Listener] PASS : TC06_Filter_Import</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m4">vn.pis.ui.tests.PIS7_InventoryHistory#TC07_Filter_Export</h3><table class="result"><tr><th>Messages</th></tr><tr><td><div class="messages">[PIS2][Listener] START: TC07_Filter_Export<br/>[PIS2][Listener] PASS : TC07_Filter_Export</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m5">vn.pis.ui.tests.PIS7_InventoryHistory#TC08_Filter_TimeRange</h3><table class="result"><tr><th>Messages</th></tr><tr><td><div class="messages">[PIS2][Listener] START: TC08_Filter_TimeRange<br/>[PIS7] Số bản ghi trong 30 ngày qua: 10<br/>[PIS2][Listener] PASS : TC08_Filter_TimeRange</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m6">vn.pis.ui.tests.PIS7_InventoryHistory#TC08_NavigateToNextPage</h3><table class="result"><tr><th>Messages</th></tr><tr><td><div class="messages">[PIS2][Listener] START: TC08_NavigateToNextPage<br/>[PIS7] ⚠ Không đủ dữ liệu (>10 dòng) hoặc đã ở trang cuối để kiểm tra nút 'Sau'.<br/>[PIS2][Listener] PASS : TC08_NavigateToNextPage</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m7">vn.pis.ui.tests.PIS7_InventoryHistory#TC09_NavigateToPreviousPage</h3><table class="result"><tr><th>Messages</th></tr><tr><td><div class="messages">[PIS2][Listener] START: TC09_NavigateToPreviousPage<br/>[PIS7] Dữ liệu dòng 1 (Trang 2): Xuất kho5/12/2025
+20:25<br/>[PIS7] Dữ liệu dòng 1 (Trang 1): Xuất kho11/12/2025
+14:23<br/>[PIS2][Listener] PASS : TC09_NavigateToPreviousPage</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m8">vn.pis.ui.tests.PIS7_InventoryHistory#TC09_PaginationSize</h3><table class="result"><tr><th>Messages</th></tr><tr><td><div class="messages">[PIS2][Listener] START: TC09_PaginationSize<br/>[PIS2][Listener] PASS : TC09_PaginationSize</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m9">vn.pis.ui.tests.PIS7_InventoryHistory#TC12_VerifyDataConsistency</h3><table class="result"><tr><th>Messages</th></tr><tr><td><div class="messages">[PIS2][Listener] START: TC12_VerifyDataConsistency<br/>[PIS7] Giá trị ở danh sách (Cột 3 - Kho): <br/>[PIS7] ⚠ Lỗi verify chi tiết: Expected condition failed: waiting for element to be clickable: By.xpath: (//table//tbody/tr)[1]//button[contains(.,'Xem') or .//*[name()='svg']] (tried for 5 second(s) with 500 milliseconds interval)
+Build info: version: '4.24.0', revision: '748ffc9bc3'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '20.0.2'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 142.0.7444.176, chrome: {chromedriverVersion: 142.0.7444.175 (302067f14a4..., userDataDir: C:\Users\DELL\AppData\Local...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:57514}, goog:processID: 24836, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:57514/devtoo..., se:cdpVersion: 142.0.7444.176, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 584494fb04ddf5bac56c2c95112968e8<br/>[PIS2][Listener] PASS : TC12_VerifyDataConsistency</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
 </body>
 </html>

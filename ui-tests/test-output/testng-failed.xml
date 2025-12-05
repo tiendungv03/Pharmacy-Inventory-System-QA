@@ -3,17 +3,15 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="vn.pis.ui.tests.PIS6_Export">
+      <class name="vn.pis.ui.tests.PIS6_ExportReceipt">
         <methods>
           <include name="setup"/>
+          <include name="TC03_VerifyExportDate_DefaultAndReadOnly"/>
           <include name="tearDown"/>
-          <include name="TC03_AddMedicineAndCalc"/>
-          <include name="afterMethod"/>
-          <include name="TC04_SaveSuccess"/>
-          <include name="setupOnce"/>
-          <include name="checkPageState"/>
+          <include name="loginOnce"/>
+          <include name="beforeMethod"/>
         </methods>
-      </class> <!-- vn.pis.ui.tests.PIS6_Export -->
+      </class> <!-- vn.pis.ui.tests.PIS6_ExportReceipt -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
