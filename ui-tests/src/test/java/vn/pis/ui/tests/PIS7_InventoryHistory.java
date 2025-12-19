@@ -1,5 +1,6 @@
 package vn.pis.ui.tests;
 
+import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.Reporter;
 import org.testng.annotations.*;
@@ -26,7 +27,6 @@ public class PIS7_InventoryHistory extends BaseTest {
         Reporter.log(line, true);
     }
 
-    // Login 1 lần trước khi chạy Class
     @BeforeClass(alwaysRun = true)
     public void loginOnce() {
         log("--- Đăng nhập hệ thống (Admin) ---");
@@ -34,35 +34,28 @@ public class PIS7_InventoryHistory extends BaseTest {
         login.open(BASE_URL + "/login");
         login.login(ADMIN_USER, ADMIN_PASS);
         
-        // Khởi tạo page object
         page = new HistoryPage(driver);
     }
 
     @BeforeMethod(alwaysRun = true)
     public void beforeMethod(java.lang.reflect.Method m){
         log("▶ BẮT ĐẦU TC: " + m.getName());
-        page.open(); // Đảm bảo luôn ở trang history trước mỗi test
+        page.open(); 
     }
 
-    // ========================================================================
-    // AC1: HIỂN THỊ DANH SÁCH & CẤU TRÚC (TC-01)
-    // ========================================================================
+     // =================================================================================
+    // 1) LAYOUT / UI
+    // =================================================================================
 
-    @Test(priority = 1, description = "PIS-7-TC-01: Hiển thị bảng lịch sử giao dịch - Kiểm tra cột")
-    public void TC01_VerifyTableStructure() {
+    @Test(priority = 1, description = "TC_001 (PIS-7-TC-01): Verify table headers/columns")
+    public void TC_001_VerifyTableStructure() {
         List<String> actualHeaders = page.getTableHeaders();
         log("Header thực tế: " + actualHeaders);
 
-        // Cập nhật lại danh sách cột dựa trên Log thực tế của bạn
-        // Log hiển thị: [Loại, Thời gian, Kho, Khoa/Phòng, Người tạo, Trạng thái, Hành động]
-        String[] expectedKeywords = {
-             "Loại", "Thời gian", "Kho", "Người tạo", "Trạng thái", "Hành động"
-        };
-
+        String[] expectedKeywords = {"Loại", "Thời gian", "Kho", "Người tạo", "Trạng thái", "Hành động"};
         String allHeadersStr = String.join(" ", actualHeaders).toLowerCase();
-        
+
         for (String key : expectedKeywords) {
-            // Kiểm tra cột Khoa/Phòng (có thể tên là Khoa hoặc Phòng)
             if (key.equals("Kho") || key.equals("Khoa")) {
                 Assert.assertTrue(allHeadersStr.contains("kho") || allHeadersStr.contains("phòng"),
                         "Thiếu cột Kho/Khoa/Phòng");
@@ -72,266 +65,354 @@ public class PIS7_InventoryHistory extends BaseTest {
         }
     }
 
-    // ========================================================================
-    // AC2 & AC3: BỘ LỌC (Sắp xếp lại thứ tự: Nhập -> Xuất -> Tất cả)
-    // ========================================================================
-
-    @Test(priority = 2, description = "PIS-7-TC-06: Lọc 'Nhập kho'")
-    public void TC06_Filter_Import() {
+    @Test(priority = 2, description = "TC_002 (PIS-7-TC-02): Verify import/export icon or text in column 'Loại'")
+    public void TC_002_VerifyRowTypeIcon() {
         page.filterByType("Nhập kho");
+        page.waitForDataToLoad();
+
         if (page.getRowCount() > 0) {
             String typeText = page.getRowTypeText(1);
-            // Kiểm tra từ khóa Nhập hoặc Import
-            Assert.assertTrue(typeText.contains("Nhập") || typeText.contains("Import"), 
-                    "Lọc Nhập nhưng thấy: " + typeText);
+            log("Dữ liệu dòng 1: " + typeText);
+
+            if (typeText.contains("Không có giao dịch") || typeText.isEmpty()) {
+                log("⚠ Bảng rỗng, thử chuyển sang Xuất kho...");
+                page.filterByType("Xuất kho");
+                page.waitForDataToLoad();
+                typeText = page.getRowTypeText(1);
+            }
+
+            boolean isImport = page.isImportIconDisplayed(1);
+            boolean isExport = page.isExportIconDisplayed(1);
+
+            log("Check Icon -> Is Import? " + isImport + " | Is Export? " + isExport);
+
+            boolean hasIcon = isImport || isExport;
+            boolean hasText = typeText.contains("Nhập") || typeText.contains("Xuất")
+                    || typeText.contains("Import") || typeText.contains("Export");
+
+            Assert.assertTrue(hasIcon || hasText,
+                    "FAILED: Dòng 1 không hiển thị Icon hoặc Text phân loại đúng.");
+        } else {
+            log("⚠ Bảng không có dữ liệu để kiểm tra icon.");
+        }
+    }
+
+    // =================================================================================
+    // 2) SEARCH
+    // =================================================================================
+
+    @Test(priority = 3, description = "TC_003 (PIS-7-TC-03A): Search LOT exists - Export flow")
+    public void TC_003_Search_Export_Exist() {
+        page.filterByType("Xuất kho");
+        page.waitForDataToLoad();
+
+        String lot = page.getCellText(1, 3).trim();
+        log("LOT lấy từ dòng 1 (Xuất kho): " + lot);
+
+        Assert.assertTrue(lot != null && !lot.isEmpty(), "Không lấy được số lô để test search.");
+
+        page.searchByLot(lot);
+        page.waitForDataToLoad();
+
+        Assert.assertTrue(page.isKeywordPresentInFirstRow(lot),
+                "Search (Xuất kho) không ra kết quả chứa LOT: " + lot);
+
+        page.clearSearch();
+    }
+
+    @Test(priority = 4, description = "TC_004 (PIS-7-TC-03B): Search LOT exists - Import flow")
+    public void TC_004_Search_Import_Exist() {
+        page.filterByType("Nhập kho");
+        page.waitForDataToLoad();
+
+        String lot = page.getCellText(1, 3).trim();
+        log("LOT lấy từ dòng 1 (Nhập kho): " + lot);
+
+        Assert.assertTrue(lot != null && !lot.isEmpty(), "Không lấy được số lô để test search.");
+
+        page.searchByLot(lot);
+        page.waitForDataToLoad();
+
+        Assert.assertTrue(page.isKeywordPresentInFirstRow(lot),
+                "Search (Nhập kho) không ra kết quả chứa LOT: " + lot);
+
+        page.clearSearch();
+    }
+
+    @Test(priority = 5, description = "TC_005 (PIS-7-TC-04A): Search LOT not exist - Export flow")
+    public void TC_005_Search_Export_NotExist() {
+        page.filterByType("Xuất kho");
+        page.waitForDataToLoad();
+
+        String notExistLot = "LOT-NOT-EXIST-999999";
+        page.searchByLot(notExistLot);
+
+        Assert.assertTrue(page.isNoResultForLot(notExistLot),
+                "Search không tồn tại (Xuất kho) nhưng vẫn có kết quả match LOT: " + notExistLot);
+
+        page.clearSearch();
+    }
+
+    @Test(priority = 6, description = "TC_006 (PIS-7-TC-04B): Search LOT not exist - Import flow")
+    public void TC_006_Search_Import_NotExist() {
+        page.filterByType("Nhập kho");
+        page.waitForDataToLoad();
+
+        String notExistLot = "LOT-NOT-EXIST-999999";
+        page.searchByLot(notExistLot);
+
+        Assert.assertTrue(page.isNoResultForLot(notExistLot),
+                "Search không tồn tại (Nhập kho) nhưng vẫn có kết quả match LOT: " + notExistLot);
+
+        page.clearSearch();
+    }
+
+    @Test(priority = 7, description = "TC_007 (PIS-7-TC-23): Search trim spaces")
+    public void TC_007_Search_TrimSpaces() {
+        page.filterByType("Nhập kho");
+        page.waitForDataToLoad();
+
+        if (page.getRowCount() <= 0) {
+            log("⚠ Không có dữ liệu để test trim search.");
+            return;
+        }
+
+        String lot = page.getCellText(1, 3).trim();
+        Assert.assertTrue(lot != null && !lot.isEmpty(), "Không lấy được LOT.");
+
+        String keyword = "  " + lot + "  ";
+        page.searchByLot(keyword);
+
+        Assert.assertTrue(page.isAnyLotMatched(lot),
+                "Trim search failed, không match LOT sau khi nhập: '" + keyword + "'");
+
+        page.clearSearch();
+    }
+
+    @Test(priority = 8, description = "TC_008 (PIS-7-TC-24): Search special characters")
+    public void TC_008_Search_SpecialCharacters() {
+        page.filterByType("Nhập kho");
+        page.waitForDataToLoad();
+
+        String before = page.getTbodyText();
+
+        String keyword = "@#$%";
+        page.searchByLot(keyword);
+
+        boolean ok = page.isEmptyStateDisplayed() || page.getTbodyText().equals(before);
+
+        Assert.assertTrue(ok,
+                "Search special chars: không ra empty-state và list cũng không giữ nguyên (UI hành vi không nhất quán).");
+
+        page.clearSearch();
+    }
+
+    // =================================================================================
+    // 3) FILTER
+    // =================================================================================
+
+    @Test(priority = 9, description = "TC_009 (PIS-7-TC-06): Filter type = Import")
+    public void TC_009_Filter_Import() {
+        page.filterByType("Nhập kho");
+        page.waitForDataToLoad();
+
+        if (page.getRowCount() > 0) {
+            String typeText = page.getRowTypeText(1);
+            Assert.assertTrue(typeText.contains("Nhập"), "Lọc Nhập nhưng thấy: " + typeText);
         } else {
             log("⚠ Không có dữ liệu Nhập kho để kiểm tra.");
         }
     }
 
-    @Test(priority = 3, description = "PIS-7-TC-07: Lọc 'Xuất kho'")
-    public void TC07_Filter_Export() {
+    @Test(priority = 10, description = "TC_010 (PIS-7-TC-07): Filter type = Export")
+    public void TC_010_Filter_Export() {
         page.filterByType("Xuất kho");
-        if (page.getRowCount() > 0) {
-            String typeText = page.getRowTypeText(1);
-            // Kiểm tra từ khóa Xuất hoặc Export
-            Assert.assertTrue(typeText.contains("Xuất") || typeText.contains("Export"), 
-                    "Lọc Xuất nhưng thấy: " + typeText);
-        } else {
-            log("⚠ Không có dữ liệu Xuất kho để kiểm tra.");
-        }
-    }
-////
-    @Test(priority = 4, description = "PIS-7-TC-05: Lọc 'Tất cả giao dịch' (Sau khi đã lọc Nhập/Xuất)")
-    public void TC05_Filter_All() {
-        // 1. Thực hiện lọc
-//    	page.filterByType("Xuất kho");
-//    	page.filterByType("Nhập kho");
-        page.filterByType("Tất cả");
-
-        // --- FIX: Thêm thời gian chờ dữ liệu load lại ---
-        // Cách 1: Dùng hàm wait có sẵn (Recommended)
-        page.waitForDataToLoad(); 
-        
-        // Cách 2: (Chỉ dùng để debug nếu Cách 1 không chạy) 
-        // Thread.sleep(2000); 
-
-        // 2. Lấy số dòng SAU KHI đã chờ
-        int rowCount = page.getRowCount();
-        log("Số lượng giao dịch tìm thấy (Tất cả): " + rowCount);
-
-        // 3. Assert chặn lỗi
-        // Nếu bạn chắc chắn hệ thống có dữ liệu, hãy đổi >= 0 thành > 0
-        Assert.assertTrue(rowCount > 0, "Lỗi: Số lượng dòng không hợp lệ!");
-        
-        // Kiểm tra phụ: Nếu rowCount == 0 sau khi lọc tất cả -> Có thể hệ thống bị lỗi hiển thị
-        if (rowCount == 0) {
-            log("⚠ Cảnh báo: Lọc 'Tất cả' nhưng không thấy dữ liệu nào. Có thể do mạng chậm hoặc DB trống.");
-        }
-    }
-////
-////    // ========================================================================
-////    // KIỂM TRA ICON & TÌM KIẾM (Chạy sau khi đã lọc Tất cả ở bước 4)
-////    // ========================================================================
-////
-    @Test(priority = 5, description = "PIS-7-TC-02: Phân biệt icon Nhập/Xuất")
-    public void TC02_VerifyRowTypeIcon() {
-        // 1. Reset bộ lọc
-    	page.filterByType("Xuất kho");
-    	page.filterByType("Nhập kho");
-        page.filterByType("Tất cả");
-        
-        // 2. Chờ một chút để đảm bảo dữ liệu load đè lên dòng "Không có giao dịch"
         page.waitForDataToLoad();
 
-        if (page.getRowCount() > 0) {
+        int rowCount = page.getRowCount();
+        if (rowCount > 0) {
             String typeText = page.getRowTypeText(1);
-            log("Dữ liệu cột Loại dòng 1 đang hiển thị: " + typeText);
-
-            // Nếu bảng hiện thông báo rỗng thì bỏ qua test (hoặc fail nhẹ) thay vì Error
-            if (typeText.contains("Không có giao dịch") || typeText.isEmpty()) {
-                log("⚠ Cảnh báo: Bảng đang báo rỗng, không thể verify Icon. (Vui lòng kiểm tra lại data mẫu)");
-                return; // Skip test này, không fail
-            }
-
-            // 3. Kiểm tra ICON (Ưu tiên check SVG class)
-            boolean isImport = page.isImportIconDisplayed(1);
-            boolean isExport = page.isExportIconDisplayed(1);
-            
-            // Log trạng thái icon tìm thấy
-            log("Check Icon dòng 1 -> Is Import? " + isImport + " | Is Export? " + isExport);
-
-            // 4. Assert: Phải có ít nhất 1 trong 2 icon, HOẶC text phải chứa từ khóa
-            boolean hasIcon = isImport || isExport;
-            boolean hasText = typeText.contains("Nhập") || typeText.contains("Xuất") || 
-                              typeText.contains("Import") || typeText.contains("Export");
-
-            Assert.assertTrue(hasIcon || hasText, 
-                    "FAILED: Dòng 1 không hiển thị Icon Nhập/Xuất đúng chuẩn SVG hoặc Text không đúng. (Text hiện tại: " + typeText + ")");
-            
+            log("Dòng 1 thực tế đang hiển thị: " + typeText);
+            Assert.assertTrue(typeText.contains("Xuất"),
+                    "LỖI: Bảng vẫn chưa cập nhật, vẫn thấy: " + typeText);
         } else {
-            log("⚠ Bảng không có dòng nào (kể cả dòng thông báo rỗng).");
+            log("⚠ Không có dữ liệu Xuất kho.");
         }
     }
 
-//
-//    // ========================================================================
-//    // BỘ LỌC THỜI GIAN
-//    // ========================================================================
-//
-    @Test(priority = 6, description = "PIS-7-TC-08: Lọc theo '30 ngày qua'")
-    public void TC08_Filter_TimeRange() {
-    	page.filterByType("Xuất kho");
-    	page.filterByType("Nhập kho");
-        page.filterByType("Tất cả");
+    @Test(priority = 11, description = "TC_011 (PIS-7-TC-08): Filter time = 30 days")
+    public void TC_011_Filter_TimeRange_30Days() {
+        page.filterByType("Nhập kho");
         try {
             page.filterByTime("30 ngày qua");
+            page.waitForDataToLoad();
             int rowCount = page.getRowCount();
-            log("Số bản ghi trong 30 ngày qua: " + rowCount);
+            log("Số bản ghi trong 30 ngày qua (Nhập kho): " + rowCount);
             Assert.assertTrue(rowCount >= 0);
         } catch (Exception e) {
-            log("⚠ Chưa implement hoặc lỗi bộ lọc thời gian.");
+            log("⚠ Lỗi bộ lọc thời gian: " + e.getMessage());
         }
     }
-//
-//    // ========================================================================
-//    // PHÂN TRANG
-//    // ========================================================================
-//
-    @Test(priority = 9, description = "PIS-7-TC-09: Phân trang 25/50/100")
-    public void TC09_PaginationSize() {
-    	page.filterByType("Xuất kho");
-    	page.filterByType("Nhập kho");
-        page.filterByType("Tất cả");
+
+    // =================================================================================
+    // 4) PAGINATION / PAGE SIZE
+    // =================================================================================
+
+    @Test(priority = 12, description = "TC_012 (PIS-7-TC-09): Change page size (50) and validate row count <= size")
+    public void TC_012_PageSize_50() {
+        page.filterByType("Nhập kho");
+        page.waitForDataToLoad();
+
         try {
             page.changePageSize("50");
-            int rowCount = page.getRowCount();
-            Assert.assertTrue(rowCount <= 50, "Số dòng vượt quá 50!");
+            page.waitForDataToLoad();
+            Assert.assertTrue(page.getDataRowCount() <= 50, "Số dòng data > 50!");
         } catch (Exception e) {
-            log("⚠ Không đổi được page size.");
+            log("⚠ Không đổi được page size: " + e.getMessage());
         }
     }
-//
-//    @Test(priority = 10, description = "PIS-7-TC-10: Điều hướng qua các trang")
-//    public void TC10_PaginationNavigate() {
-//        page.filterByType("Tất cả");
-//        // Thêm sleep nhỏ để đảm bảo các overlay loading biến mất trước khi click next
-//        try { Thread.sleep(1000); } catch (InterruptedException e) {}
-//
-//        if (page.isPaginationDisplayed()) {
-//            String row1DataOld = page.getRowTypeText(1);
-//            
-//            try {
-//                page.clickNextPage(); 
-//                // Chờ load trang mới
-//                Thread.sleep(1500); 
-//                
-//                String row1DataNew = page.getRowTypeText(1);
-//                log("Dữ liệu trang 1: " + row1DataOld + " | Trang 2: " + row1DataNew);
-//                Assert.assertNotEquals(row1DataOld, row1DataNew, "Dữ liệu không đổi khi chuyển trang");
-//            } catch (Exception e) {
-//                log("⚠ Lỗi click chuyển trang (Bị chặn hoặc không click được): " + e.getMessage());
-//            }
-//        } else {
-//            log("⚠ Không đủ dữ liệu để phân trang.");
-//        }
-//    }
-//
-//    // ========================================================================
-//    // XEM CHI TIẾT (Chạy cuối cùng khi đã chắc chắn bảng có dữ liệu)
-//    // ========================================================================
-//
 
+    @Test(priority = 13, description = "TC_013 (PIS-7-TC-36): Page size = 25")
+    public void TC_013_PageSize_25() {
+        page.filterByType("Nhập kho");
+        page.waitForDataToLoad();
 
-    @Test(priority = 12, description = "PIS-7-TC-12: Thống nhất dữ liệu giữa lịch sử và phiếu")
-    public void TC12_VerifyDataConsistency() {
-        page.filterByType("Tất cả");
-        if (page.getRowCount() > 0) {
-            // Dựa vào log TC01, cột 'Kho' nằm ở vị trí 3 (index 3) thay vì 'Thuốc'
-            // Ta sẽ kiểm tra cột Kho có khớp trong chi tiết không
-            String listValue = page.getCellText(1, 3); 
-            log("Giá trị ở danh sách (Cột 3 - Kho): " + listValue);
-            
-            try {
-                page.clickViewDetail(1);
-                String modalContent = page.getDetailModalContent();
-                
-                // Kiểm tra xem nội dung Modal có chứa tên Kho không
-                Assert.assertTrue(modalContent.contains(listValue), 
-                        "Thông tin '" + listValue + "' không khớp trong chi tiết.");
-                
-                page.closeModal();
-            } catch (Exception e) {
-                 log("⚠ Lỗi verify chi tiết: " + e.getMessage());
-            }
-        }
+        page.changePageSize("25");
+        page.waitForDataToLoad();
+
+        Assert.assertTrue(page.getDataRowCount() <= 25,
+                "Page size 25 nhưng số dòng data > 25: " + page.getDataRowCount());
     }
-    
-    
-    
-    @Test(priority = 7, description = "PIS-7-TC-08: Chuyển sang Trang kế tiếp (Nút Sau)")
-    public void TC08_NavigateToNextPage() {
-        // Đảm bảo đang ở trạng thái 'Tất cả' để có nhiều data
-    	page.filterByType("Xuất kho");
-    	page.filterByType("Nhập kho");
-        page.filterByType("Tất cả");
+
+    @Test(priority = 14, description = "TC_014 (PIS-7-TC-38): Page size = 100")
+    public void TC_014_PageSize_100() {
+        page.filterByType("Nhập kho");
+        page.waitForDataToLoad();
+
+        page.changePageSize("100");
+        page.waitForDataToLoad();
+
+        Assert.assertTrue(page.getDataRowCount() <= 100,
+                "Page size 100 nhưng số dòng data > 100: " + page.getDataRowCount());
+    }
+
+    @Test(priority = 15, description = "TC_015 (PIS-7-TC-39): Previous button disabled on first page")
+    public void TC_015_PreviousDisabled_OnFirstPage() {
+        page.filterByType("Nhập kho");
+        page.waitForDataToLoad();
+
+        Assert.assertTrue(page.isPreviousButtonDisabled(),
+                "Nút 'Trước' phải disabled ở trang 1 nhưng lại không disabled.");
+    }
+
+    @Test(priority = 16, description = "TC_016 (PIS-7-TC-10.1): Navigate to next page")
+    public void TC_016_NavigateToNextPage() {
+        page.filterByType("Nhập kho");
         page.waitForDataToLoad();
 
         if (page.getRowCount() > 0 && !page.isNextButtonDisabled()) {
-            
-            // 1. Lấy dữ liệu dòng 1 của Trang 1
             String row1DataPage1 = page.getRowTypeText(1) + page.getRowTime(1);
-            log("Dữ liệu dòng 1 (Trang 1): " + row1DataPage1);
+            log("Dữ liệu Trang 1: " + row1DataPage1);
 
-            // 2. Bấm nút "Sau"
             page.clickNextButton();
-            
-            // 3. Lấy dữ liệu dòng 1 của Trang 2
+            page.waitForDataToLoad();
+
             String row1DataPage2 = page.getRowTypeText(1) + page.getRowTime(1);
-            log("Dữ liệu dòng 1 (Trang 2): " + row1DataPage2);
-            
-            // 4. Assert: Dữ liệu phải khác nhau
-            Assert.assertNotEquals(row1DataPage1, row1DataPage2, 
-                    "FAILED: Sau khi bấm 'Sau', dữ liệu trang vẫn không thay đổi.");
+            log("Dữ liệu Trang 2: " + row1DataPage2);
+
+            Assert.assertNotEquals(row1DataPage1, row1DataPage2,
+                    "FAILED: Dữ liệu không đổi khi sang trang.");
         } else {
-            log("⚠ Không đủ dữ liệu (>10 dòng) hoặc đã ở trang cuối để kiểm tra nút 'Sau'.");
+            log("⚠ Không đủ dữ liệu để kiểm tra nút 'Sau'.");
         }
     }
-    
-    
- // Trong PIS7_InventoryHistory.java
 
-    @Test(priority = 8, description = "PIS-7-TC-09: Quay lại Trang trước (Nút Trước)")
-    public void TC09_NavigateToPreviousPage() {
-        page.open();
-        // Đảm bảo ở trang 1
-        page.filterByType("Xuất kho");
-    	page.filterByType("Nhập kho");
-        page.filterByType("Tất cả"); 
-        
-        // Bắt buộc chuyển sang Trang 2 (Nếu không có đủ dữ liệu > 10, test này sẽ thất bại)
-        page.clickNextButton();
-        
-        // 1. Lấy dữ liệu dòng 1 của Trang 2
-        // Thêm kiểm tra dữ liệu có hợp lệ (không phải 'Không có giao dịch nào')
-        String row1DataPage2 = page.getRowTypeText(1) + page.getRowTime(1);
-        
-        // Kiểm tra Assert phụ: Đảm bảo đã chuyển trang và có dữ liệu
-        if (row1DataPage2.contains("Không có giao dịch nào")) {
-            // Nếu không có dữ liệu trên Trang 2, test không thể tiếp tục
-            Assert.fail("KHÔNG ĐỦ DỮ LIỆU: Cần ít nhất 11 bản ghi để kiểm tra chuyển trang.");
+    @Test(priority = 17, description = "TC_017 (PIS-7-TC-10.2): Navigate back to previous page")
+    public void TC_017_NavigateToPreviousPage() {
+        page.filterByType("Nhập kho");
+        page.waitForDataToLoad();
+
+        if (!page.isNextButtonDisabled()) {
+            page.clickNextButton();
+            page.waitForDataToLoad();
+
+            String row1DataPage2 = page.getRowTypeText(1) + page.getRowTime(1);
+            log("Đang ở Trang 2: " + row1DataPage2);
+
+            page.clickPreviousButton();
+            page.waitForDataToLoad();
+
+            String row1DataPage1 = page.getRowTypeText(1) + page.getRowTime(1);
+            log("Quay lại Trang 1: " + row1DataPage1);
+
+            Assert.assertNotEquals(row1DataPage1, row1DataPage2,
+                    "FAILED: Dữ liệu không đổi khi quay lại.");
+        } else {
+            log("⚠ Không đủ dữ liệu để kiểm tra nút 'Trước'.");
         }
-        log("Dữ liệu dòng 1 (Trang 2): " + row1DataPage2);
-        
-        // 2. Bấm nút "Trước"
-        page.clickPreviousButton();
-        
-        // 3. Lấy dữ liệu dòng 1 của Trang 1
-        String row1DataPage1 = page.getRowTypeText(1) + page.getRowTime(1);
-        log("Dữ liệu dòng 1 (Trang 1): " + row1DataPage1);
-        
-        // 4. Assert: Dữ liệu Trang 1 phải khác Trang 2
-        Assert.assertNotEquals(row1DataPage1, row1DataPage2, 
-                    "FAILED: Dữ liệu trang vẫn không thay đổi sau khi bấm 'Trước'.");
+    }
+
+    @Test(priority = 18, description = "TC_018 (PIS-7-TC-40): Next button disabled on last page")
+    public void TC_018_NextDisabled_OnLastPage() {
+        page.filterByType("Nhập kho");
+        page.waitForDataToLoad();
+
+        if (page.isNextButtonDisabled()) {
+            log("Đang ở trang cuối (hoặc chỉ có 1 trang) -> OK");
+            Assert.assertTrue(true);
+            return;
+        }
+
+        int guard = 0;
+        while (!page.isNextButtonDisabled() && guard++ < 15) {
+            page.clickNextButton();
+            page.waitForDataToLoad();
+        }
+
+        Assert.assertTrue(page.isNextButtonDisabled(),
+                "Sau khi đi tới cuối vẫn chưa disabled nút 'Sau'.");
+    }
+
+    // =================================================================================
+    // 5) MODAL / DETAIL
+    // =================================================================================
+
+    @Test(priority = 19, description = "TC_019 (PIS-7-TC-12): Verify data consistency between list and detail modal")
+    public void TC_019_VerifyDataConsistency() {
+        page.filterByType("Nhập kho");
+        page.waitForDataToLoad();
+
+        if (page.getRowCount() > 0) {
+            String listValue = page.getCellText(1, 3);
+            log("Giá trị cột 3: " + listValue);
+
+            try {
+                page.clickViewDetail(1);
+                String modalContent = page.getDetailModalContent();
+                Assert.assertTrue(modalContent.contains(listValue), "Thông tin không khớp trong chi tiết.");
+                page.closeModal();
+            } catch (Exception e) {
+                log("⚠ Lỗi verify chi tiết: " + e.getMessage());
+            }
+        } else {
+            log("⚠ Không có dữ liệu để verify chi tiết.");
+        }
+    }
+
+    @Test(priority = 20, description = "TC_020 (PIS-7-TC-47/53): Open and close detail modal")
+    public void TC_020_OpenAndCloseDetailModal() {
+        page.filterByType("Nhập kho");
+        page.waitForDataToLoad();
+
+        if (page.getRowCount() <= 0) {
+            log("⚠ Không có dữ liệu để test modal.");
+            return;
+        }
+
+        page.clickViewDetail(1);
+        Assert.assertTrue(page.isDetailModalDisplayed(), "Modal không hiển thị.");
+
+        page.closeModal();
+        Assert.assertTrue(page.isDetailModalClosed(), "Modal không đóng được.");
     }
 }

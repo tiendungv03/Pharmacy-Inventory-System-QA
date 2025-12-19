@@ -233,16 +233,22 @@ public class UserPage {
     /** Lấy danh sách username trong bảng, bỏ qua "Đang tải..." */
     public List<String> getUsernamesInTable() {
         return new WebDriverWait(driver, Duration.ofSeconds(10))
+            .ignoring(StaleElementReferenceException.class) // <--- QUAN TRỌNG: Bỏ qua lỗi Stale để retry
             .until(d -> {
                 List<WebElement> cells = d.findElements(usernameCells);
+                
+                // Nếu chưa thấy dòng nào, trả về null để Wait tiếp tục chờ (retry)
+                if (cells.isEmpty()) return null;
+
                 List<String> names = cells.stream()
-                    .map(e -> e.getText().trim())
-                    .filter(text -> text != null
-                            && !text.isEmpty()
-                            && !text.equalsIgnoreCase("Đang tải..."))
+                    .map(WebElement::getText) // Lấy text
+                    .map(String::trim)        // Xóa khoảng trắng thừa
+                    .filter(text -> text != null 
+                            && !text.isEmpty() 
+                            && !text.equalsIgnoreCase("Đang tải...")) // Bỏ qua dòng Loading
                     .collect(Collectors.toList());
 
-                // Nếu danh sách rỗng -> trả null để WebDriverWait retry
+                // Nếu lọc xong mà danh sách rỗng -> trả null để chờ tiếp
                 return names.isEmpty() ? null : names;
             });
     }

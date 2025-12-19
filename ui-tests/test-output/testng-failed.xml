@@ -6,9 +6,9 @@
       <class name="vn.pis.ui.tests.PIS6_ExportReceipt">
         <methods>
           <include name="setup"/>
-          <include name="TC03_VerifyExportDate_DefaultAndReadOnly"/>
           <include name="tearDown"/>
           <include name="loginOnce"/>
+          <include name="TC26_Popup_Close_ReturnToForm"/>
           <include name="beforeMethod"/>
         </methods>
       </class> <!-- vn.pis.ui.tests.PIS6_ExportReceipt -->

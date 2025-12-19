@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="10" passed="10" failed="0" skipped="0">
+<testng-results ignored="0" total="18" passed="18" failed="0" skipped="0">
   <reporter-output>
     <line>
       <![CDATA[[PIS2][Listener] BẮT ĐẦU SUITE: Default suite]]>
@@ -8,434 +8,678 @@
       <![CDATA[[PIS2][Listener] Context start: Default test]]>
     </line>
     <line>
-      <![CDATA[[PIS7] --- Đăng nhập hệ thống (Admin) ---]]>
+      <![CDATA[[PIS6] --- Đăng nhập hệ thống ---]]>
     </line>
     <line>
-      <![CDATA[[PIS7] ▶ BẮT ĐẦU TC: TC01_VerifyTableStructure]]>
+      <![CDATA[[PIS6] ▶ BẮT ĐẦU TC: TC01_OpenExportPage]]>
     </line>
     <line>
-      <![CDATA[[PIS2][Listener] START: TC01_VerifyTableStructure]]>
+      <![CDATA[[PIS2][Listener] START: TC01_OpenExportPage]]>
     </line>
     <line>
-      <![CDATA[[PIS7] Header thực tế: [Loại, Thời gian, Kho, Khoa/Phòng, Người tạo, Trạng thái, Hành động]]]>
+      <![CDATA[[PIS2][Listener] PASS : TC01_OpenExportPage]]>
     </line>
     <line>
-      <![CDATA[[PIS2][Listener] PASS : TC01_VerifyTableStructure]]>
+      <![CDATA[[PIS6] ▶ BẮT ĐẦU TC: TC02_SelectDepartment]]>
     </line>
     <line>
-      <![CDATA[[PIS7] ▶ BẮT ĐẦU TC: TC06_Filter_Import]]>
+      <![CDATA[[PIS2][Listener] START: TC02_SelectDepartment]]>
     </line>
     <line>
-      <![CDATA[[PIS2][Listener] START: TC06_Filter_Import]]>
+      <![CDATA[[PIS2][Listener] PASS : TC02_SelectDepartment]]>
     </line>
     <line>
-      <![CDATA[[PIS2][Listener] PASS : TC06_Filter_Import]]>
+      <![CDATA[[PIS6] ▶ BẮT ĐẦU TC: TC03_VerifyExportDate_DefaultAndReadOnly]]>
     </line>
     <line>
-      <![CDATA[[PIS7] ▶ BẮT ĐẦU TC: TC07_Filter_Export]]>
+      <![CDATA[[PIS2][Listener] START: TC03_VerifyExportDate_DefaultAndReadOnly]]>
     </line>
     <line>
-      <![CDATA[[PIS2][Listener] START: TC07_Filter_Export]]>
+      <![CDATA[[PIS6] Ngày trên web: 2025-12-19 | Ngày hệ thống (Expected): 2025-12-19]]>
     </line>
     <line>
-      <![CDATA[[PIS2][Listener] PASS : TC07_Filter_Export]]>
+      <![CDATA[[PIS6] Trạng thái Input -> Readonly: false | Disabled: true]]>
     </line>
     <line>
-      <![CDATA[[PIS7] ▶ BẮT ĐẦU TC: TC05_Filter_All]]>
+      <![CDATA[[PIS2][Listener] PASS : TC03_VerifyExportDate_DefaultAndReadOnly]]>
     </line>
     <line>
-      <![CDATA[[PIS2][Listener] START: TC05_Filter_All]]>
+      <![CDATA[[PIS6] ▶ BẮT ĐẦU TC: TC04_InputNotes]]>
     </line>
     <line>
-      <![CDATA[[PIS7] Số lượng giao dịch tìm thấy (Tất cả): 1]]>
+      <![CDATA[[PIS2][Listener] START: TC04_InputNotes]]>
     </line>
     <line>
-      <![CDATA[[PIS2][Listener] PASS : TC05_Filter_All]]>
+      <![CDATA[[PIS2][Listener] PASS : TC04_InputNotes]]>
     </line>
     <line>
-      <![CDATA[[PIS7] ▶ BẮT ĐẦU TC: TC02_VerifyRowTypeIcon]]>
+      <![CDATA[[PIS6] ▶ BẮT ĐẦU TC: TC05_TC06_TC07_RowInteraction_AutoFill]]>
     </line>
     <line>
-      <![CDATA[[PIS2][Listener] START: TC02_VerifyRowTypeIcon]]>
+      <![CDATA[[PIS2][Listener] START: TC05_TC06_TC07_RowInteraction_AutoFill]]>
     </line>
     <line>
-      <![CDATA[[PIS7] Dữ liệu cột Loại dòng 1 đang hiển thị: Xuất kho]]>
+      <![CDATA[[PIS6] Data auto-fill -> Price: 3.000 ₫, Exp: 23/12/2025, Lot: LOT-20251209-120900-9950]]>
     </line>
     <line>
-      <![CDATA[[PIS7] Check Icon dòng 1 -> Is Import? false | Is Export? true]]>
+      <![CDATA[[PIS2][Listener] PASS : TC05_TC06_TC07_RowInteraction_AutoFill]]>
     </line>
     <line>
-      <![CDATA[[PIS2][Listener] PASS : TC02_VerifyRowTypeIcon]]>
+      <![CDATA[[PIS6] ▶ BẮT ĐẦU TC: TC08_TC09_Calculation]]>
     </line>
     <line>
-      <![CDATA[[PIS7] ▶ BẮT ĐẦU TC: TC08_Filter_TimeRange]]>
+      <![CDATA[[PIS2][Listener] START: TC08_TC09_Calculation]]>
     </line>
     <line>
-      <![CDATA[[PIS2][Listener] START: TC08_Filter_TimeRange]]>
+      <![CDATA[[PIS2][Listener] PASS : TC08_TC09_Calculation]]>
     </line>
     <line>
-      <![CDATA[[PIS7] Số bản ghi trong 30 ngày qua: 10]]>
+      <![CDATA[[PIS6] ▶ BẮT ĐẦU TC: TC10_DeleteRow]]>
     </line>
     <line>
-      <![CDATA[[PIS2][Listener] PASS : TC08_Filter_TimeRange]]>
+      <![CDATA[[PIS2][Listener] START: TC10_DeleteRow]]>
     </line>
     <line>
-      <![CDATA[[PIS7] ▶ BẮT ĐẦU TC: TC08_NavigateToNextPage]]>
+      <![CDATA[[PIS6] Số dòng trước khi xóa: 2]]>
     </line>
     <line>
-      <![CDATA[[PIS2][Listener] START: TC08_NavigateToNextPage]]>
+      <![CDATA[[PIS6] Số dòng sau khi xóa: 1]]>
     </line>
     <line>
-      <![CDATA[[PIS7] ⚠ Không đủ dữ liệu (>10 dòng) hoặc đã ở trang cuối để kiểm tra nút 'Sau'.]]>
+      <![CDATA[[PIS2][Listener] PASS : TC10_DeleteRow]]>
     </line>
     <line>
-      <![CDATA[[PIS2][Listener] PASS : TC08_NavigateToNextPage]]>
+      <![CDATA[[PIS6] ▶ BẮT ĐẦU TC: TC20_FinishDisabled_WhenMissingDepartment]]>
     </line>
     <line>
-      <![CDATA[[PIS7] ▶ BẮT ĐẦU TC: TC09_NavigateToPreviousPage]]>
+      <![CDATA[[PIS2][Listener] START: TC20_FinishDisabled_WhenMissingDepartment]]>
     </line>
     <line>
-      <![CDATA[[PIS2][Listener] START: TC09_NavigateToPreviousPage]]>
+      <![CDATA[[PIS2][Listener] PASS : TC20_FinishDisabled_WhenMissingDepartment]]>
     </line>
     <line>
-      <![CDATA[[PIS7] Dữ liệu dòng 1 (Trang 2): Xuất kho5/12/2025
-20:25]]>
+      <![CDATA[[PIS6] ▶ BẮT ĐẦU TC: TC21_FinishDisabled_WhenDrugNotSelected]]>
     </line>
     <line>
-      <![CDATA[[PIS7] Dữ liệu dòng 1 (Trang 1): Xuất kho11/12/2025
-14:23]]>
+      <![CDATA[[PIS2][Listener] START: TC21_FinishDisabled_WhenDrugNotSelected]]>
     </line>
     <line>
-      <![CDATA[[PIS2][Listener] PASS : TC09_NavigateToPreviousPage]]>
+      <![CDATA[[PIS2][Listener] PASS : TC21_FinishDisabled_WhenDrugNotSelected]]>
     </line>
     <line>
-      <![CDATA[[PIS7] ▶ BẮT ĐẦU TC: TC09_PaginationSize]]>
+      <![CDATA[[PIS6] ▶ BẮT ĐẦU TC: TC13_Validate_EmptyQuantity]]>
     </line>
     <line>
-      <![CDATA[[PIS2][Listener] START: TC09_PaginationSize]]>
+      <![CDATA[[PIS2][Listener] START: TC13_Validate_EmptyQuantity]]>
     </line>
     <line>
-      <![CDATA[[PIS2][Listener] PASS : TC09_PaginationSize]]>
+      <![CDATA[[PIS2][Listener] PASS : TC13_Validate_EmptyQuantity]]>
     </line>
     <line>
-      <![CDATA[[PIS7] ▶ BẮT ĐẦU TC: TC12_VerifyDataConsistency]]>
+      <![CDATA[[PIS6] ▶ BẮT ĐẦU TC: TC23_QuantityZero_ShouldNotAllowFinish]]>
     </line>
     <line>
-      <![CDATA[[PIS2][Listener] START: TC12_VerifyDataConsistency]]>
+      <![CDATA[[PIS2][Listener] START: TC23_QuantityZero_ShouldNotAllowFinish]]>
     </line>
     <line>
-      <![CDATA[[PIS7] Giá trị ở danh sách (Cột 3 - Kho): ]]>
+      <![CDATA[[PIS2][Listener] PASS : TC23_QuantityZero_ShouldNotAllowFinish]]>
     </line>
     <line>
-      <![CDATA[[PIS7] ⚠ Lỗi verify chi tiết: Expected condition failed: waiting for element to be clickable: By.xpath: (//table//tbody/tr)[1]//button[contains(.,'Xem') or .//*[name()='svg']] (tried for 5 second(s) with 500 milliseconds interval)
-Build info: version: '4.24.0', revision: '748ffc9bc3'
-System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '20.0.2'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 142.0.7444.176, chrome: {chromedriverVersion: 142.0.7444.175 (302067f14a4..., userDataDir: C:\Users\DELL\AppData\Local...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:57514}, goog:processID: 24836, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:57514/devtoo..., se:cdpVersion: 142.0.7444.176, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: 584494fb04ddf5bac56c2c95112968e8]]>
+      <![CDATA[[PIS6] ▶ BẮT ĐẦU TC: TC24_QuantityNegative_ShouldNotAllowFinish]]>
     </line>
     <line>
-      <![CDATA[[PIS2][Listener] PASS : TC12_VerifyDataConsistency]]>
+      <![CDATA[[PIS2][Listener] START: TC24_QuantityNegative_ShouldNotAllowFinish]]>
+    </line>
+    <line>
+      <![CDATA[[PIS2][Listener] PASS : TC24_QuantityNegative_ShouldNotAllowFinish]]>
+    </line>
+    <line>
+      <![CDATA[[PIS6] ▶ BẮT ĐẦU TC: TC11_Validate_OverStock]]>
+    </line>
+    <line>
+      <![CDATA[[PIS2][Listener] START: TC11_Validate_OverStock]]>
+    </line>
+    <line>
+      <![CDATA[[PIS6] Nội dung cảnh báo bắt được: Cảnh báo: Một số thuốc có số lượng xuất vượt quá tồn kho hiện tại. Vui lòng kiểm tra lại.]]>
+    </line>
+    <line>
+      <![CDATA[[PIS6] Trạng thái nút Hoàn thành (Enabled?): false]]>
+    </line>
+    <line>
+      <![CDATA[[PIS6] PASS: Hệ thống đã hiện cảnh báo và khóa nút Hoàn thành đúng yêu cầu.]]>
+    </line>
+    <line>
+      <![CDATA[[PIS2][Listener] PASS : TC11_Validate_OverStock]]>
+    </line>
+    <line>
+      <![CDATA[[PIS6] ▶ BẮT ĐẦU TC: TC19_Refresh_ClearData]]>
+    </line>
+    <line>
+      <![CDATA[[PIS2][Listener] START: TC19_Refresh_ClearData]]>
+    </line>
+    <line>
+      <![CDATA[[PIS6] PASS: Bảng thuốc đã reset về dòng trắng mặc định.]]>
+    </line>
+    <line>
+      <![CDATA[[PIS2][Listener] PASS : TC19_Refresh_ClearData]]>
+    </line>
+    <line>
+      <![CDATA[[PIS6] ▶ BẮT ĐẦU TC: TC22_Notes_SpecialChars_CreateSuccess]]>
+    </line>
+    <line>
+      <![CDATA[[PIS2][Listener] START: TC22_Notes_SpecialChars_CreateSuccess]]>
+    </line>
+    <line>
+      <![CDATA[[PIS2][Listener] PASS : TC22_Notes_SpecialChars_CreateSuccess]]>
+    </line>
+    <line>
+      <![CDATA[[PIS6] ▶ BẮT ĐẦU TC: TC25_Popup_Content_BasicInfo]]>
+    </line>
+    <line>
+      <![CDATA[[PIS2][Listener] START: TC25_Popup_Content_BasicInfo]]>
+    </line>
+    <line>
+      <![CDATA[[PIS2][Listener] PASS : TC25_Popup_Content_BasicInfo]]>
+    </line>
+    <line>
+      <![CDATA[[PIS6] ▶ BẮT ĐẦU TC: TC26_Popup_Close_ReturnToForm]]>
+    </line>
+    <line>
+      <![CDATA[[PIS2][Listener] START: TC26_Popup_Close_ReturnToForm]]>
+    </line>
+    <line>
+      <![CDATA[[PIS2][Listener] PASS : TC26_Popup_Close_ReturnToForm]]>
+    </line>
+    <line>
+      <![CDATA[[PIS6] ▶ BẮT ĐẦU TC: TC27_Popup_CreateNew_ResetForm]]>
+    </line>
+    <line>
+      <![CDATA[[PIS2][Listener] START: TC27_Popup_CreateNew_ResetForm]]>
+    </line>
+    <line>
+      <![CDATA[[PIS2][Listener] PASS : TC27_Popup_CreateNew_ResetForm]]>
     </line>
   </reporter-output>
-  <suite started-at="2025-12-06T02:09:14 ICT" name="Default suite" finished-at="2025-12-06T02:10:09 ICT" duration-ms="55365">
+  <suite started-at="2025-12-19T13:58:09 ICT" name="Default suite" finished-at="2025-12-19T13:59:13 ICT" duration-ms="63427">
     <groups>
     </groups>
-    <test started-at="2025-12-06T02:09:14 ICT" name="Default test" finished-at="2025-12-06T02:10:09 ICT" duration-ms="55365">
-      <class name="vn.pis.ui.tests.PIS7_InventoryHistory">
-        <test-method is-config="true" signature="setup()[pri:0, instance:vn.pis.ui.tests.PIS7_InventoryHistory@279fedbd]" started-at="2025-12-06T02:09:14 ICT" name="setup" finished-at="2025-12-06T02:09:16 ICT" duration-ms="2154" status="PASS">
+    <test started-at="2025-12-19T13:58:09 ICT" name="Default test" finished-at="2025-12-19T13:59:13 ICT" duration-ms="63427">
+      <class name="vn.pis.ui.tests.PIS6_ExportReceipt">
+        <test-method is-config="true" signature="setup()[pri:0, instance:vn.pis.ui.tests.PIS6_ExportReceipt@2362f559]" started-at="2025-12-19T13:58:09 ICT" name="setup" finished-at="2025-12-19T13:58:11 ICT" duration-ms="1918" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method is-config="true" signature="loginOnce()[pri:0, instance:vn.pis.ui.tests.PIS7_InventoryHistory@279fedbd]" started-at="2025-12-06T02:09:16 ICT" name="loginOnce" finished-at="2025-12-06T02:09:17 ICT" duration-ms="1157" status="PASS">
+        <test-method is-config="true" signature="loginOnce()[pri:0, instance:vn.pis.ui.tests.PIS6_ExportReceipt@2362f559]" started-at="2025-12-19T13:58:11 ICT" name="loginOnce" finished-at="2025-12-19T13:58:12 ICT" duration-ms="979" status="PASS">
           <reporter-output>
             <line>
-              <![CDATA[[PIS7] --- Đăng nhập hệ thống (Admin) ---]]>
+              <![CDATA[[PIS6] --- Đăng nhập hệ thống ---]]>
             </line>
           </reporter-output>
         </test-method> <!-- loginOnce -->
-        <test-method is-config="true" signature="beforeMethod(java.lang.reflect.Method)[pri:0, instance:vn.pis.ui.tests.PIS7_InventoryHistory@279fedbd]" started-at="2025-12-06T02:09:17 ICT" name="beforeMethod" finished-at="2025-12-06T02:09:18 ICT" duration-ms="1136" status="PASS">
+        <test-method is-config="true" signature="beforeMethod(java.lang.reflect.Method)[pri:0, instance:vn.pis.ui.tests.PIS6_ExportReceipt@2362f559]" started-at="2025-12-19T13:58:12 ICT" name="beforeMethod" finished-at="2025-12-19T13:58:12 ICT" duration-ms="2" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void vn.pis.ui.tests.PIS7_InventoryHistory.TC01_VerifyTableStructure()]]>
+                <![CDATA[public void vn.pis.ui.tests.PIS6_ExportReceipt.TC01_OpenExportPage()]]>
               </value>
             </param>
           </params>
           <reporter-output>
             <line>
-              <![CDATA[[PIS7] ▶ BẮT ĐẦU TC: TC01_VerifyTableStructure]]>
+              <![CDATA[[PIS6] ▶ BẮT ĐẦU TC: TC01_OpenExportPage]]>
             </line>
           </reporter-output>
         </test-method> <!-- beforeMethod -->
-        <test-method signature="TC01_VerifyTableStructure()[pri:1, instance:vn.pis.ui.tests.PIS7_InventoryHistory@279fedbd]" started-at="2025-12-06T02:09:18 ICT" name="TC01_VerifyTableStructure" description="PIS-7-TC-01: Hiển thị bảng lịch sử giao dịch - Kiểm tra cột" finished-at="2025-12-06T02:09:19 ICT" duration-ms="214" status="PASS">
+        <test-method signature="TC01_OpenExportPage()[pri:1, instance:vn.pis.ui.tests.PIS6_ExportReceipt@2362f559]" started-at="2025-12-19T13:58:12 ICT" name="TC01_OpenExportPage" description="PIS-6-TC-01: Mở màn hình tạo phiếu xuất kho" finished-at="2025-12-19T13:58:13 ICT" duration-ms="917" status="PASS">
           <reporter-output>
             <line>
-              <![CDATA[[PIS2][Listener] START: TC01_VerifyTableStructure]]>
+              <![CDATA[[PIS2][Listener] START: TC01_OpenExportPage]]>
             </line>
             <line>
-              <![CDATA[[PIS7] Header thực tế: [Loại, Thời gian, Kho, Khoa/Phòng, Người tạo, Trạng thái, Hành động]]]>
-            </line>
-            <line>
-              <![CDATA[[PIS2][Listener] PASS : TC01_VerifyTableStructure]]>
+              <![CDATA[[PIS2][Listener] PASS : TC01_OpenExportPage]]>
             </line>
           </reporter-output>
-        </test-method> <!-- TC01_VerifyTableStructure -->
-        <test-method is-config="true" signature="beforeMethod(java.lang.reflect.Method)[pri:0, instance:vn.pis.ui.tests.PIS7_InventoryHistory@279fedbd]" started-at="2025-12-06T02:09:19 ICT" name="beforeMethod" finished-at="2025-12-06T02:09:19 ICT" duration-ms="392" status="PASS">
+        </test-method> <!-- TC01_OpenExportPage -->
+        <test-method signature="TC02_SelectDepartment()[pri:2, instance:vn.pis.ui.tests.PIS6_ExportReceipt@2362f559]" started-at="2025-12-19T13:58:13 ICT" name="TC02_SelectDepartment" description="PIS-6-TC-02: Chọn Khoa/Phòng nhận (Bắt buộc)" finished-at="2025-12-19T13:58:14 ICT" duration-ms="544" status="PASS">
+          <reporter-output>
+            <line>
+              <![CDATA[[PIS2][Listener] START: TC02_SelectDepartment]]>
+            </line>
+            <line>
+              <![CDATA[[PIS2][Listener] PASS : TC02_SelectDepartment]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- TC02_SelectDepartment -->
+        <test-method is-config="true" signature="beforeMethod(java.lang.reflect.Method)[pri:0, instance:vn.pis.ui.tests.PIS6_ExportReceipt@2362f559]" started-at="2025-12-19T13:58:13 ICT" name="beforeMethod" finished-at="2025-12-19T13:58:13 ICT" duration-ms="0" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void vn.pis.ui.tests.PIS7_InventoryHistory.TC06_Filter_Import()]]>
+                <![CDATA[public void vn.pis.ui.tests.PIS6_ExportReceipt.TC02_SelectDepartment()]]>
               </value>
             </param>
           </params>
           <reporter-output>
             <line>
-              <![CDATA[[PIS7] ▶ BẮT ĐẦU TC: TC06_Filter_Import]]>
+              <![CDATA[[PIS6] ▶ BẮT ĐẦU TC: TC02_SelectDepartment]]>
             </line>
           </reporter-output>
         </test-method> <!-- beforeMethod -->
-        <test-method signature="TC06_Filter_Import()[pri:2, instance:vn.pis.ui.tests.PIS7_InventoryHistory@279fedbd]" started-at="2025-12-06T02:09:19 ICT" name="TC06_Filter_Import" description="PIS-7-TC-06: Lọc &#039;Nhập kho&#039;" finished-at="2025-12-06T02:09:20 ICT" duration-ms="885" status="PASS">
-          <reporter-output>
-            <line>
-              <![CDATA[[PIS2][Listener] START: TC06_Filter_Import]]>
-            </line>
-            <line>
-              <![CDATA[[PIS2][Listener] PASS : TC06_Filter_Import]]>
-            </line>
-          </reporter-output>
-        </test-method> <!-- TC06_Filter_Import -->
-        <test-method is-config="true" signature="beforeMethod(java.lang.reflect.Method)[pri:0, instance:vn.pis.ui.tests.PIS7_InventoryHistory@279fedbd]" started-at="2025-12-06T02:09:20 ICT" name="beforeMethod" finished-at="2025-12-06T02:09:20 ICT" duration-ms="506" status="PASS">
+        <test-method is-config="true" signature="beforeMethod(java.lang.reflect.Method)[pri:0, instance:vn.pis.ui.tests.PIS6_ExportReceipt@2362f559]" started-at="2025-12-19T13:58:14 ICT" name="beforeMethod" finished-at="2025-12-19T13:58:14 ICT" duration-ms="1" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void vn.pis.ui.tests.PIS7_InventoryHistory.TC07_Filter_Export()]]>
+                <![CDATA[public void vn.pis.ui.tests.PIS6_ExportReceipt.TC03_VerifyExportDate_DefaultAndReadOnly()]]>
               </value>
             </param>
           </params>
           <reporter-output>
             <line>
-              <![CDATA[[PIS7] ▶ BẮT ĐẦU TC: TC07_Filter_Export]]>
+              <![CDATA[[PIS6] ▶ BẮT ĐẦU TC: TC03_VerifyExportDate_DefaultAndReadOnly]]>
             </line>
           </reporter-output>
         </test-method> <!-- beforeMethod -->
-        <test-method signature="TC07_Filter_Export()[pri:3, instance:vn.pis.ui.tests.PIS7_InventoryHistory@279fedbd]" started-at="2025-12-06T02:09:20 ICT" name="TC07_Filter_Export" description="PIS-7-TC-07: Lọc &#039;Xuất kho&#039;" finished-at="2025-12-06T02:09:21 ICT" duration-ms="981" status="PASS">
+        <test-method signature="TC03_VerifyExportDate_DefaultAndReadOnly()[pri:3, instance:vn.pis.ui.tests.PIS6_ExportReceipt@2362f559]" started-at="2025-12-19T13:58:14 ICT" name="TC03_VerifyExportDate_DefaultAndReadOnly" description="PIS-6-TC-03: Ngày xuất mặc định là hôm nay và KHÔNG cho phép chỉnh sửa" finished-at="2025-12-19T13:58:14 ICT" duration-ms="303" status="PASS">
           <reporter-output>
             <line>
-              <![CDATA[[PIS2][Listener] START: TC07_Filter_Export]]>
+              <![CDATA[[PIS2][Listener] START: TC03_VerifyExportDate_DefaultAndReadOnly]]>
             </line>
             <line>
-              <![CDATA[[PIS2][Listener] PASS : TC07_Filter_Export]]>
+              <![CDATA[[PIS6] Ngày trên web: 2025-12-19 | Ngày hệ thống (Expected): 2025-12-19]]>
+            </line>
+            <line>
+              <![CDATA[[PIS6] Trạng thái Input -> Readonly: false | Disabled: true]]>
+            </line>
+            <line>
+              <![CDATA[[PIS2][Listener] PASS : TC03_VerifyExportDate_DefaultAndReadOnly]]>
             </line>
           </reporter-output>
-        </test-method> <!-- TC07_Filter_Export -->
-        <test-method is-config="true" signature="beforeMethod(java.lang.reflect.Method)[pri:0, instance:vn.pis.ui.tests.PIS7_InventoryHistory@279fedbd]" started-at="2025-12-06T02:09:21 ICT" name="beforeMethod" finished-at="2025-12-06T02:09:22 ICT" duration-ms="448" status="PASS">
+        </test-method> <!-- TC03_VerifyExportDate_DefaultAndReadOnly -->
+        <test-method is-config="true" signature="beforeMethod(java.lang.reflect.Method)[pri:0, instance:vn.pis.ui.tests.PIS6_ExportReceipt@2362f559]" started-at="2025-12-19T13:58:14 ICT" name="beforeMethod" finished-at="2025-12-19T13:58:14 ICT" duration-ms="1" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void vn.pis.ui.tests.PIS7_InventoryHistory.TC05_Filter_All()]]>
+                <![CDATA[public void vn.pis.ui.tests.PIS6_ExportReceipt.TC04_InputNotes()]]>
               </value>
             </param>
           </params>
           <reporter-output>
             <line>
-              <![CDATA[[PIS7] ▶ BẮT ĐẦU TC: TC05_Filter_All]]>
+              <![CDATA[[PIS6] ▶ BẮT ĐẦU TC: TC04_InputNotes]]>
             </line>
           </reporter-output>
         </test-method> <!-- beforeMethod -->
-        <test-method signature="TC05_Filter_All()[pri:4, instance:vn.pis.ui.tests.PIS7_InventoryHistory@279fedbd]" started-at="2025-12-06T02:09:22 ICT" name="TC05_Filter_All" description="PIS-7-TC-05: Lọc &#039;Tất cả giao dịch&#039; (Sau khi đã lọc Nhập/Xuất)" finished-at="2025-12-06T02:09:28 ICT" duration-ms="6258" status="PASS">
+        <test-method signature="TC04_InputNotes()[pri:4, instance:vn.pis.ui.tests.PIS6_ExportReceipt@2362f559]" started-at="2025-12-19T13:58:14 ICT" name="TC04_InputNotes" description="PIS-6-TC-04: Ghi chú tùy chọn" finished-at="2025-12-19T13:58:15 ICT" duration-ms="438" status="PASS">
           <reporter-output>
             <line>
-              <![CDATA[[PIS2][Listener] START: TC05_Filter_All]]>
+              <![CDATA[[PIS2][Listener] START: TC04_InputNotes]]>
             </line>
             <line>
-              <![CDATA[[PIS7] Số lượng giao dịch tìm thấy (Tất cả): 1]]>
-            </line>
-            <line>
-              <![CDATA[[PIS2][Listener] PASS : TC05_Filter_All]]>
+              <![CDATA[[PIS2][Listener] PASS : TC04_InputNotes]]>
             </line>
           </reporter-output>
-        </test-method> <!-- TC05_Filter_All -->
-        <test-method is-config="true" signature="beforeMethod(java.lang.reflect.Method)[pri:0, instance:vn.pis.ui.tests.PIS7_InventoryHistory@279fedbd]" started-at="2025-12-06T02:09:28 ICT" name="beforeMethod" finished-at="2025-12-06T02:09:29 ICT" duration-ms="511" status="PASS">
+        </test-method> <!-- TC04_InputNotes -->
+        <test-method is-config="true" signature="beforeMethod(java.lang.reflect.Method)[pri:0, instance:vn.pis.ui.tests.PIS6_ExportReceipt@2362f559]" started-at="2025-12-19T13:58:15 ICT" name="beforeMethod" finished-at="2025-12-19T13:58:15 ICT" duration-ms="1" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void vn.pis.ui.tests.PIS7_InventoryHistory.TC02_VerifyRowTypeIcon()]]>
+                <![CDATA[public void vn.pis.ui.tests.PIS6_ExportReceipt.TC05_TC06_TC07_RowInteraction_AutoFill()]]>
               </value>
             </param>
           </params>
           <reporter-output>
             <line>
-              <![CDATA[[PIS7] ▶ BẮT ĐẦU TC: TC02_VerifyRowTypeIcon]]>
+              <![CDATA[[PIS6] ▶ BẮT ĐẦU TC: TC05_TC06_TC07_RowInteraction_AutoFill]]>
             </line>
           </reporter-output>
         </test-method> <!-- beforeMethod -->
-        <test-method signature="TC02_VerifyRowTypeIcon()[pri:5, instance:vn.pis.ui.tests.PIS7_InventoryHistory@279fedbd]" started-at="2025-12-06T02:09:29 ICT" name="TC02_VerifyRowTypeIcon" description="PIS-7-TC-02: Phân biệt icon Nhập/Xuất" finished-at="2025-12-06T02:09:31 ICT" duration-ms="2704" status="PASS">
+        <test-method signature="TC05_TC06_TC07_RowInteraction_AutoFill()[pri:5, instance:vn.pis.ui.tests.PIS6_ExportReceipt@2362f559]" started-at="2025-12-19T13:58:15 ICT" name="TC05_TC06_TC07_RowInteraction_AutoFill" description="PIS-6-TC-05, TC-06, TC-07: Thêm dòng, Gợi ý thuốc, Auto fill" finished-at="2025-12-19T13:58:17 ICT" duration-ms="2506" status="PASS">
           <reporter-output>
             <line>
-              <![CDATA[[PIS2][Listener] START: TC02_VerifyRowTypeIcon]]>
+              <![CDATA[[PIS2][Listener] START: TC05_TC06_TC07_RowInteraction_AutoFill]]>
             </line>
             <line>
-              <![CDATA[[PIS7] Dữ liệu cột Loại dòng 1 đang hiển thị: Xuất kho]]>
+              <![CDATA[[PIS6] Data auto-fill -> Price: 3.000 ₫, Exp: 23/12/2025, Lot: LOT-20251209-120900-9950]]>
             </line>
             <line>
-              <![CDATA[[PIS7] Check Icon dòng 1 -> Is Import? false | Is Export? true]]>
-            </line>
-            <line>
-              <![CDATA[[PIS2][Listener] PASS : TC02_VerifyRowTypeIcon]]>
+              <![CDATA[[PIS2][Listener] PASS : TC05_TC06_TC07_RowInteraction_AutoFill]]>
             </line>
           </reporter-output>
-        </test-method> <!-- TC02_VerifyRowTypeIcon -->
-        <test-method is-config="true" signature="beforeMethod(java.lang.reflect.Method)[pri:0, instance:vn.pis.ui.tests.PIS7_InventoryHistory@279fedbd]" started-at="2025-12-06T02:09:31 ICT" name="beforeMethod" finished-at="2025-12-06T02:09:32 ICT" duration-ms="407" status="PASS">
+        </test-method> <!-- TC05_TC06_TC07_RowInteraction_AutoFill -->
+        <test-method signature="TC08_TC09_Calculation()[pri:6, instance:vn.pis.ui.tests.PIS6_ExportReceipt@2362f559]" started-at="2025-12-19T13:58:17 ICT" name="TC08_TC09_Calculation" description="PIS-6-TC-08, TC-09: Tính thành tiền và Tổng tiền" finished-at="2025-12-19T13:58:20 ICT" duration-ms="3068" status="PASS">
+          <reporter-output>
+            <line>
+              <![CDATA[[PIS2][Listener] START: TC08_TC09_Calculation]]>
+            </line>
+            <line>
+              <![CDATA[[PIS2][Listener] PASS : TC08_TC09_Calculation]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- TC08_TC09_Calculation -->
+        <test-method is-config="true" signature="beforeMethod(java.lang.reflect.Method)[pri:0, instance:vn.pis.ui.tests.PIS6_ExportReceipt@2362f559]" started-at="2025-12-19T13:58:17 ICT" name="beforeMethod" finished-at="2025-12-19T13:58:17 ICT" duration-ms="0" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void vn.pis.ui.tests.PIS7_InventoryHistory.TC08_Filter_TimeRange()]]>
+                <![CDATA[public void vn.pis.ui.tests.PIS6_ExportReceipt.TC08_TC09_Calculation()]]>
               </value>
             </param>
           </params>
           <reporter-output>
             <line>
-              <![CDATA[[PIS7] ▶ BẮT ĐẦU TC: TC08_Filter_TimeRange]]>
+              <![CDATA[[PIS6] ▶ BẮT ĐẦU TC: TC08_TC09_Calculation]]>
             </line>
           </reporter-output>
         </test-method> <!-- beforeMethod -->
-        <test-method signature="TC08_Filter_TimeRange()[pri:6, instance:vn.pis.ui.tests.PIS7_InventoryHistory@279fedbd]" started-at="2025-12-06T02:09:32 ICT" name="TC08_Filter_TimeRange" description="PIS-7-TC-08: Lọc theo &#039;30 ngày qua&#039;" finished-at="2025-12-06T02:09:39 ICT" duration-ms="7609" status="PASS">
-          <reporter-output>
-            <line>
-              <![CDATA[[PIS2][Listener] START: TC08_Filter_TimeRange]]>
-            </line>
-            <line>
-              <![CDATA[[PIS7] Số bản ghi trong 30 ngày qua: 10]]>
-            </line>
-            <line>
-              <![CDATA[[PIS2][Listener] PASS : TC08_Filter_TimeRange]]>
-            </line>
-          </reporter-output>
-        </test-method> <!-- TC08_Filter_TimeRange -->
-        <test-method is-config="true" signature="beforeMethod(java.lang.reflect.Method)[pri:0, instance:vn.pis.ui.tests.PIS7_InventoryHistory@279fedbd]" started-at="2025-12-06T02:09:39 ICT" name="beforeMethod" finished-at="2025-12-06T02:09:40 ICT" duration-ms="512" status="PASS">
+        <test-method is-config="true" signature="beforeMethod(java.lang.reflect.Method)[pri:0, instance:vn.pis.ui.tests.PIS6_ExportReceipt@2362f559]" started-at="2025-12-19T13:58:20 ICT" name="beforeMethod" finished-at="2025-12-19T13:58:20 ICT" duration-ms="1" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void vn.pis.ui.tests.PIS7_InventoryHistory.TC08_NavigateToNextPage()]]>
+                <![CDATA[public void vn.pis.ui.tests.PIS6_ExportReceipt.TC10_DeleteRow()]]>
               </value>
             </param>
           </params>
           <reporter-output>
             <line>
-              <![CDATA[[PIS7] ▶ BẮT ĐẦU TC: TC08_NavigateToNextPage]]>
+              <![CDATA[[PIS6] ▶ BẮT ĐẦU TC: TC10_DeleteRow]]>
             </line>
           </reporter-output>
         </test-method> <!-- beforeMethod -->
-        <test-method signature="TC08_NavigateToNextPage()[pri:7, instance:vn.pis.ui.tests.PIS7_InventoryHistory@279fedbd]" started-at="2025-12-06T02:09:40 ICT" name="TC08_NavigateToNextPage" description="PIS-7-TC-08: Chuyển sang Trang kế tiếp (Nút Sau)" finished-at="2025-12-06T02:09:42 ICT" duration-ms="2643" status="PASS">
+        <test-method signature="TC10_DeleteRow()[pri:7, instance:vn.pis.ui.tests.PIS6_ExportReceipt@2362f559]" started-at="2025-12-19T13:58:20 ICT" name="TC10_DeleteRow" description="PIS-6-TC-10: Xóa dòng thuốc" finished-at="2025-12-19T13:58:22 ICT" duration-ms="1914" status="PASS">
           <reporter-output>
             <line>
-              <![CDATA[[PIS2][Listener] START: TC08_NavigateToNextPage]]>
+              <![CDATA[[PIS2][Listener] START: TC10_DeleteRow]]>
             </line>
             <line>
-              <![CDATA[[PIS7] ⚠ Không đủ dữ liệu (>10 dòng) hoặc đã ở trang cuối để kiểm tra nút 'Sau'.]]>
+              <![CDATA[[PIS6] Số dòng trước khi xóa: 2]]>
             </line>
             <line>
-              <![CDATA[[PIS2][Listener] PASS : TC08_NavigateToNextPage]]>
+              <![CDATA[[PIS6] Số dòng sau khi xóa: 1]]>
+            </line>
+            <line>
+              <![CDATA[[PIS2][Listener] PASS : TC10_DeleteRow]]>
             </line>
           </reporter-output>
-        </test-method> <!-- TC08_NavigateToNextPage -->
-        <test-method is-config="true" signature="beforeMethod(java.lang.reflect.Method)[pri:0, instance:vn.pis.ui.tests.PIS7_InventoryHistory@279fedbd]" started-at="2025-12-06T02:09:42 ICT" name="beforeMethod" finished-at="2025-12-06T02:09:43 ICT" duration-ms="476" status="PASS">
+        </test-method> <!-- TC10_DeleteRow -->
+        <test-method is-config="true" signature="beforeMethod(java.lang.reflect.Method)[pri:0, instance:vn.pis.ui.tests.PIS6_ExportReceipt@2362f559]" started-at="2025-12-19T13:58:22 ICT" name="beforeMethod" finished-at="2025-12-19T13:58:22 ICT" duration-ms="1" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void vn.pis.ui.tests.PIS7_InventoryHistory.TC09_NavigateToPreviousPage()]]>
+                <![CDATA[public void vn.pis.ui.tests.PIS6_ExportReceipt.TC20_FinishDisabled_WhenMissingDepartment()]]>
               </value>
             </param>
           </params>
           <reporter-output>
             <line>
-              <![CDATA[[PIS7] ▶ BẮT ĐẦU TC: TC09_NavigateToPreviousPage]]>
+              <![CDATA[[PIS6] ▶ BẮT ĐẦU TC: TC20_FinishDisabled_WhenMissingDepartment]]>
             </line>
           </reporter-output>
         </test-method> <!-- beforeMethod -->
-        <test-method signature="TC09_NavigateToPreviousPage()[pri:8, instance:vn.pis.ui.tests.PIS7_InventoryHistory@279fedbd]" started-at="2025-12-06T02:09:43 ICT" name="TC09_NavigateToPreviousPage" description="PIS-7-TC-09: Quay lại Trang trước (Nút Trước)" finished-at="2025-12-06T02:09:47 ICT" duration-ms="4425" status="PASS">
+        <test-method signature="TC20_FinishDisabled_WhenMissingDepartment()[pri:8, instance:vn.pis.ui.tests.PIS6_ExportReceipt@2362f559]" started-at="2025-12-19T13:58:22 ICT" name="TC20_FinishDisabled_WhenMissingDepartment" description="PIS-6-TC-20: Nút Hoàn thành DISABLED khi chưa chọn Khoa/Phòng" finished-at="2025-12-19T13:58:23 ICT" duration-ms="1349" status="PASS">
           <reporter-output>
             <line>
-              <![CDATA[[PIS2][Listener] START: TC09_NavigateToPreviousPage]]>
+              <![CDATA[[PIS2][Listener] START: TC20_FinishDisabled_WhenMissingDepartment]]>
             </line>
             <line>
-              <![CDATA[[PIS7] Dữ liệu dòng 1 (Trang 2): Xuất kho5/12/2025
-20:25]]>
-            </line>
-            <line>
-              <![CDATA[[PIS7] Dữ liệu dòng 1 (Trang 1): Xuất kho11/12/2025
-14:23]]>
-            </line>
-            <line>
-              <![CDATA[[PIS2][Listener] PASS : TC09_NavigateToPreviousPage]]>
+              <![CDATA[[PIS2][Listener] PASS : TC20_FinishDisabled_WhenMissingDepartment]]>
             </line>
           </reporter-output>
-        </test-method> <!-- TC09_NavigateToPreviousPage -->
-        <test-method is-config="true" signature="beforeMethod(java.lang.reflect.Method)[pri:0, instance:vn.pis.ui.tests.PIS7_InventoryHistory@279fedbd]" started-at="2025-12-06T02:09:47 ICT" name="beforeMethod" finished-at="2025-12-06T02:09:48 ICT" duration-ms="450" status="PASS">
+        </test-method> <!-- TC20_FinishDisabled_WhenMissingDepartment -->
+        <test-method signature="TC21_FinishDisabled_WhenDrugNotSelected()[pri:9, instance:vn.pis.ui.tests.PIS6_ExportReceipt@2362f559]" started-at="2025-12-19T13:58:23 ICT" name="TC21_FinishDisabled_WhenDrugNotSelected" description="PIS-6-TC-21: Nút Hoàn thành DISABLED khi chưa chọn thuốc (chỉ gõ text)" finished-at="2025-12-19T13:58:24 ICT" duration-ms="1068" status="PASS">
+          <reporter-output>
+            <line>
+              <![CDATA[[PIS2][Listener] START: TC21_FinishDisabled_WhenDrugNotSelected]]>
+            </line>
+            <line>
+              <![CDATA[[PIS2][Listener] PASS : TC21_FinishDisabled_WhenDrugNotSelected]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- TC21_FinishDisabled_WhenDrugNotSelected -->
+        <test-method is-config="true" signature="beforeMethod(java.lang.reflect.Method)[pri:0, instance:vn.pis.ui.tests.PIS6_ExportReceipt@2362f559]" started-at="2025-12-19T13:58:23 ICT" name="beforeMethod" finished-at="2025-12-19T13:58:23 ICT" duration-ms="0" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void vn.pis.ui.tests.PIS7_InventoryHistory.TC09_PaginationSize()]]>
+                <![CDATA[public void vn.pis.ui.tests.PIS6_ExportReceipt.TC21_FinishDisabled_WhenDrugNotSelected()]]>
               </value>
             </param>
           </params>
           <reporter-output>
             <line>
-              <![CDATA[[PIS7] ▶ BẮT ĐẦU TC: TC09_PaginationSize]]>
+              <![CDATA[[PIS6] ▶ BẮT ĐẦU TC: TC21_FinishDisabled_WhenDrugNotSelected]]>
             </line>
           </reporter-output>
         </test-method> <!-- beforeMethod -->
-        <test-method signature="TC09_PaginationSize()[pri:9, instance:vn.pis.ui.tests.PIS7_InventoryHistory@279fedbd]" started-at="2025-12-06T02:09:48 ICT" name="TC09_PaginationSize" description="PIS-7-TC-09: Phân trang 25/50/100" finished-at="2025-12-06T02:09:57 ICT" duration-ms="8805" status="PASS">
-          <reporter-output>
-            <line>
-              <![CDATA[[PIS2][Listener] START: TC09_PaginationSize]]>
-            </line>
-            <line>
-              <![CDATA[[PIS2][Listener] PASS : TC09_PaginationSize]]>
-            </line>
-          </reporter-output>
-        </test-method> <!-- TC09_PaginationSize -->
-        <test-method is-config="true" signature="beforeMethod(java.lang.reflect.Method)[pri:0, instance:vn.pis.ui.tests.PIS7_InventoryHistory@279fedbd]" started-at="2025-12-06T02:09:57 ICT" name="beforeMethod" finished-at="2025-12-06T02:09:57 ICT" duration-ms="513" status="PASS">
+        <test-method is-config="true" signature="beforeMethod(java.lang.reflect.Method)[pri:0, instance:vn.pis.ui.tests.PIS6_ExportReceipt@2362f559]" started-at="2025-12-19T13:58:24 ICT" name="beforeMethod" finished-at="2025-12-19T13:58:24 ICT" duration-ms="2" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void vn.pis.ui.tests.PIS7_InventoryHistory.TC12_VerifyDataConsistency()]]>
+                <![CDATA[public void vn.pis.ui.tests.PIS6_ExportReceipt.TC13_Validate_EmptyQuantity()]]>
               </value>
             </param>
           </params>
           <reporter-output>
             <line>
-              <![CDATA[[PIS7] ▶ BẮT ĐẦU TC: TC12_VerifyDataConsistency]]>
+              <![CDATA[[PIS6] ▶ BẮT ĐẦU TC: TC13_Validate_EmptyQuantity]]>
             </line>
           </reporter-output>
         </test-method> <!-- beforeMethod -->
-        <test-method signature="TC12_VerifyDataConsistency()[pri:12, instance:vn.pis.ui.tests.PIS7_InventoryHistory@279fedbd]" started-at="2025-12-06T02:09:57 ICT" name="TC12_VerifyDataConsistency" description="PIS-7-TC-12: Thống nhất dữ liệu giữa lịch sử và phiếu" finished-at="2025-12-06T02:10:09 ICT" duration-ms="11771" status="PASS">
+        <test-method signature="TC13_Validate_EmptyQuantity()[pri:10, instance:vn.pis.ui.tests.PIS6_ExportReceipt@2362f559]" started-at="2025-12-19T13:58:24 ICT" name="TC13_Validate_EmptyQuantity" description="PIS-6-TC-13: Bắt buộc nhập Số lượng" finished-at="2025-12-19T13:58:33 ICT" duration-ms="8879" status="PASS">
           <reporter-output>
             <line>
-              <![CDATA[[PIS2][Listener] START: TC12_VerifyDataConsistency]]>
+              <![CDATA[[PIS2][Listener] START: TC13_Validate_EmptyQuantity]]>
             </line>
             <line>
-              <![CDATA[[PIS7] Giá trị ở danh sách (Cột 3 - Kho): ]]>
-            </line>
-            <line>
-              <![CDATA[[PIS7] ⚠ Lỗi verify chi tiết: Expected condition failed: waiting for element to be clickable: By.xpath: (//table//tbody/tr)[1]//button[contains(.,'Xem') or .//*[name()='svg']] (tried for 5 second(s) with 500 milliseconds interval)
-Build info: version: '4.24.0', revision: '748ffc9bc3'
-System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '20.0.2'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 142.0.7444.176, chrome: {chromedriverVersion: 142.0.7444.175 (302067f14a4..., userDataDir: C:\Users\DELL\AppData\Local...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:57514}, goog:processID: 24836, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:57514/devtoo..., se:cdpVersion: 142.0.7444.176, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: 584494fb04ddf5bac56c2c95112968e8]]>
-            </line>
-            <line>
-              <![CDATA[[PIS2][Listener] PASS : TC12_VerifyDataConsistency]]>
+              <![CDATA[[PIS2][Listener] PASS : TC13_Validate_EmptyQuantity]]>
             </line>
           </reporter-output>
-        </test-method> <!-- TC12_VerifyDataConsistency -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:vn.pis.ui.tests.PIS7_InventoryHistory@279fedbd]" started-at="2025-12-06T02:10:09 ICT" name="tearDown" finished-at="2025-12-06T02:10:09 ICT" duration-ms="302" status="PASS">
+        </test-method> <!-- TC13_Validate_EmptyQuantity -->
+        <test-method signature="TC23_QuantityZero_ShouldNotAllowFinish()[pri:11, instance:vn.pis.ui.tests.PIS6_ExportReceipt@2362f559]" started-at="2025-12-19T13:58:33 ICT" name="TC23_QuantityZero_ShouldNotAllowFinish" description="PIS-6-TC-23: Số lượng = 0 =&gt; DISABLED hoặc báo lỗi" finished-at="2025-12-19T13:58:42 ICT" duration-ms="9025" status="PASS">
+          <reporter-output>
+            <line>
+              <![CDATA[[PIS2][Listener] START: TC23_QuantityZero_ShouldNotAllowFinish]]>
+            </line>
+            <line>
+              <![CDATA[[PIS2][Listener] PASS : TC23_QuantityZero_ShouldNotAllowFinish]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- TC23_QuantityZero_ShouldNotAllowFinish -->
+        <test-method is-config="true" signature="beforeMethod(java.lang.reflect.Method)[pri:0, instance:vn.pis.ui.tests.PIS6_ExportReceipt@2362f559]" started-at="2025-12-19T13:58:33 ICT" name="beforeMethod" finished-at="2025-12-19T13:58:33 ICT" duration-ms="0" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void vn.pis.ui.tests.PIS6_ExportReceipt.TC23_QuantityZero_ShouldNotAllowFinish()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+            <line>
+              <![CDATA[[PIS6] ▶ BẮT ĐẦU TC: TC23_QuantityZero_ShouldNotAllowFinish]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- beforeMethod -->
+        <test-method is-config="true" signature="beforeMethod(java.lang.reflect.Method)[pri:0, instance:vn.pis.ui.tests.PIS6_ExportReceipt@2362f559]" started-at="2025-12-19T13:58:42 ICT" name="beforeMethod" finished-at="2025-12-19T13:58:42 ICT" duration-ms="1" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void vn.pis.ui.tests.PIS6_ExportReceipt.TC24_QuantityNegative_ShouldNotAllowFinish()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+            <line>
+              <![CDATA[[PIS6] ▶ BẮT ĐẦU TC: TC24_QuantityNegative_ShouldNotAllowFinish]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- beforeMethod -->
+        <test-method signature="TC24_QuantityNegative_ShouldNotAllowFinish()[pri:12, instance:vn.pis.ui.tests.PIS6_ExportReceipt@2362f559]" started-at="2025-12-19T13:58:42 ICT" name="TC24_QuantityNegative_ShouldNotAllowFinish" description="PIS-6-TC-24: Số lượng âm =&gt; DISABLED hoặc báo lỗi" finished-at="2025-12-19T13:58:51 ICT" duration-ms="8819" status="PASS">
+          <reporter-output>
+            <line>
+              <![CDATA[[PIS2][Listener] START: TC24_QuantityNegative_ShouldNotAllowFinish]]>
+            </line>
+            <line>
+              <![CDATA[[PIS2][Listener] PASS : TC24_QuantityNegative_ShouldNotAllowFinish]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- TC24_QuantityNegative_ShouldNotAllowFinish -->
+        <test-method signature="TC11_Validate_OverStock()[pri:13, instance:vn.pis.ui.tests.PIS6_ExportReceipt@2362f559]" started-at="2025-12-19T13:58:51 ICT" name="TC11_Validate_OverStock" description="PIS-6-TC-11: Không cho phép xuất quá tồn (Check Banner &amp; Disabled Button)" finished-at="2025-12-19T13:58:55 ICT" duration-ms="3663" status="PASS">
+          <reporter-output>
+            <line>
+              <![CDATA[[PIS2][Listener] START: TC11_Validate_OverStock]]>
+            </line>
+            <line>
+              <![CDATA[[PIS6] Nội dung cảnh báo bắt được: Cảnh báo: Một số thuốc có số lượng xuất vượt quá tồn kho hiện tại. Vui lòng kiểm tra lại.]]>
+            </line>
+            <line>
+              <![CDATA[[PIS6] Trạng thái nút Hoàn thành (Enabled?): false]]>
+            </line>
+            <line>
+              <![CDATA[[PIS6] PASS: Hệ thống đã hiện cảnh báo và khóa nút Hoàn thành đúng yêu cầu.]]>
+            </line>
+            <line>
+              <![CDATA[[PIS2][Listener] PASS : TC11_Validate_OverStock]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- TC11_Validate_OverStock -->
+        <test-method is-config="true" signature="beforeMethod(java.lang.reflect.Method)[pri:0, instance:vn.pis.ui.tests.PIS6_ExportReceipt@2362f559]" started-at="2025-12-19T13:58:51 ICT" name="beforeMethod" finished-at="2025-12-19T13:58:51 ICT" duration-ms="0" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void vn.pis.ui.tests.PIS6_ExportReceipt.TC11_Validate_OverStock()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+            <line>
+              <![CDATA[[PIS6] ▶ BẮT ĐẦU TC: TC11_Validate_OverStock]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- beforeMethod -->
+        <test-method signature="TC19_Refresh_ClearData()[pri:14, instance:vn.pis.ui.tests.PIS6_ExportReceipt@2362f559]" started-at="2025-12-19T13:58:55 ICT" name="TC19_Refresh_ClearData" description="PIS-6-TC-19: Làm mới - Xóa sạch dữ liệu" finished-at="2025-12-19T13:58:58 ICT" duration-ms="2862" status="PASS">
+          <reporter-output>
+            <line>
+              <![CDATA[[PIS2][Listener] START: TC19_Refresh_ClearData]]>
+            </line>
+            <line>
+              <![CDATA[[PIS6] PASS: Bảng thuốc đã reset về dòng trắng mặc định.]]>
+            </line>
+            <line>
+              <![CDATA[[PIS2][Listener] PASS : TC19_Refresh_ClearData]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- TC19_Refresh_ClearData -->
+        <test-method is-config="true" signature="beforeMethod(java.lang.reflect.Method)[pri:0, instance:vn.pis.ui.tests.PIS6_ExportReceipt@2362f559]" started-at="2025-12-19T13:58:55 ICT" name="beforeMethod" finished-at="2025-12-19T13:58:55 ICT" duration-ms="0" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void vn.pis.ui.tests.PIS6_ExportReceipt.TC19_Refresh_ClearData()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+            <line>
+              <![CDATA[[PIS6] ▶ BẮT ĐẦU TC: TC19_Refresh_ClearData]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- beforeMethod -->
+        <test-method is-config="true" signature="beforeMethod(java.lang.reflect.Method)[pri:0, instance:vn.pis.ui.tests.PIS6_ExportReceipt@2362f559]" started-at="2025-12-19T13:58:58 ICT" name="beforeMethod" finished-at="2025-12-19T13:58:58 ICT" duration-ms="1" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void vn.pis.ui.tests.PIS6_ExportReceipt.TC22_Notes_SpecialChars_CreateSuccess()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+            <line>
+              <![CDATA[[PIS6] ▶ BẮT ĐẦU TC: TC22_Notes_SpecialChars_CreateSuccess]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- beforeMethod -->
+        <test-method signature="TC22_Notes_SpecialChars_CreateSuccess()[pri:15, instance:vn.pis.ui.tests.PIS6_ExportReceipt@2362f559]" started-at="2025-12-19T13:58:58 ICT" name="TC22_Notes_SpecialChars_CreateSuccess" description="PIS-6-TC-22: Ghi chú ký tự đặc biệt vẫn cho lưu thành công" finished-at="2025-12-19T13:59:00 ICT" duration-ms="2634" status="PASS">
+          <reporter-output>
+            <line>
+              <![CDATA[[PIS2][Listener] START: TC22_Notes_SpecialChars_CreateSuccess]]>
+            </line>
+            <line>
+              <![CDATA[[PIS2][Listener] PASS : TC22_Notes_SpecialChars_CreateSuccess]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- TC22_Notes_SpecialChars_CreateSuccess -->
+        <test-method signature="TC25_Popup_Content_BasicInfo()[pri:16, instance:vn.pis.ui.tests.PIS6_ExportReceipt@2362f559]" started-at="2025-12-19T13:59:00 ICT" name="TC25_Popup_Content_BasicInfo" description="PIS-6-TC-25: Popup thành công có đủ thông tin cơ bản (Khoa/Phòng + Tổng tiền)" finished-at="2025-12-19T13:59:05 ICT" duration-ms="4142" status="PASS">
+          <reporter-output>
+            <line>
+              <![CDATA[[PIS2][Listener] START: TC25_Popup_Content_BasicInfo]]>
+            </line>
+            <line>
+              <![CDATA[[PIS2][Listener] PASS : TC25_Popup_Content_BasicInfo]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- TC25_Popup_Content_BasicInfo -->
+        <test-method is-config="true" signature="beforeMethod(java.lang.reflect.Method)[pri:0, instance:vn.pis.ui.tests.PIS6_ExportReceipt@2362f559]" started-at="2025-12-19T13:59:00 ICT" name="beforeMethod" finished-at="2025-12-19T13:59:00 ICT" duration-ms="0" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void vn.pis.ui.tests.PIS6_ExportReceipt.TC25_Popup_Content_BasicInfo()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+            <line>
+              <![CDATA[[PIS6] ▶ BẮT ĐẦU TC: TC25_Popup_Content_BasicInfo]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- beforeMethod -->
+        <test-method signature="TC26_Popup_Close_ReturnToForm()[pri:17, instance:vn.pis.ui.tests.PIS6_ExportReceipt@2362f559]" started-at="2025-12-19T13:59:05 ICT" name="TC26_Popup_Close_ReturnToForm" description="PIS-6-TC-26: Nút Đóng popup =&gt; quay về màn Tạo phiếu xuất kho" finished-at="2025-12-19T13:59:09 ICT" duration-ms="4675" status="PASS">
+          <reporter-output>
+            <line>
+              <![CDATA[[PIS2][Listener] START: TC26_Popup_Close_ReturnToForm]]>
+            </line>
+            <line>
+              <![CDATA[[PIS2][Listener] PASS : TC26_Popup_Close_ReturnToForm]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- TC26_Popup_Close_ReturnToForm -->
+        <test-method is-config="true" signature="beforeMethod(java.lang.reflect.Method)[pri:0, instance:vn.pis.ui.tests.PIS6_ExportReceipt@2362f559]" started-at="2025-12-19T13:59:05 ICT" name="beforeMethod" finished-at="2025-12-19T13:59:05 ICT" duration-ms="0" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void vn.pis.ui.tests.PIS6_ExportReceipt.TC26_Popup_Close_ReturnToForm()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+            <line>
+              <![CDATA[[PIS6] ▶ BẮT ĐẦU TC: TC26_Popup_Close_ReturnToForm]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- beforeMethod -->
+        <test-method signature="TC27_Popup_CreateNew_ResetForm()[pri:18, instance:vn.pis.ui.tests.PIS6_ExportReceipt@2362f559]" started-at="2025-12-19T13:59:09 ICT" name="TC27_Popup_CreateNew_ResetForm" description="PIS-6-TC-27: Nút Tạo Phiếu Mới =&gt; reset form (Ghi chú rỗng, tổng = 0)" finished-at="2025-12-19T13:59:13 ICT" duration-ms="3463" status="PASS">
+          <reporter-output>
+            <line>
+              <![CDATA[[PIS2][Listener] START: TC27_Popup_CreateNew_ResetForm]]>
+            </line>
+            <line>
+              <![CDATA[[PIS2][Listener] PASS : TC27_Popup_CreateNew_ResetForm]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- TC27_Popup_CreateNew_ResetForm -->
+        <test-method is-config="true" signature="beforeMethod(java.lang.reflect.Method)[pri:0, instance:vn.pis.ui.tests.PIS6_ExportReceipt@2362f559]" started-at="2025-12-19T13:59:09 ICT" name="beforeMethod" finished-at="2025-12-19T13:59:09 ICT" duration-ms="0" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void vn.pis.ui.tests.PIS6_ExportReceipt.TC27_Popup_CreateNew_ResetForm()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+            <line>
+              <![CDATA[[PIS6] ▶ BẮT ĐẦU TC: TC27_Popup_CreateNew_ResetForm]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- beforeMethod -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:vn.pis.ui.tests.PIS6_ExportReceipt@2362f559]" started-at="2025-12-19T13:59:13 ICT" name="tearDown" finished-at="2025-12-19T13:59:13 ICT" duration-ms="149" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-      </class> <!-- vn.pis.ui.tests.PIS7_InventoryHistory -->
+      </class> <!-- vn.pis.ui.tests.PIS6_ExportReceipt -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
