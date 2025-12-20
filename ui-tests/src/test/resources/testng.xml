@@ -17,4 +17,9 @@
             <class name="vn.pis.ui.tests.PIS3_AddSupplier"/>
         </classes>
     </test>
+    <test name="Medicine List (PIS-4)">
+        <classes>
+            <class name="vn.pis.ui.tests.PIS4_MedicineList_UIRender_Search_Filter_Pagination"/>
+        </classes>
+    </test>
 </suite>
