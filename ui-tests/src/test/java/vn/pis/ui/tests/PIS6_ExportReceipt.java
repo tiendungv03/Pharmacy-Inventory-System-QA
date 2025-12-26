@@ -60,9 +60,9 @@ public class PIS6_ExportReceipt extends BaseTest {
         log("▶ BẮT ĐẦU TC: " + m.getName());
     }
 
-    
-    
-    
+
+
+
     // =========================
     // HELPERS (add inside class)
     // =========================
@@ -134,12 +134,12 @@ public class PIS6_ExportReceipt extends BaseTest {
         page.clickFinish();
         waitDialogVisible(15);
     }
-    
-    
-////////////////UI///////
+
+
+    ////////////////UI///////
 
     @Test(priority = 1, description = "PIS-6-TC-01: Mở màn hình tạo phiếu xuất kho")
-    public void TC01_OpenExportPage() { 
+    public void TC01_OpenExportPage() {
         ExportReceiptPage page = new ExportReceiptPage(driver);
         page.open();
 
@@ -403,7 +403,7 @@ public class PIS6_ExportReceipt extends BaseTest {
         log("Nội dung cảnh báo bắt được: " + actualMsg);
 
         boolean isMsgCorrect = actualMsg.toLowerCase().contains("vượt quá") ||
-                               actualMsg.toLowerCase().contains("tồn kho");
+                actualMsg.toLowerCase().contains("tồn kho");
         Assert.assertTrue(isMsgCorrect, "Nội dung cảnh báo không đúng ngữ cảnh! Actual: " + actualMsg);
 
         WebElement btnFinish = driver.findElement(By.xpath("//button[contains(.,'Hoàn thành phiếu xuất')]"));
@@ -514,7 +514,7 @@ public class PIS6_ExportReceipt extends BaseTest {
         Assert.assertEquals(total, 0, "Tổng tiền chưa reset về 0 sau Tạo Phiếu Mới!");
     }
 
-    
+
 
 
 }
