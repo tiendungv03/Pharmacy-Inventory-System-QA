@@ -1,0 +1,1 @@
+When finishing changes: run relevant TestNG suite (IntelliJ run testng.xml or `mvn clean test` in ui-tests), confirm config in src/test/resources/config/common.properties if needed, and mention any test gaps if not run.
