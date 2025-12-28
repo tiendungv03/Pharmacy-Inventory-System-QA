@@ -14,7 +14,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class BaseTest {
-    protected WebDriver driver;
+	protected WebDriver driver;
     protected WebDriverWait wait;
 
     // Đọc flag từ system property/env để linh hoạt khi chạy CI: -Dheadless=true -DimagesOff=true -Dpls=eager

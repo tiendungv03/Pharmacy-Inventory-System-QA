@@ -55,11 +55,11 @@ function toggleAllBoxes() {
 <body>
 <h2 align='center'>Default test</h2><table border='1' align="center">
 <tr>
-<td>Tests passed/Failed/Skipped:</td><td>6/0/0</td>
+<td>Tests passed/Failed/Skipped:</td><td>10/0/0</td>
 </tr><tr>
-<td>Started on:</td><td>Mon Nov 17 20:32:46 ICT 2025</td>
+<td>Started on:</td><td>Sat Dec 06 02:09:14 ICT 2025</td>
 </tr>
-<tr><td>Total time:</td><td>21 seconds (21327 ms)</td>
+<tr><td>Total time:</td><td>55 seconds (55365 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -76,102 +76,152 @@ function toggleAllBoxes() {
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='vn.pis.ui.tests.PIS1_User.TC01_Display_User_List()'><b>TC01_Display_User_List</b><br>Test class: vn.pis.ui.tests.PIS1_User<br/>
-<a href="#Output-665565246" onClick='toggleBox("Output-665565246", this, "Show output", "Hide output");'>Show output</a>
+<td title='vn.pis.ui.tests.PIS7_InventoryHistory.TC01_VerifyTableStructure()'><b>TC01_VerifyTableStructure</b><br>Test class: vn.pis.ui.tests.PIS7_InventoryHistory<br>Test method: PIS-7-TC-01: Hiển thị bảng lịch sử giao dịch - Kiểm tra cột<br/>
+<a href="#Output-205278236" onClick='toggleBox("Output-205278236", this, "Show output", "Hide output");'>Show output</a>
 
-<a href="#Output-665565246" onClick="toggleAllBoxes();">Show all outputs</a>
-<div class='log' id="Output-665565246">
-[PIS2][Listener] START: TC01_Display_User_List<br/>
-[PIS1] Bước 1: Mở trang login và đăng nhập Admin<br/>
-[PIS1] Bước 2: Đi tới trang Quản lý người dùng<br/>
-[PIS1] Bước 3: Xác minh bảng hiển thị<br/>
-[PIS1] Các cột tìm thấy: [Tên đăng nhập, Họ và tên, Email, Số điện thoại, Vai trò, Trạng thái, Đăng nhập cuối, ]<br/>
-[PIS2][Listener] PASS : TC01_Display_User_List<br/>
+<a href="#Output-205278236" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-205278236">
+[PIS2][Listener] START: TC01_VerifyTableStructure<br/>
+[PIS7] Header thực tế: [Loại, Thời gian, Kho, Khoa/Phòng, Người tạo, Trạng thái, Hành động]<br/>
+[PIS2][Listener] PASS : TC01_VerifyTableStructure<br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>vn.pis.ui.tests.PIS7_InventoryHistory@279fedbd</td></tr>
+<tr>
+<td title='vn.pis.ui.tests.PIS7_InventoryHistory.TC08_Filter_TimeRange()'><b>TC08_Filter_TimeRange</b><br>Test class: vn.pis.ui.tests.PIS7_InventoryHistory<br>Test method: PIS-7-TC-08: Lọc theo '30 ngày qua'<br/>
+<a href="#Output-1817662245" onClick='toggleBox("Output-1817662245", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1817662245" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1817662245">
+[PIS2][Listener] START: TC08_Filter_TimeRange<br/>
+[PIS7] Số bản ghi trong 30 ngày qua: 10<br/>
+[PIS2][Listener] PASS : TC08_Filter_TimeRange<br/>
+</div>
+</td>
+<td></td>
+<td>7</td>
+<td>vn.pis.ui.tests.PIS7_InventoryHistory@279fedbd</td></tr>
+<tr>
+<td title='vn.pis.ui.tests.PIS7_InventoryHistory.TC12_VerifyDataConsistency()'><b>TC12_VerifyDataConsistency</b><br>Test class: vn.pis.ui.tests.PIS7_InventoryHistory<br>Test method: PIS-7-TC-12: Thống nhất dữ liệu giữa lịch sử và phiếu<br/>
+<a href="#Output-1015709240" onClick='toggleBox("Output-1015709240", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1015709240" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1015709240">
+[PIS2][Listener] START: TC12_VerifyDataConsistency<br/>
+[PIS7] Giá trị ở danh sách (Cột 3 - Kho): <br/>
+[PIS7] ⚠ Lỗi verify chi tiết: Expected condition failed: waiting for element to be clickable: By.xpath: (//table//tbody/tr)[1]//button[contains(.,'Xem') or .//*[name()='svg']] (tried for 5 second(s) with 500 milliseconds interval)
+Build info: version: '4.24.0', revision: '748ffc9bc3'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '20.0.2'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 142.0.7444.176, chrome: {chromedriverVersion: 142.0.7444.175 (302067f14a4..., userDataDir: C:\Users\DELL\AppData\Local...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:57514}, goog:processID: 24836, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:57514/devtoo..., se:cdpVersion: 142.0.7444.176, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 584494fb04ddf5bac56c2c95112968e8<br/>
+[PIS2][Listener] PASS : TC12_VerifyDataConsistency<br/>
+</div>
+</td>
+<td></td>
+<td>11</td>
+<td>vn.pis.ui.tests.PIS7_InventoryHistory@279fedbd</td></tr>
+<tr>
+<td title='vn.pis.ui.tests.PIS7_InventoryHistory.TC07_Filter_Export()'><b>TC07_Filter_Export</b><br>Test class: vn.pis.ui.tests.PIS7_InventoryHistory<br>Test method: PIS-7-TC-07: Lọc 'Xuất kho'<br/>
+<a href="#Output-2079278380" onClick='toggleBox("Output-2079278380", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-2079278380" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-2079278380">
+[PIS2][Listener] START: TC07_Filter_Export<br/>
+[PIS2][Listener] PASS : TC07_Filter_Export<br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>vn.pis.ui.tests.PIS7_InventoryHistory@279fedbd</td></tr>
+<tr>
+<td title='vn.pis.ui.tests.PIS7_InventoryHistory.TC08_NavigateToNextPage()'><b>TC08_NavigateToNextPage</b><br>Test class: vn.pis.ui.tests.PIS7_InventoryHistory<br>Test method: PIS-7-TC-08: Chuyển sang Trang kế tiếp (Nút Sau)<br/>
+<a href="#Output-1512822728" onClick='toggleBox("Output-1512822728", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1512822728" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1512822728">
+[PIS2][Listener] START: TC08_NavigateToNextPage<br/>
+[PIS7] ⚠ Không đủ dữ liệu (>10 dòng) hoặc đã ở trang cuối để kiểm tra nút 'Sau'.<br/>
+[PIS2][Listener] PASS : TC08_NavigateToNextPage<br/>
 </div>
 </td>
 <td></td>
 <td>2</td>
-<td>vn.pis.ui.tests.PIS1_User@3bf7ca37</td></tr>
+<td>vn.pis.ui.tests.PIS7_InventoryHistory@279fedbd</td></tr>
 <tr>
-<td title='vn.pis.ui.tests.PIS1_User.TC02_B_Create_New_User_Success()'><b>TC02_B_Create_New_User_Success</b><br>Test class: vn.pis.ui.tests.PIS1_User<br/>
-<a href="#Output-1263841085" onClick='toggleBox("Output-1263841085", this, "Show output", "Hide output");'>Show output</a>
+<td title='vn.pis.ui.tests.PIS7_InventoryHistory.TC05_Filter_All()'><b>TC05_Filter_All</b><br>Test class: vn.pis.ui.tests.PIS7_InventoryHistory<br>Test method: PIS-7-TC-05: Lọc 'Tất cả giao dịch' (Sau khi đã lọc Nhập/Xuất)<br/>
+<a href="#Output-1781459498" onClick='toggleBox("Output-1781459498", this, "Show output", "Hide output");'>Show output</a>
 
-<a href="#Output-1263841085" onClick="toggleAllBoxes();">Show all outputs</a>
-<div class='log' id="Output-1263841085">
-[PIS2][Listener] START: TC02_B_Create_New_User_Success<br/>
-[PIS1] 📸 Đã lưu ảnh tại: ./ScreenShots/Hinh_4_4_4_Them_Thanh_Cong.png<br/>
-[PIS1] TC02_B OK<br/>
-[PIS2][Listener] PASS : TC02_B_Create_New_User_Success<br/>
+<a href="#Output-1781459498" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1781459498">
+[PIS2][Listener] START: TC05_Filter_All<br/>
+[PIS7] Số lượng giao dịch tìm thấy (Tất cả): 1<br/>
+[PIS2][Listener] PASS : TC05_Filter_All<br/>
 </div>
 </td>
 <td></td>
-<td>5</td>
-<td>vn.pis.ui.tests.PIS1_User@3bf7ca37</td></tr>
+<td>6</td>
+<td>vn.pis.ui.tests.PIS7_InventoryHistory@279fedbd</td></tr>
 <tr>
-<td title='vn.pis.ui.tests.PIS1_User.TC05_Lock_Unlock_User()'><b>TC05_Lock_Unlock_User</b><br>Test class: vn.pis.ui.tests.PIS1_User<br/>
-<a href="#Output-1950246647" onClick='toggleBox("Output-1950246647", this, "Show output", "Hide output");'>Show output</a>
+<td title='vn.pis.ui.tests.PIS7_InventoryHistory.TC09_NavigateToPreviousPage()'><b>TC09_NavigateToPreviousPage</b><br>Test class: vn.pis.ui.tests.PIS7_InventoryHistory<br>Test method: PIS-7-TC-09: Quay lại Trang trước (Nút Trước)<br/>
+<a href="#Output-1928983164" onClick='toggleBox("Output-1928983164", this, "Show output", "Hide output");'>Show output</a>
 
-<a href="#Output-1950246647" onClick="toggleAllBoxes();">Show all outputs</a>
-<div class='log' id="Output-1950246647">
-[PIS2][Listener] START: TC05_Lock_Unlock_User<br/>
-[PIS1] 1. Thực hiện KHÓA user: user_1763386372108<br/>
-[PIS1] 2. Thực hiện MỞ KHÓA user: user_1763386372108<br/>
-[PIS1] TC05 OK - Khóa/Mở khóa hoạt động tốt.<br/>
-[PIS2][Listener] PASS : TC05_Lock_Unlock_User<br/>
-</div>
-</td>
-<td></td>
-<td>3</td>
-<td>vn.pis.ui.tests.PIS1_User@3bf7ca37</td></tr>
-<tr>
-<td title='vn.pis.ui.tests.PIS1_User.TC04_Edit_User_Success()'><b>TC04_Edit_User_Success</b><br>Test class: vn.pis.ui.tests.PIS1_User<br/>
-<a href="#Output-1820355723" onClick='toggleBox("Output-1820355723", this, "Show output", "Hide output");'>Show output</a>
-
-<a href="#Output-1820355723" onClick="toggleAllBoxes();">Show all outputs</a>
-<div class='log' id="Output-1820355723">
-[PIS2][Listener] START: TC04_Edit_User_Success<br/>
-[PIS1] User được chọn để sửa: user_1763386372108<br/>
-[PIS1] Nhập thông tin mới: Updated 1763386381304<br/>
-[PIS1] Kiểm tra thông tin sau khi sửa<br/>
-[PIS1] TC04 OK - Chỉnh sửa thành công.<br/>
-[PIS2][Listener] PASS : TC04_Edit_User_Success<br/>
+<a href="#Output-1928983164" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1928983164">
+[PIS2][Listener] START: TC09_NavigateToPreviousPage<br/>
+[PIS7] Dữ liệu dòng 1 (Trang 2): Xuất kho5/12/2025
+20:25<br/>
+[PIS7] Dữ liệu dòng 1 (Trang 1): Xuất kho11/12/2025
+14:23<br/>
+[PIS2][Listener] PASS : TC09_NavigateToPreviousPage<br/>
 </div>
 </td>
 <td></td>
 <td>4</td>
-<td>vn.pis.ui.tests.PIS1_User@3bf7ca37</td></tr>
+<td>vn.pis.ui.tests.PIS7_InventoryHistory@279fedbd</td></tr>
 <tr>
-<td title='vn.pis.ui.tests.PIS1_User.TC02_A_Verify_Create_User_Popup_UI()'><b>TC02_A_Verify_Create_User_Popup_UI</b><br>Test class: vn.pis.ui.tests.PIS1_User<br/>
-<a href="#Output-755759908" onClick='toggleBox("Output-755759908", this, "Show output", "Hide output");'>Show output</a>
+<td title='vn.pis.ui.tests.PIS7_InventoryHistory.TC09_PaginationSize()'><b>TC09_PaginationSize</b><br>Test class: vn.pis.ui.tests.PIS7_InventoryHistory<br>Test method: PIS-7-TC-09: Phân trang 25/50/100<br/>
+<a href="#Output-1185188034" onClick='toggleBox("Output-1185188034", this, "Show output", "Hide output");'>Show output</a>
 
-<a href="#Output-755759908" onClick="toggleAllBoxes();">Show all outputs</a>
-<div class='log' id="Output-755759908">
-[PIS2][Listener] START: TC02_A_Verify_Create_User_Popup_UI<br/>
-[PIS1] Bước 1: Mở trang Quản lý người dùng<br/>
-[PIS1] Bước 2: Click nút 'Thêm người dùng mới'<br/>
-[PIS1] 📸 Đã lưu ảnh tại: ./ScreenShots/Hinh_4_4_3_Popup_Them_Nguoi_Dung.png<br/>
-[PIS1] TC02_A OK<br/>
-[PIS2][Listener] PASS : TC02_A_Verify_Create_User_Popup_UI<br/>
+<a href="#Output-1185188034" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1185188034">
+[PIS2][Listener] START: TC09_PaginationSize<br/>
+[PIS2][Listener] PASS : TC09_PaginationSize<br/>
 </div>
 </td>
 <td></td>
-<td>1</td>
-<td>vn.pis.ui.tests.PIS1_User@3bf7ca37</td></tr>
+<td>8</td>
+<td>vn.pis.ui.tests.PIS7_InventoryHistory@279fedbd</td></tr>
 <tr>
-<td title='vn.pis.ui.tests.PIS1_User.TC03_Search_User_Success()'><b>TC03_Search_User_Success</b><br>Test class: vn.pis.ui.tests.PIS1_User<br/>
-<a href="#Output-1487287849" onClick='toggleBox("Output-1487287849", this, "Show output", "Hide output");'>Show output</a>
+<td title='vn.pis.ui.tests.PIS7_InventoryHistory.TC02_VerifyRowTypeIcon()'><b>TC02_VerifyRowTypeIcon</b><br>Test class: vn.pis.ui.tests.PIS7_InventoryHistory<br>Test method: PIS-7-TC-02: Phân biệt icon Nhập/Xuất<br/>
+<a href="#Output-1269826537" onClick='toggleBox("Output-1269826537", this, "Show output", "Hide output");'>Show output</a>
 
-<a href="#Output-1487287849" onClick="toggleAllBoxes();">Show all outputs</a>
-<div class='log' id="Output-1487287849">
-[PIS2][Listener] START: TC03_Search_User_Success<br/>
-[PIS1] Từ khóa tìm kiếm: user_1763386372108<br/>
-[PIS1] TC03 OK - Tìm kiếm hoạt động tốt.<br/>
-[PIS2][Listener] PASS : TC03_Search_User_Success<br/>
+<a href="#Output-1269826537" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1269826537">
+[PIS2][Listener] START: TC02_VerifyRowTypeIcon<br/>
+[PIS7] Dữ liệu cột Loại dòng 1 đang hiển thị: Xuất kho<br/>
+[PIS7] Check Icon dòng 1 -> Is Import? false | Is Export? true<br/>
+[PIS2][Listener] PASS : TC02_VerifyRowTypeIcon<br/>
 </div>
 </td>
 <td></td>
-<td>1</td>
-<td>vn.pis.ui.tests.PIS1_User@3bf7ca37</td></tr>
+<td>2</td>
+<td>vn.pis.ui.tests.PIS7_InventoryHistory@279fedbd</td></tr>
+<tr>
+<td title='vn.pis.ui.tests.PIS7_InventoryHistory.TC06_Filter_Import()'><b>TC06_Filter_Import</b><br>Test class: vn.pis.ui.tests.PIS7_InventoryHistory<br>Test method: PIS-7-TC-06: Lọc 'Nhập kho'<br/>
+<a href="#Output-1149388444" onClick='toggleBox("Output-1149388444", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1149388444" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1149388444">
+[PIS2][Listener] START: TC06_Filter_Import<br/>
+[PIS2][Listener] PASS : TC06_Filter_Import<br/>
+</div>
+</td>
+<td></td>
+<td>0</td>
+<td>vn.pis.ui.tests.PIS7_InventoryHistory@279fedbd</td></tr>
 </table><p>
 </body>
 </html>
