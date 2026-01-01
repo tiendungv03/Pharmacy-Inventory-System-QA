@@ -1,4 +1,4 @@
-﻿// File: src/test/java/vn/pis/ui/pages/InventoryReportPage.java
+// File: src/test/java/vn/pis/ui/pages/InventoryReportPage.java
 package vn.pis.ui.pages;
 
 import java.text.Normalizer;
