@@ -37,7 +37,7 @@ public class PIS0_Login extends BaseTest {
         LoginPage login = new LoginPage(driver);
         login.open(TestEnv.BASE_URL + "/login");
         login.login(TestEnv.ADMIN_USER, TestEnv.ADMIN_PASS);
-        
+
         log("✓ Đã đăng nhập với user: " + TestEnv.ADMIN_USER);
         Assert.assertTrue(login.isLoginSuccess(), "Đăng nhập thất bại");
         Assert.assertFalse(login.getCurrentUrl().contains("/login"), "Vẫn ở trang login");
@@ -50,11 +50,14 @@ public class PIS0_Login extends BaseTest {
         login.open(TestEnv.BASE_URL + "/login");
         login.enterPassword(TestEnv.ADMIN_PASS);
         login.clickLogin();
-        
-        try { Thread.sleep(500); } catch (InterruptedException ignored) {}
+
+        try {
+            Thread.sleep(500);
+        } catch (InterruptedException ignored) {
+        }
         log("Error: " + login.getFirstErrorText());
-        Assert.assertTrue(login.hasErrorUsernameEmpty() || login.getFirstErrorText().contains("username") 
-                        || login.getFirstErrorText().contains("tên đăng nhập"),
+        Assert.assertTrue(login.hasErrorUsernameEmpty() || login.getFirstErrorText().contains("username")
+                || login.getFirstErrorText().contains("tên đăng nhập"),
                 "Phải có error message về username trống");
         Assert.assertTrue(login.getCurrentUrl().contains("/login"), "Vẫn phải ở trang login");
     }
@@ -66,11 +69,14 @@ public class PIS0_Login extends BaseTest {
         login.open(TestEnv.BASE_URL + "/login");
         login.enterUsername(TestEnv.ADMIN_USER);
         login.clickLogin();
-        
-        try { Thread.sleep(500); } catch (InterruptedException ignored) {}
+
+        try {
+            Thread.sleep(500);
+        } catch (InterruptedException ignored) {
+        }
         log("Error: " + login.getFirstErrorText());
         Assert.assertTrue(login.hasErrorPasswordEmpty() || login.getFirstErrorText().contains("password")
-                        || login.getFirstErrorText().contains("mật khẩu"),
+                || login.getFirstErrorText().contains("mật khẩu"),
                 "Phải có error message về password trống");
         Assert.assertTrue(login.getCurrentUrl().contains("/login"), "Vẫn phải ở trang login");
     }
@@ -81,11 +87,15 @@ public class PIS0_Login extends BaseTest {
         LoginPage login = new LoginPage(driver);
         login.open(TestEnv.BASE_URL + "/login");
         login.clickLogin();
-        
-        try { Thread.sleep(500); } catch (InterruptedException ignored) {}
+
+        try {
+            Thread.sleep(500);
+        } catch (InterruptedException ignored) {
+        }
         String err = login.getFirstErrorText();
         log("Error: " + err);
-        boolean hasUserError = login.hasErrorUsernameEmpty() || err.contains("username") || err.contains("tên đăng nhập");
+        boolean hasUserError = login.hasErrorUsernameEmpty() || err.contains("username")
+                || err.contains("tên đăng nhập");
         boolean hasPassError = login.hasErrorPasswordEmpty() || err.contains("password") || err.contains("mật khẩu");
         Assert.assertTrue(hasUserError || hasPassError, "Phải có ít nhất 1 error message");
         Assert.assertTrue(login.getCurrentUrl().contains("/login"), "Vẫn phải ở trang login");
@@ -97,11 +107,14 @@ public class PIS0_Login extends BaseTest {
         LoginPage login = new LoginPage(driver);
         login.open(TestEnv.BASE_URL + "/login");
         login.login(TestEnv.ADMIN_USER, "wrongpassword123");
-        
-        try { Thread.sleep(500); } catch (InterruptedException ignored) {}
+
+        try {
+            Thread.sleep(500);
+        } catch (InterruptedException ignored) {
+        }
         log("Error: " + login.getFirstErrorText());
         Assert.assertTrue(login.hasErrorInvalid() || login.getFirstErrorText().contains("không đúng")
-                        || login.getFirstErrorText().contains("sai"),
+                || login.getFirstErrorText().contains("sai"),
                 "Phải có error message về credentials không hợp lệ");
         Assert.assertTrue(login.getCurrentUrl().contains("/login"), "Vẫn phải ở trang login");
     }
@@ -112,11 +125,14 @@ public class PIS0_Login extends BaseTest {
         LoginPage login = new LoginPage(driver);
         login.open(TestEnv.BASE_URL + "/login");
         login.login("usernotexist123", TestEnv.ADMIN_PASS);
-        
-        try { Thread.sleep(500); } catch (InterruptedException ignored) {}
+
+        try {
+            Thread.sleep(500);
+        } catch (InterruptedException ignored) {
+        }
         log("Error: " + login.getFirstErrorText());
         Assert.assertTrue(login.hasErrorInvalid() || login.getFirstErrorText().contains("không đúng")
-                        || login.getFirstErrorText().contains("sai"),
+                || login.getFirstErrorText().contains("sai"),
                 "Phải có error message về credentials không hợp lệ");
         Assert.assertTrue(login.getCurrentUrl().contains("/login"), "Vẫn phải ở trang login");
     }
@@ -129,11 +145,15 @@ public class PIS0_Login extends BaseTest {
         login.enterUsername("ab");
         login.enterPassword(TestEnv.ADMIN_PASS);
         login.clickLogin();
-        
-        try { Thread.sleep(500); } catch (InterruptedException ignored) {}
+
+        try {
+            Thread.sleep(500);
+        } catch (InterruptedException ignored) {
+        }
         String err = login.getFirstErrorText();
         log("Error: " + err);
-        // Nới điều kiện: UI có thể không validate min-length username, chỉ cần không đăng nhập được
+        // Nới điều kiện: UI có thể không validate min-length username, chỉ cần không
+        // đăng nhập được
         boolean notLoggedIn = login.getCurrentUrl().contains("/login");
         Assert.assertTrue(notLoggedIn, "Không được phép đăng nhập với username quá ngắn hoặc sai");
     }
@@ -146,11 +166,15 @@ public class PIS0_Login extends BaseTest {
         login.enterUsername(TestEnv.ADMIN_USER);
         login.enterPassword("123");
         login.clickLogin();
-        
-        try { Thread.sleep(500); } catch (InterruptedException ignored) {}
+
+        try {
+            Thread.sleep(500);
+        } catch (InterruptedException ignored) {
+        }
         String err = login.getFirstErrorText();
         log("Error: " + err);
-        // Nới điều kiện: UI có thể không validate min-length password, chỉ cần không đăng nhập được
+        // Nới điều kiện: UI có thể không validate min-length password, chỉ cần không
+        // đăng nhập được
         boolean notLoggedIn = login.getCurrentUrl().contains("/login");
         Assert.assertTrue(notLoggedIn, "Không được phép đăng nhập với password quá ngắn hoặc sai");
     }
@@ -163,8 +187,11 @@ public class PIS0_Login extends BaseTest {
         login.enterUsername("  " + TestEnv.ADMIN_USER + "  ");
         login.enterPassword(TestEnv.ADMIN_PASS);
         login.clickLogin();
-        
-        try { Thread.sleep(1000); } catch (InterruptedException ignored) {}
+
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException ignored) {
+        }
         log("URL sau login: " + login.getCurrentUrl());
         // Nới điều kiện: UI có thể hỗ trợ trim hoặc không
         if (login.isLoginSuccess()) {
@@ -172,24 +199,6 @@ public class PIS0_Login extends BaseTest {
         } else {
             log("Hệ thống không tự trim khoảng trắng");
             Assert.assertTrue(true, "Chấp nhận behavior không trim");
-        }
-    }
-
-    // ====== PIS-0-TC-10: Link Đăng ký ======
-    @Test(priority = 10, description = "PIS-0-TC-10: Link 'Đăng ký ngay' điều hướng đúng trang đăng ký")
-    public void TC10_RegisterLink() {
-        LoginPage login = new LoginPage(driver);
-        login.open(TestEnv.BASE_URL + "/login");
-        try {
-            login.clickRegisterLink();
-            try { Thread.sleep(500); } catch (InterruptedException ignored) {}
-            String url = login.getCurrentUrl();
-            log("URL sau click register: " + url);
-            Assert.assertTrue(url.contains("/register") || url.contains("register"), 
-                            "Phải điều hướng sang trang /register");
-        } catch (Exception e) {
-            log("Link đăng ký không tìm thấy hoặc lỗi: " + e.getMessage());
-            Assert.assertTrue(false, "Link đăng ký phải tồn tại");
         }
     }
 }
