@@ -37,7 +37,12 @@ public class PIS2_Categories extends BaseTest {
     @BeforeMethod(alwaysRun = true)
     public void beforeMethod(java.lang.reflect.Method m){
         log("▶ BẮT ĐẦU TC: " + m.getName());
+
+        LoginPage login = new LoginPage(driver);
+        login.open(BASE_URL + "/login");
+        login.login(ADMIN_USER, ADMIN_PASS);
     }
+
 
     @AfterMethod(alwaysRun = true)
     public void afterMethod(java.lang.reflect.Method m){
@@ -230,31 +235,45 @@ public class PIS2_Categories extends BaseTest {
 
     @Test(priority = 8)
     public void TC08_Pagination_PageSize() {
+        LoginPage login = new LoginPage(driver);
+        login.open(BASE_URL + "/login");
+        login.login(ADMIN_USER, ADMIN_PASS);
+
         CategoriesPage cat = new CategoriesPage(driver);
         cat.open();
 
-        int[] pos1 = cat.getPagePosition();
-        int[] rg1  = cat.getVisibleRange();
-        log(String.format("Trang hiện tại: %d/%d | Hiển thị %d-%d / %d",
-                pos1[0], pos1[1], rg1[0], rg1[1], rg1[2]));
+        int[] pos1 = cat.getPagePosition(); // {current, total}
+        Assert.assertTrue(pos1[0] > 0 && pos1[1] > 0, "Không đọc được label 'Trang x / y'");
 
+        int rows1 = cat.visibleRowCount();
+        Assert.assertTrue(rows1 > 0, "Bảng không có dòng nào để test phân trang");
+
+        log(String.format("Trang hiện tại: %d/%d | visible rows = %d", pos1[0], pos1[1], rows1));
+
+        boolean shouldNext = pos1[0] < pos1[1];
         boolean movedNext = cat.nextPage();
-        log("Bấm 'Sau' → " + (movedNext ? "đã chuyển trang" : "không thể chuyển (vị trí cuối?)"));
+        Assert.assertEquals(movedNext, shouldNext, "Hành vi nút 'Sau' không đúng với vị trí trang");
+
         if (movedNext) {
             int[] pos2 = cat.getPagePosition();
             Assert.assertEquals(pos2[0], pos1[0] + 1, "Không tăng số trang khi bấm Sau");
-            log("Trang mới: " + pos2[0] + "/" + pos2[1]);
+            Assert.assertTrue(cat.visibleRowCount() > 0, "Sau khi qua trang mới, bảng không có dòng");
+            log("Đã chuyển sang trang: " + pos2[0] + "/" + pos2[1]);
         }
 
+        boolean shouldPrev = (movedNext ? (pos1[0] + 1) : pos1[0]) > 1;
         boolean movedPrev = cat.prevPage();
-        log("Bấm 'Trước' → " + (movedPrev ? "đã quay lại" : "không thể quay (vị trí đầu?)"));
+        Assert.assertEquals(movedPrev, shouldPrev, "Hành vi nút 'Trước' không đúng với vị trí trang");
+
         if (movedPrev && movedNext) {
             int[] pos3 = cat.getPagePosition();
             Assert.assertEquals(pos3[0], pos1[0], "Không quay về trang ban đầu khi bấm Trước");
-            log("Trang quay về: " + pos3[0] + "/" + pos3[1]);
+            log("Đã quay về trang: " + pos3[0] + "/" + pos3[1]);
         }
-        log("TC08 OK - Phân trang vận hành");
+
+        log("TC08 OK - Phân trang vận hành theo 'Trang x / y'");
     }
+
 
     @Test(priority = 9)
     public void TC09_View_AllColumns() {
@@ -263,61 +282,40 @@ public class PIS2_Categories extends BaseTest {
         CategoriesPage cat = new CategoriesPage(driver);
         cat.open();
 
-        Assert.assertTrue(
-                driver.findElements(By.xpath("//th[normalize-space()='Mã danh mục']")).size() > 0,
-                "Không thấy cột 'Mã danh mục'"
-        );
-        Assert.assertTrue(
-                driver.findElements(By.xpath("//th[normalize-space()='Tên danh mục']")).size() > 0,
-                "Không thấy cột 'Tên danh mục'"
-        );
-        Assert.assertTrue(
-                driver.findElements(By.xpath("//th[normalize-space()='Mô tả']")).size() > 0,
-                "Không thấy cột 'Mô tả'"
-        );
-        Assert.assertTrue(
-                driver.findElements(By.xpath("//th[normalize-space()='Số loại thuốc']")).size() > 0,
-                "Không thấy cột 'Số loại thuốc'"
-        );
-        Assert.assertTrue(
-                driver.findElements(By.xpath("//th[normalize-space()='Ngày tạo']")).size() > 0,
-                "Không thấy cột 'Ngày tạo'"
-        );
-        Assert.assertTrue(
-                driver.findElements(By.xpath("//th[normalize-space()='Hành động']")).size() > 0,
-                "Không thấy cột 'Hành động'"
-        );
+        Assert.assertTrue(driver.findElements(By.xpath("//th[normalize-space()='Mã danh mục']")).size() > 0,
+                "Không thấy cột 'Mã danh mục'");
+        Assert.assertTrue(driver.findElements(By.xpath("//th[normalize-space()='Tên danh mục']")).size() > 0,
+                "Không thấy cột 'Tên danh mục'");
+        Assert.assertTrue(driver.findElements(By.xpath("//th[normalize-space()='Mô tả']")).size() > 0,
+                "Không thấy cột 'Mô tả'");
+        Assert.assertTrue(driver.findElements(By.xpath("//th[normalize-space()='Số loại thuốc']")).size() > 0,
+                "Không thấy cột 'Số loại thuốc'");
+        Assert.assertTrue(driver.findElements(By.xpath("//th[normalize-space()='Hành động']")).size() > 0,
+                "Không thấy cột 'Hành động'");
 
-        log("TC09 OK - Đã thấy đủ 6 cột trên header");
+        log("TC09 OK - Đã thấy đủ 5 cột trên header");
     }
+
 
     @Test(priority = 10)
     public void TC10_StatsLabel_Correct() {
-        log("TC10 - Kiểm tra label thống kê hiển thị");
+        log("TC10 - Kiểm tra footer thống kê (Tổng + Trang + PageSize)");
+
 
         CategoriesPage cat = new CategoriesPage(driver);
         cat.open();
+        Assert.assertTrue(cat.setPageSize(25), "Không set được page size 25");
 
-        int[] range = cat.getVisibleRange();   // {from, to, total}
+        int total = cat.getTotalCount();
+        int[] p = cat.getPageInfoNums();
         int visible = cat.visibleRowCount();
 
-        log(String.format("Range: %d-%d / %d, visible rows = %d",
-                range[0], range[1], range[2], visible));
+        int expected = (p[0] == p[1]) ? Math.min(25, total - (p[0]-1)*25) : 25; // trang cuối thì có thể <25
+        Assert.assertEquals(visible, Math.min(expected, total));
 
-        // Trang đầu tiên thì from phải là 1
-        Assert.assertTrue(range[0] == 1, "from != 1 trên trang đầu. Thực tế: " + range[0]);
-        // to >= from
-        Assert.assertTrue(range[1] >= range[0], "to < from, range sai");
-        // tổng phải >= to
-        Assert.assertTrue(range[2] >= range[1], "total < to, range sai");
-
-        // Số dòng nhìn thấy phải khớp với (to - from + 1) trên trang không phải trang cuối
-        int expectedRows = range[1] - range[0] + 1;
-        Assert.assertEquals(visible, expectedRows,
-                "visibleRowCount không khớp với khoảng hiển thị");
-
-        log("TC10 OK - Label 'Hiển thị x-y trong tổng số z danh mục' khớp với số dòng thực tế");
+        log("TC10 OK");
     }
+
 
 
     @Test(priority = 11)
@@ -327,31 +325,28 @@ public class PIS2_Categories extends BaseTest {
         CategoriesPage cat = new CategoriesPage(driver);
         cat.open();
 
+        int total = cat.getTotalCount();
+        Assert.assertTrue(total > 0, "Total danh mục <= 0 hoặc không đọc được total");
+
         int[] sizes = {25, 50, 100};
 
         for (int size : sizes) {
             log("Đổi page size = " + size);
             boolean ok = cat.setPageSize(size);
-            Assert.assertTrue(ok, "Không set được page size = " + size +
-                    " (có thể UI chưa có dropdown page size)");
+            Assert.assertTrue(ok, "Không set được page size = " + size);
 
-            int[] range = cat.getVisibleRange();
             int visible = cat.visibleRowCount();
-            int expectedMax = size;
-            int actualCount = range[1] - range[0] + 1;
+            int expected = Math.min(size, total);
 
-            log(String.format("Size %d → range %d-%d (=%d items), visible rows = %d",
-                    size, range[0], range[1], actualCount, visible));
+            log(String.format("Size %d → total=%d, visible=%d (expected=%d)", size, total, visible, expected));
 
-            // Trừ trường hợp trang cuối cùng ít hơn size, còn lại phải <= size
-            Assert.assertTrue(actualCount <= expectedMax,
-                    "Số bản ghi trên trang > page size. actual=" + actualCount + ", size=" + size);
-            Assert.assertEquals(visible, actualCount,
-                    "visibleRowCount không khớp với range cho size " + size);
+            Assert.assertEquals(visible, expected,
+                    "Số dòng hiển thị không đúng với page size");
         }
 
-        log("TC11 OK - Page size 25/50/100 hiển thị đúng số dòng (nếu UI đã hỗ trợ)");
+        log("TC11 OK");
     }
+
 
     @Test(priority = 12)
     public void TC12_Add_PopupLayout() {

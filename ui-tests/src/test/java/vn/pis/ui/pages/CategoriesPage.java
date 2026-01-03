@@ -5,7 +5,8 @@ import org.openqa.selenium.support.ui.*;
 import org.testng.Assert;
 
 import java.time.Duration;
-import java.util.List;
+import vn.pis.ui.util.TestEnv;
+
 
 /**
  * CategoriesPage – Page Object cho màn Quản lý danh mục
@@ -44,7 +45,11 @@ public class CategoriesPage {
     // --- BẢNG / SEARCH / PHÂN TRANG ---
     private final By tableCategories = By.xpath("//table[@class='w-full']");
     private final By searchBox       = By.xpath("//input[@placeholder='Tìm kiếm danh mục...']");
-    private final By pageSizeSelect  = By.xpath("//select[contains(@class,'page-size') or @name='pageSize' or @data-testid='page-size']");
+    // select nằm ngay sau span "Hiển thị:"
+
+    // "Tổng: 39 danh mục"
+    private final By totalLabel =
+            By.xpath("//span[contains(normalize-space(.),'Tổng:') and contains(normalize-space(.),'danh mục')]");
 
     // Footer phân trang (giữ các thành phần thực sự dùng)
     private final By btnPrev   = By.xpath("//button[normalize-space()='Trước']");
@@ -58,6 +63,33 @@ public class CategoriesPage {
     // Popup menu & item trong mỗi dòng
     private final By actionMenuRoot = By.xpath("//*[(@role='menu') or contains(@class,'menu') or contains(@class,'DropdownMenu')]");
 
+
+    // footer
+    private final By pageTotal = By.xpath("//*[contains(normalize-space(.),'Tổng:') and contains(normalize-space(.),'danh mục')]");
+
+
+
+    // trang "Trang 1/4"
+    private final By pageInfo = By.xpath("//span[contains(normalize-space(.),'Trang') and contains(normalize-space(.),'/')]");
+
+    // tổng "Tổng: 39 danh mục"
+//    private final By totalLabel = By.xpath("//span[contains(normalize-space(.),'Tổng:') and contains(normalize-space(.),'danh mục')]");
+    // container footer chứa "Hiển thị:"
+    private final By pagerFooter =
+            By.xpath("//span[normalize-space(.)='Hiển thị:']/ancestor::div[contains(@class,'items-center')][1]");
+
+    // select page size NẰM TRONG footer đó
+    private final By pageSizeSelect =
+            By.xpath("//span[normalize-space(.)='Hiển thị:']/ancestor::div[contains(@class,'items-center')][1]//select");
+
+    private void scrollToFooter() {
+        WebElement footer = wait.until(ExpectedConditions.presenceOfElementLocated(pagerFooter));
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView({block:'center'});", footer);
+        wait.until(ExpectedConditions.visibilityOf(footer));
+    }
+
+
+
     // =========================
     // Constructor
     // =========================
@@ -70,10 +102,26 @@ public class CategoriesPage {
     // Navigation
     // =========================
     public void open() {
-        wait.until(ExpectedConditions.elementToBeClickable(menuCategories)).click();
+        driver.get(TestEnv.BASE_URL + "/categories");
+        dismissAlertIfPresent();
+
+        if (driver.getCurrentUrl().contains("/login")) {
+            new LoginPage(driver).login(TestEnv.ADMIN_USER, TestEnv.ADMIN_PASS);
+
+            // chờ login xong hẵng đi tiếp
+            new WebDriverWait(driver, Duration.ofSeconds(10))
+                    .until(ExpectedConditions.not(ExpectedConditions.urlContains("/login")));
+
+            driver.get(TestEnv.BASE_URL + "/categories");
+            dismissAlertIfPresent();
+        }
+
+        // nếu đã vào /categories rồi thì khỏi click menu nữa
         wait.until(ExpectedConditions.visibilityOfElementLocated(btnAdd));
         wait.until(ExpectedConditions.presenceOfElementLocated(tableCategories));
     }
+
+
 
     // =========================
     // Create (Add)
@@ -268,20 +316,62 @@ public class CategoriesPage {
     // =========================
     public boolean setPageSize(int size) {
         try {
-            WebElement sel = wait.until(ExpectedConditions.visibilityOfElementLocated(pageSizeSelect));
-            new Select(sel).selectByValue(String.valueOf(size));
+            scrollToFooter();
 
-            // chờ bảng refresh
-            List<WebElement> before = driver.findElements(By.xpath("//table//tbody/tr"));
-            if (!before.isEmpty()) {
-                wait.until(ExpectedConditions.stalenessOf(before.get(0)));
+            WebElement footer = wait.until(ExpectedConditions.visibilityOfElementLocated(pagerFooter));
+            WebElement sel = footer.findElement(By.tagName("select"));
+            wait.until(ExpectedConditions.elementToBeClickable(sel));
+
+            // snapshot để chờ refresh
+            String oldStats = "";
+            try { oldStats = driver.findElement(pageStats).getText(); } catch (Exception ignored) {}
+
+            WebElement oldFirstRow = null;
+            try { oldFirstRow = driver.findElement(By.cssSelector("table.w-full tbody tr")); } catch (Exception ignored) {}
+
+            // chọn
+            Select s = new Select(sel);
+            try { s.selectByValue(String.valueOf(size)); }
+            catch (Exception e) { s.selectByVisibleText(String.valueOf(size)); }
+
+            // ép React nhận change nếu cần
+            if (getPageSizeSelected() != size) {
+                ((JavascriptExecutor) driver).executeScript(
+                        "arguments[0].value = arguments[1];" +
+                                "arguments[0].dispatchEvent(new Event('change', {bubbles:true}));",
+                        sel, String.valueOf(size)
+                );
             }
+
+            // chờ selected đổi
+            wait.until(d -> getPageSizeSelected() == size);
+
+            // chờ bảng/label refresh (tránh staleness fail)
+            if (oldFirstRow != null) {
+                new WebDriverWait(driver, Duration.ofSeconds(8))
+                        .until(ExpectedConditions.stalenessOf(oldFirstRow));
+            } else if (!oldStats.isBlank()) {
+                new WebDriverWait(driver, Duration.ofSeconds(8))
+                        .until(ExpectedConditions.not(ExpectedConditions.textToBe(pageStats, oldStats)));
+            }
+
             wait.until(ExpectedConditions.presenceOfElementLocated(tableCategories));
             return true;
-        } catch (NoSuchElementException | TimeoutException e) {
+        } catch (Exception e) {
+            System.out.println("[setPageSize FAIL] url=" + driver.getCurrentUrl());
+            e.printStackTrace();
             return false;
         }
     }
+
+
+
+
+
+
+
+
+
 
     public boolean nextPage() {
         if (!canNext()) return false;
@@ -320,15 +410,49 @@ public class CategoriesPage {
         return new int[]{-1,-1,-1};
     }
 
-    /** "Trang 1 / 9" -> {1, 9} */
+    // lấy page size đang chọn (25/50/100...)
+    public int getPageSizeSelected() {
+        scrollToFooter();
+        WebElement sel = wait.until(ExpectedConditions.visibilityOfElementLocated(pageSizeSelect));
+        WebElement opt = new Select(sel).getFirstSelectedOption();
+
+        String v = opt.getAttribute("value");
+        if (v == null || v.isBlank()) v = opt.getText().trim();
+
+        java.util.regex.Matcher m = java.util.regex.Pattern.compile("(\\d+)").matcher(v);
+        return m.find() ? Integer.parseInt(m.group(1)) : -1;
+    }
+
+
+
+    // parse "Tổng: 39 danh mục" -> 39
+    public int getTotalCount() {
+        scrollToFooter();
+        String txt = wait.until(ExpectedConditions.visibilityOfElementLocated(totalLabel)).getText();
+        var m = java.util.regex.Pattern.compile("(\\d+)").matcher(txt);
+        return m.find() ? Integer.parseInt(m.group(1)) : -1;
+    }
+
+    public int[] getPageInfoNums() { // return {page, totalPages}
+        scrollToFooter();
+        String txt = wait.until(ExpectedConditions.visibilityOfElementLocated(pageInfo)).getText(); // "Trang 1/4"
+        var m = java.util.regex.Pattern.compile("(\\d+)\\s*/\\s*(\\d+)").matcher(txt);
+        if (!m.find()) return new int[]{-1, -1};
+        return new int[]{Integer.parseInt(m.group(1)), Integer.parseInt(m.group(2))};
+    }
+
+
+    // fix getPagePosition() chịu xuống dòng
     public int[] getPagePosition() {
-        String lbl = wait.until(ExpectedConditions.visibilityOfElementLocated(pageLabel)).getText().trim();
+        String lbl = wait.until(ExpectedConditions.visibilityOfElementLocated(pageLabel)).getText();
+        lbl = lbl.replaceAll("\\s+", " ").trim();
         java.util.regex.Matcher m = java.util.regex.Pattern
-            .compile("Trang\\s+(\\d+)\\s*/\\s*(\\d+)")
-            .matcher(lbl);
+                .compile("Trang\\s*(\\d+)\\s*/\\s*(\\d+)")
+                .matcher(lbl);
         if (m.find()) return new int[]{Integer.parseInt(m.group(1)), Integer.parseInt(m.group(2))};
         return new int[]{-1,-1};
     }
+
 
     public boolean canPrev() {
         WebElement prev = wait.until(ExpectedConditions.visibilityOfElementLocated(btnPrev));
@@ -480,4 +604,23 @@ public class CategoriesPage {
         wait.until(ExpectedConditions.visibilityOfElementLocated(actionMenuRoot));
         wait.until(ExpectedConditions.elementToBeClickable(actionItem(itemLabel))).click();
     }
+
+
+    private void dismissAlertIfPresent() {
+        try {
+            Alert a = new WebDriverWait(driver, Duration.ofSeconds(1))
+                    .until(ExpectedConditions.alertIsPresent());
+            a.accept(); // hoặc dismiss()
+        } catch (TimeoutException ignored) {}
+    }
+
+    public void debugPageSizeSelect() {
+        scrollToFooter();
+        WebElement footer = driver.findElement(pagerFooter);
+        WebElement sel = footer.findElement(By.tagName("select"));
+        System.out.println("FOOTER=" + footer.getAttribute("outerHTML"));
+        System.out.println("SELECT=" + sel.getAttribute("outerHTML"));
+    }
+
+
 }
