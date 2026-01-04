@@ -53,7 +53,7 @@ public class HistoryPage {
     private final By modalContent = By.xpath("//div[@role='dialog']//div[contains(@class,'body') or contains(@class,'content')]");
     private final By closeModalBtn = By.xpath("//div[@role='dialog']//button[contains(@aria-label,'Close') or contains(.,'Đóng')]");
 
-    // empty state: tùy text UI bạn, thêm nhiều keyword cho chắc
+
     private final By emptyStateCell = By.xpath(
             "//table//tbody//td[contains(.,'Không có') or contains(.,'No data') or contains(.,'No results') or contains(.,'Không tìm thấy')]"
     );
@@ -187,7 +187,7 @@ public class HistoryPage {
         return headerTexts;
     }
 
-    // [NEW] Lấy text của một ô cụ thể (dòng row, cột col)
+  
     public String getCellText(int rowIndex, int colIndex) {
         By cell = By.xpath("//tbody/tr[" + rowIndex + "]/td[" + colIndex + "]");
         try {

@@ -29,9 +29,6 @@ public class DashboardPage {
         System.out.println("[PIS10][PAGE] " + msg);
     }
 
-    // =========================================================
-    // LOCATORS (GIỮ NGUYÊN Ở ĐẦU - chỉ làm robust hơn)
-    // =========================================================
 
     private final By MENU_DASHBOARD = By.xpath(
         "//a[contains(@href,'/') and (.//span[normalize-space()='Dashboard'] or normalize-space()='Dashboard')]"
@@ -86,6 +83,20 @@ public class DashboardPage {
     private final By ALERT_SEVERITY_TAGS = By.xpath(
         "//main//*[contains(@class,'rounded-full') and (normalize-space()='Trung bình' or normalize-space()='Cao' or normalize-space()='Thấp')]"
     );
+    
+ // =================== SIDEBAR LOCATORS ===================
+    private final By SIDEBAR = By.xpath("//aside");
+    
+    private final By SIDEBAR_MENU_ITEMS = By.xpath("//aside//nav//a");
+
+    // =================== NOTIFICATION/USER ===================
+    
+    private final By NOTIFICATION_BELL_BTN = By.xpath("//button[./svg[contains(@class,'lucide-bell')]]");
+    private final By NOTIFICATION_BADGE = By.xpath("//button[./svg[contains(@class,'lucide-bell')]]//span[contains(@class,'rounded-full')]");
+
+   
+    private final By USER_AVATAR = By.xpath("//header//div[contains(@class,'rounded-full') and string-length(text()) > 0]");
+    
 
     // =========================================================
     // SMALL HELPERS
@@ -355,5 +366,75 @@ public class DashboardPage {
 
     private String normalize(String s) {
         return s == null ? "" : s.trim().replaceAll("\\s+", " ");
+    }
+
+
+
+    public int getSidebarMenuCount() {
+        try {
+            // Đợi tối đa 10s cho đến khi menu xuất hiện
+            new WebDriverWait(driver, Duration.ofSeconds(10))
+                .until(ExpectedConditions.presenceOfElementLocated(SIDEBAR_MENU_ITEMS));
+            return els(SIDEBAR_MENU_ITEMS).size();
+        } catch (TimeoutException e) {
+            log("LỖI: Không tìm thấy menu item nào trong Sidebar");
+            return 0;
+        }
+    }
+
+ 
+
+    // Sửa hàm isBadgePresent để trả về trạng thái hiển thị của số thông báo
+    public boolean isBadgePresent() {
+        try {
+            // Kiểm tra xem badge có tồn tại và hiển thị không
+            return driver.findElements(NOTIFICATION_BADGE).size() > 0 
+                   && driver.findElement(NOTIFICATION_BADGE).isDisplayed();
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
+    public boolean isUserAvatarVisible() {
+        try {
+            // Chờ avatar xuất hiện trong header
+            return waitVisible(USER_AVATAR).isDisplayed();
+        } catch (Exception e) {
+            log("Không tìm thấy Avatar người dùng (DI)");
+            return false;
+        }
+    }
+    
+    public boolean isSidebarHidden() {
+        try {
+            WebElement sb = driver.findElement(SIDEBAR);
+            
+            // Cách 1: Kiểm tra hiển thị cơ bản
+            if (!sb.isDisplayed()) return true;
+
+            // Cách 2: Kiểm tra vị trí (Nếu bị đẩy ra khỏi màn hình bên trái)
+            int xLocation = sb.getLocation().getX();
+            if (xLocation < 0) return true;
+
+            // Cách 3: Kiểm tra kích thước (Nếu width bị set về 0)
+            int width = sb.getSize().getWidth();
+            if (width <= 0) return true;
+
+            // Cách 4: Kiểm tra thuộc tính CSS ẩn phổ biến
+            String opacity = sb.getCssValue("opacity");
+            String visibility = sb.getCssValue("visibility");
+            if ("0".equals(opacity) || "hidden".equals(visibility)) return true;
+
+            return false;
+        } catch (NoSuchElementException e) {
+            // Nếu không tìm thấy element trong DOM thì coi như đã ẩn
+            return true;
+        }
+    }
+    
+ 
+    public void setWindowSize(int width, int height) {
+        log("Thiết lập kích thước trình duyệt: " + width + "x" + height);
+        driver.manage().window().setSize(new org.openqa.selenium.Dimension(width, height));
     }
 }

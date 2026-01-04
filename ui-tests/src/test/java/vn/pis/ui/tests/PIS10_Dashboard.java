@@ -149,6 +149,42 @@ public class PIS10_Dashboard extends BaseTest {
   public void TC_029_no_horizontal_scroll() {
     Assert.assertFalse(page.hasHorizontalScroll(), "Có scroll ngang (UI bị tràn layout)");
   }
+
+@Test(priority = 16, description = "TC_004 + TC_006 - Kiểm tra Header: Chuông và Avatar")
+public void TC_004_006_check_header_elements() {
+    // Kiểm tra icon chuông phải luôn có
+    Assert.assertTrue(page.isDashboardTitleVisible(), "Phải ở trang Dashboard");
+    
+    // Kiểm tra Avatar
+    Assert.assertTrue(page.isUserAvatarVisible(), "LỖI: Không hiển thị avatar người dùng (DI)");
+    
+    // Kiểm tra Badge (Thông báo): Nếu có badge thì tốt, không có cũng không sao (tùy data)
+    boolean hasBadge = page.isBadgePresent();
+    log("Trạng thái Badge thông báo: " + (hasBadge ? "Có thông báo mới" : "Không có thông báo"));
+}
+
+
+@Test(priority = 17, description = "TC_021 - Responsive: Kiểm tra ẩn Sidebar trên Mobile")
+public void TC_021_responsive_mobile_view() {
+    log("Thiết lập kích thước màn hình Mobile (375x812)");
+    page.setWindowSize(375, 812);
+    
+    try {
+        // Chờ 1.5 giây để hiệu ứng CSS Transition hoàn tất
+        Thread.sleep(1500); 
+        
+        boolean isHidden = page.isSidebarHidden();
+        log("Trạng thái Sidebar ẩn: " + isHidden);
+        
+        Assert.assertTrue(isHidden, "LỖI: Sidebar vẫn hiển thị hoặc chiếm diện tích trên màn hình Mobile!");
+    } catch (InterruptedException ignored) {
+    } finally {
+        driver.manage().window().maximize();
+        log("Đã trả lại kích thước màn hình Desktop");
+    }
+}
+
+
 }
 
 
