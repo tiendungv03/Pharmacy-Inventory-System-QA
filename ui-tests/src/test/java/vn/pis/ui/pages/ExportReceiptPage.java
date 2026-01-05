@@ -9,37 +9,20 @@ import java.time.Duration;
 import java.util.List;
 
 public class ExportReceiptPage {
-
-
     private final WebDriver driver;
     private final WebDriverWait wait;
-
-    private void log(String msg) {
-        System.out.println("[PIS6][PAGE] " + msg);
-    }
 
     public ExportReceiptPage(WebDriver d) {
         this.driver = d;
         this.wait = new WebDriverWait(d, Duration.ofSeconds(10));
     }
 
-    // =========================================================
-    // 1) COMMON HELPERS
-    // =========================================================
-    private boolean exists(By by) {
-        return driver.findElements(by).size() > 0;
-    }
-
-    private WebElement waitVisible(By by) {
-        return wait.until(ExpectedConditions.visibilityOfElementLocated(by));
-    }
-
-    private String safeText(By by) {
-        try { return waitVisible(by).getText().trim(); } catch (Exception e) { return ""; }
+    private void log(String msg) {
+        System.out.println("[PIS6][PAGE] " + msg);
     }
 
     // =========================================================
-    // 2) LOCATORS - MENU / TITLE
+    // 1) LOCATORS - MENU / TITLE
     // =========================================================
     private final By menuExportLink = By.xpath(
             "//a[contains(@href,'/export') and .//span[normalize-space()='Xuất kho']]"
@@ -47,7 +30,7 @@ public class ExportReceiptPage {
     private final By pageTitle = By.xpath("//h1[normalize-space()='Tạo phiếu xuất kho']");
 
     // =========================================================
-    // 3) LOCATORS - THÔNG TIN CHUNG
+    // 2) LOCATORS - THÔNG TIN CHUNG
     // =========================================================
     private final By departmentButton = By.xpath("//label[contains(.,'Khoa/Phòng nhận')]/following-sibling::button");
     private final By departmentSpan   = By.xpath("//label[contains(.,'Khoa/Phòng nhận')]/following-sibling::button//span");
@@ -67,9 +50,11 @@ public class ExportReceiptPage {
             By.xpath("//table//thead//th[contains(normalize-space(.),'Số lượng') and contains(normalize-space(.),'*')]");
 
     // =========================================================
-    // 4) LOCATORS - CHI TIẾT PHIẾU (TABLE)
+    // 3) LOCATORS - CHI TIẾT PHIẾU (TABLE)
     // =========================================================
-    private final By addRowButton = By.xpath("//button[.//span[normalize-space()='Thêm dòng'] or normalize-space()='Thêm dòng']");
+    private final By addRowButton = By.xpath(
+            "//button[.//span[normalize-space()='Thêm dòng'] or normalize-space()='Thêm dòng']"
+    );
 
     private By rowTextInput(int rowIndex, String placeholder) {
         return By.xpath("(//table//tbody/tr)[" + rowIndex + "]//input[@placeholder=\"" + placeholder + "\"]");
@@ -101,7 +86,7 @@ public class ExportReceiptPage {
     );
 
     // =========================================================
-    // 5) LOCATORS - TỔNG KẾT / BUTTONS / WARNING
+    // 4) LOCATORS - TỔNG KẾT / BUTTONS / WARNING
     // =========================================================
     private final By totalAmountLabel = By.xpath(
             "//span[@class='text-xl font-bold text-medical-blue' or contains(.,'₫')]"
@@ -117,7 +102,7 @@ public class ExportReceiptPage {
     private final By warningBanner = By.xpath("//div[@role='alert']");
 
     // =========================================================
-    // 6) LOCATORS - POPUP (DIALOG)
+    // 5) LOCATORS - POPUP (DIALOG)
     // =========================================================
     private final By popupDialog = By.xpath("//div[@role='dialog']");
     private final By popupTitle  = By.xpath("//div[@role='dialog']//h2");
@@ -132,6 +117,22 @@ public class ExportReceiptPage {
     // toast/feedback: bắt tiêu đề dialog
     private final By anyToast = By.xpath("//div[@role='dialog']//h2");
     private final By btnCloseSuccess = By.xpath("//div[@role='dialog']//button[normalize-space()='Đóng']");
+
+    // =========================================================
+    // 6) COMMON HELPERS
+    // =========================================================
+    private boolean exists(By by) {
+        return driver.findElements(by).size() > 0;
+    }
+
+    private WebElement waitVisible(By by) {
+        return wait.until(ExpectedConditions.visibilityOfElementLocated(by));
+    }
+
+    private String safeText(By by) {
+        try { return waitVisible(by).getText().trim(); }
+        catch (Exception e) { return ""; }
+    }
 
     // =========================================================
     // 7) NAV
@@ -170,13 +171,6 @@ public class ExportReceiptPage {
     public void selectDepartment(String departmentName) {
         log("Chọn Khoa/Phòng nhận: " + departmentName);
         selectFromDropdown(departmentButton, departmentSpan, departmentName);
-    }
-
-    public void setExportDate(String yyyyMMdd) {
-        log("Set Ngày xuất: " + yyyyMMdd);
-        WebElement date = wait.until(ExpectedConditions.visibilityOfElementLocated(exportDateInput));
-        date.clear();
-        date.sendKeys(yyyyMMdd);
     }
 
     public String getExportDate() {
@@ -218,14 +212,6 @@ public class ExportReceiptPage {
         int count = driver.findElements(By.xpath("//table//tbody/tr")).size();
         log("Số dòng hiện tại trong bảng: " + count);
         return count;
-    }
-
-    public void setRowSku(int rowIndex, String sku) {
-        log("Dòng " + rowIndex + " - Nhập Mã SKU: " + sku);
-        WebElement ip = wait.until(ExpectedConditions.visibilityOfElementLocated(
-                rowTextInput(rowIndex, "Mã SKU")));
-        ip.clear();
-        ip.sendKeys(sku);
     }
 
     public void setRowDrugNameAndChooseSuggestion(int rowIndex, String name) {
@@ -385,6 +371,13 @@ public class ExportReceiptPage {
         System.out.println("[PIS6][PAGE] Số dòng sau khi xoá: " + after);
     }
 
+    public WebElement getQuantityInput(int rowIndex) {
+        By nums = rowNumberInputs(rowIndex);
+        wait.until(ExpectedConditions.numberOfElementsToBeMoreThan(nums, 0));
+        List<WebElement> list = driver.findElements(nums);
+        return list.get(0);
+    }
+
     // =========================================================
     // 11) TOTAL / REFRESH / FINISH
     // =========================================================
@@ -528,13 +521,6 @@ public class ExportReceiptPage {
     // =========================================================
     // 15) INPUT ACCESSORS / NATIVE VALIDATION
     // =========================================================
-    public WebElement getQuantityInput(int rowIndex) {
-        By nums = rowNumberInputs(rowIndex);
-        wait.until(ExpectedConditions.numberOfElementsToBeMoreThan(nums, 0));
-        List<WebElement> list = driver.findElements(nums);
-        return list.get(0);
-    }
-
     public String getNativeValidationMessage(WebElement element) {
         try {
             String msg = element.getAttribute("validationMessage");

@@ -4,8 +4,11 @@ import static vn.pis.ui.util.TestEnv.ADMIN_PASS;
 import static vn.pis.ui.util.TestEnv.ADMIN_USER;
 import static vn.pis.ui.util.TestEnv.BASE_URL;
 
+import java.time.Duration;
 import java.util.List;
 
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.Reporter;
 import org.testng.SkipException;
@@ -90,8 +93,6 @@ public class PIS10_Dashboard extends BaseTest {
   public void TC_014_kpi_icon_visible_and_color_correct() {
     page.waitKpiLoaded();
     Assert.assertTrue(page.isKpiIconTotalTypesVisible(), "Không thấy icon KPI Tổng số loại thuốc");
-
-    // NOTE: check class màu rất dễ fail nếu dev đổi theme/class
     Assert.assertTrue(page.isKpiIconTotalTypesColorCorrect(), "Icon KPI Tổng số loại thuốc sai class màu");
   }
 
@@ -150,41 +151,42 @@ public class PIS10_Dashboard extends BaseTest {
     Assert.assertFalse(page.hasHorizontalScroll(), "Có scroll ngang (UI bị tràn layout)");
   }
 
-@Test(priority = 16, description = "TC_004 + TC_006 - Kiểm tra Header: Chuông và Avatar")
-public void TC_004_006_check_header_elements() {
-    // Kiểm tra icon chuông phải luôn có
-    Assert.assertTrue(page.isDashboardTitleVisible(), "Phải ở trang Dashboard");
-    
-    // Kiểm tra Avatar
-    Assert.assertTrue(page.isUserAvatarVisible(), "LỖI: Không hiển thị avatar người dùng (DI)");
-    
-    // Kiểm tra Badge (Thông báo): Nếu có badge thì tốt, không có cũng không sao (tùy data)
-    boolean hasBadge = page.isBadgePresent();
-    log("Trạng thái Badge thông báo: " + (hasBadge ? "Có thông báo mới" : "Không có thông báo"));
-}
+	@Test(priority = 16, description = "TC_004 + TC_006 - Kiểm tra Header: Chuông và Avatar")
+	public void TC_004_006_check_header_elements() {
+	    Assert.assertTrue(page.isDashboardTitleVisible(), "Phải ở trang Dashboard");
+	    Assert.assertTrue(page.isUserAvatarVisible(), "LỖI: Không hiển thị avatar người dùng (DI)");
+	    boolean hasBadge = page.isBadgePresent();
+	    log("Trạng thái Badge thông báo: " + (hasBadge ? "Có thông báo mới" : "Không có thông báo"));
+	}
 
+	@Test(priority = 17, description = "TC_027 - Accessibility (Zoom 150%): không chồng chữ/không mất nội dung")
+	public void TC_027_accessibility_zoom_150_no_overlap_no_missing_content() {
+	    JavascriptExecutor js = (JavascriptExecutor) driver;
 
-@Test(priority = 17, description = "TC_021 - Responsive: Kiểm tra ẩn Sidebar trên Mobile")
-public void TC_021_responsive_mobile_view() {
-    log("Thiết lập kích thước màn hình Mobile (375x812)");
-    page.setWindowSize(375, 812);
-    
-    try {
-        // Chờ 1.5 giây để hiệu ứng CSS Transition hoàn tất
-        Thread.sleep(1500); 
-        
-        boolean isHidden = page.isSidebarHidden();
-        log("Trạng thái Sidebar ẩn: " + isHidden);
-        
-        Assert.assertTrue(isHidden, "LỖI: Sidebar vẫn hiển thị hoặc chiếm diện tích trên màn hình Mobile!");
-    } catch (InterruptedException ignored) {
-    } finally {
-        driver.manage().window().maximize();
-        log("Đã trả lại kích thước màn hình Desktop");
-    }
-}
+	    try {
+	        js.executeScript("document.body.style.zoom='150%'");
 
+	        new WebDriverWait(driver, Duration.ofSeconds(8)).until(d -> {
+	            try {
+	                return page.isDashboardTitleVisible();
+	            } catch (Exception e) {
+	                return false;
+	            }
+	        });
+	        page.waitKpiLoaded();
+	        Assert.assertTrue(page.isKpiTotalTypesVisible(), "Zoom 150%: Mất KPI Tổng số loại thuốc");
+	        Assert.assertTrue(page.isKpiTotalValueVisible(), "Zoom 150%: Mất KPI Tổng giá trị tồn kho");
+	        Assert.assertTrue(page.isKpiExpiringVisible(), "Zoom 150%: Mất KPI Thuốc sắp hết hạn");
+	        Assert.assertTrue(page.isKpiBelowMinVisible(), "Zoom 150%: Mất KPI Thuốc dưới tồn tối thiểu");
+	        Assert.assertTrue(page.isChartVisible(), "Zoom 150%: Mất chart");
+	        Assert.assertTrue(page.isAlertPanelVisible(), "Zoom 150%: Mất panel cảnh báo");
+	        Assert.assertFalse(page.hasHorizontalScroll(), "Zoom 150%: Xuất hiện scroll ngang (vỡ layout)");
 
+	    } finally {
+	        // reset zoom
+	        js.executeScript("document.body.style.zoom='100%'");
+	    }
+	}
 }
 
 

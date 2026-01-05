@@ -1,17 +1,18 @@
 package vn.pis.ui.pages;
 
 import org.openqa.selenium.*;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
-import org.openqa.selenium.interactions.Actions;
-
 
 public class HistoryPage {
 
+ 
     private final WebDriver driver;
     private final WebDriverWait wait;
 
@@ -24,44 +25,48 @@ public class HistoryPage {
         System.out.println("[PIS7][PAGE] " + msg);
     }
 
-    // ---------- MENU / TITLE ----------
+    // ===================== MENU / TITLE =====================
     private final By menuHistoryLink = By.xpath(
             "//a[contains(@href,'/history') or contains(@href,'/transactions')][.//span[contains(.,'Lịch sử') or contains(.,'Giao dịch')]]"
     );
     private final By pageTitle = By.xpath("//h1[contains(.,'Lịch sử') or contains(.,'Danh sách giao dịch')]");
 
-    // ---------- BỘ LỌC (FILTERS) & TÌM KIẾM ----------
+    // ===================== FILTERS / SEARCH =====================
     private final By searchInput = By.xpath("//input[@placeholder='Tìm theo số lô: LOT...']");
 
     private final By filterTypeBtn = By.xpath("(//button[@role='combobox'])[1]");
     private final By filterWarehouseBtn = By.xpath("(//button[@role='combobox'])[2]");
     private final By filterTimeBtn = By.xpath("(//button[@role='combobox'])[3]");
 
-    // ---------- BẢNG DỮ LIỆU (TABLE) ----------
+    // ===================== TABLE =====================
     private final By tableHeaders = By.xpath("//table//thead//th");
     private final By tableRows    = By.xpath("//table//tbody/tr");
-
-    // ---------- PHÂN TRANG (PAGINATION) ----------
-    private final By paginationNext = By.xpath("//button[contains(.,'Sau') or contains(@aria-label,'Next')]");
-    private final By pageSizeBtn = By.xpath("//div[contains(@class,'pagination')]//div[contains(@role,'button') or contains(@class,'select')]");
-
-    private By previousButton = By.xpath("//button[normalize-space(.)='Trước' or .//*[normalize-space(.)='Trước']]");
-    private By nextButton     = By.xpath("//button[normalize-space(.)='Sau'   or .//*[normalize-space(.)='Sau']]");
-
-    // ---------- MODAL CHI TIẾT ----------
-    private final By modalDialog = By.xpath("//div[@role='dialog']");
-    private final By modalContent = By.xpath("//div[@role='dialog']//div[contains(@class,'body') or contains(@class,'content')]");
-    private final By closeModalBtn = By.xpath("//div[@role='dialog']//button[contains(@aria-label,'Close') or contains(.,'Đóng')]");
-
 
     private final By emptyStateCell = By.xpath(
             "//table//tbody//td[contains(.,'Không có') or contains(.,'No data') or contains(.,'No results') or contains(.,'Không tìm thấy')]"
     );
 
-    // cột Số lô = col 3
     private final By lotCells = By.xpath("//table//tbody/tr/td[3]");
 
-    // overlay/backdrop che click
+    private final By emptyStateAny = By.xpath(
+            "//*[contains(.,'Không có giao dịch') or contains(.,'Không có dữ liệu') or contains(.,'Không có') " +
+                    "or contains(.,'No data') or contains(.,'No results') or contains(.,'Không tìm thấy')]"
+    );
+
+    // ===================== PAGINATION =====================
+    private final By paginationNext = By.xpath("//button[contains(.,'Sau') or contains(@aria-label,'Next')]");
+    private final By pageSizeBtn = By.xpath("//div[contains(@class,'pagination')]//div[contains(@role,'button') or contains(@class,'select')]");
+    private final By pageSizeSelect = By.xpath("//select[./option[@value='10' or normalize-space(.)='10']]");
+
+    private By previousButton = By.xpath("//button[normalize-space(.)='Trước' or .//*[normalize-space(.)='Trước']]");
+    private By nextButton     = By.xpath("//button[normalize-space(.)='Sau'   or .//*[normalize-space(.)='Sau']]");
+
+    // ===================== MODAL DETAIL =====================
+    private final By modalDialog = By.xpath("//*[@role='dialog' or @data-state='open']");
+    private final By modalContent = By.xpath("//div[@role='dialog']//div[contains(@class,'body') or contains(@class,'content')]");
+    private final By closeModalBtn = By.xpath("//div[@role='dialog']//button[contains(@aria-label,'Close') or contains(.,'Đóng')]");
+
+    // ===================== OVERLAY / BLOCKING =====================
     private final By blockingOverlay = By.xpath(
             "//div[contains(@class,'fixed') and contains(@class,'inset-0') and contains(@class,'z-50')]"
     );
@@ -70,17 +75,9 @@ public class HistoryPage {
             "//button[contains(@aria-label,'Close') or contains(.,'Đóng') or contains(.,'Close')]"
     );
 
-    // empty state: bắt cả trong table td + ngoài table (div/p)
-    private final By emptyStateAny = By.xpath(
-            "//*[contains(.,'Không có giao dịch') or contains(.,'Không có dữ liệu') or contains(.,'Không có') " +
-                    "or contains(.,'No data') or contains(.,'No results') or contains(.,'Không tìm thấy')]"
-    );
-
     // ===================== UTILS / HELPERS =====================
-
     private void dismissBlockingOverlayIfAny() {
         try {
-            // thử tối đa 3 lần cho chắc
             for (int i = 0; i < 3; i++) {
                 List<WebElement> overlays = driver.findElements(blockingOverlay);
                 if (overlays.isEmpty()) return;
@@ -90,18 +87,14 @@ public class HistoryPage {
 
                 log("⚠ Found blocking overlay -> try close/ESC (attempt " + (i + 1) + ")");
 
-                // 1) nếu có nút đóng thì click
                 List<WebElement> closes = driver.findElements(anyCloseBtn);
                 if (!closes.isEmpty() && closes.get(0).isDisplayed()) {
                     ((JavascriptExecutor) driver).executeScript("arguments[0].click();", closes.get(0));
                 } else {
-                    // 2) ESC
                     new Actions(driver).sendKeys(Keys.ESCAPE).perform();
-                    // 3) click overlay bằng JS (1 số UI click ra ngoài để đóng)
                     ((JavascriptExecutor) driver).executeScript("arguments[0].click();", ov);
                 }
 
-                // đợi overlay biến mất
                 wait.withTimeout(Duration.ofSeconds(3))
                         .until(ExpectedConditions.invisibilityOfElementLocated(blockingOverlay));
             }
@@ -150,11 +143,8 @@ public class HistoryPage {
     }
 
     // ===================== NAVIGATION =====================
-
     public void open() {
         log("Mở menu Lịch sử giao dịch");
-
-        // ✅ luôn dọn overlay trước
         dismissBlockingOverlayIfAny();
 
         try {
@@ -179,7 +169,6 @@ public class HistoryPage {
     }
 
     // ===================== TABLE - GETTERS =====================
-
     public List<String> getTableHeaders() {
         List<WebElement> headers = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(tableHeaders));
         List<String> headerTexts = new ArrayList<>();
@@ -187,7 +176,6 @@ public class HistoryPage {
         return headerTexts;
     }
 
-  
     public String getCellText(int rowIndex, int colIndex) {
         By cell = By.xpath("//tbody/tr[" + rowIndex + "]/td[" + colIndex + "]");
         try {
@@ -246,7 +234,6 @@ public class HistoryPage {
     }
 
     // ===================== SEARCH - STATE/VERIFY =====================
-
     public int getDataRowCount() {
         try {
             List<WebElement> rows = driver.findElements(tableRows);
@@ -255,7 +242,6 @@ public class HistoryPage {
                 String t = r.getText();
                 if (t == null) continue;
                 t = t.trim();
-                // nếu là row “Không có …” thì không tính là data
                 if (t.contains("Không có") || t.contains("No data") || t.contains("No results") || t.contains("Không tìm thấy"))
                     continue;
                 if (!t.isEmpty()) count++;
@@ -271,7 +257,7 @@ public class HistoryPage {
             List<WebElement> cells = driver.findElements(lotCells);
             for (WebElement c : cells) {
                 String t = c.getText();
-                if (t != null && t.trim().equalsIgnoreCase(keyword.trim())) return true;
+                if (t != null && t.replace("\n"," ").contains(keyword.trim())) return true;
             }
             return false;
         } catch (Exception e) {
@@ -305,23 +291,14 @@ public class HistoryPage {
         try {
             wait.withTimeout(Duration.ofSeconds(10)).until(d -> {
                 try {
-                    // input đã nhận keyword chưa
                     String v = d.findElement(searchInput).getAttribute("value");
                     if (v == null || !v.trim().equals(kw)) return false;
 
-                    // ✅ nếu DOM 0 row => coi như đã áp dụng (nhiều UI render empty ngoài table)
                     if (d.findElements(tableRows).size() == 0) return true;
-
-                    // empty-state (ở bất kỳ đâu)
                     if (isEmptyStateDisplayed()) return true;
-
-                    // có data row thật = 0
                     if (getDataRowCount() == 0) return true;
-
-                    // có data thì phải có LOT match
                     if (!kw.isEmpty() && isAnyLotMatched(kw)) return true;
 
-                    // hoặc tbody text đổi (rerender)
                     String now = getTbodyText();
                     return now != null && !now.equals(before);
 
@@ -338,16 +315,9 @@ public class HistoryPage {
 
     public boolean isNoResultForLot(String keyword) {
         try {
-            // 1) có empty message
             if (isEmptyStateDisplayed()) return true;
-
-            // 2) tbody rỗng (0 dòng)
             if (getRowCountDom() == 0) return true;
-
-            // 3) không có dòng data thật
             if (getDataRowCount() == 0) return true;
-
-            // 4) có dòng nhưng không có LOT match
             return !isAnyLotMatched(keyword);
         } catch (Exception e) {
             return false;
@@ -355,15 +325,11 @@ public class HistoryPage {
     }
 
     public boolean isNoResultOrEmptyState() {
-        // 1) empty-state row hiện
         if (isEmptyStateDisplayed()) return true;
-
-        // 2) không có data row thật
         return getDataRowCount() == 0;
     }
 
     // ===================== SEARCH - ACTIONS =====================
-
     public void searchByLot(String keyword) {
         log("Search theo số lô: " + keyword);
         dismissBlockingOverlayIfAny();
@@ -398,7 +364,7 @@ public class HistoryPage {
             input.sendKeys(Keys.ENTER);
             input.sendKeys(Keys.TAB);
 
-            waitForSearchApplied(""); // hoặc tự viết waitForInputEmpty
+            waitForSearchApplied("");
             waitForDataToLoad();
         } catch (Exception e) {
             log("⚠ Không clear được search: " + e.getMessage());
@@ -407,7 +373,6 @@ public class HistoryPage {
 
     // ===================== FILTERS =====================
 
-    // FIX 1: option locator robust + click bằng JS để tránh click hụt
     private void performFilterSelection(By btnLocator, String optionName) {
         WebElement btn = wait.until(ExpectedConditions.elementToBeClickable(btnLocator));
         ((JavascriptExecutor) driver).executeScript("arguments[0].click();", btn);
@@ -432,7 +397,6 @@ public class HistoryPage {
 
         performFilterSelection(filterTypeBtn, typeName);
 
-        // đợi bảng rerender (tránh đọc DOM cũ => hay gây ra lỗi Xuất kho vẫn ra Nhập kho)
         if (oldFirstCell != null) {
             try {
                 wait.until(ExpectedConditions.stalenessOf(oldFirstCell));
@@ -444,7 +408,6 @@ public class HistoryPage {
         try {
             wait.withTimeout(Duration.ofSeconds(12)).until(d -> {
                 try {
-                    // nếu rỗng thì coi như đã load xong
                     if (d.findElements(tableRows).size() == 0) return true;
 
                     String t = d.findElement(firstCell).getText();
@@ -487,17 +450,26 @@ public class HistoryPage {
     public void changePageSize(String size) {
         log("Đổi số dòng hiển thị: " + size);
         try {
-            performFilterSelection(pageSizeBtn, size);
+            dismissBlockingOverlayIfAny();
+
+            WebElement selectEl = wait.until(ExpectedConditions.elementToBeClickable(pageSizeSelect));
+            Select select = new Select(selectEl);
+
+            try {
+                select.selectByValue(size.trim());
+            } catch (NoSuchElementException ex) {
+                select.selectByVisibleText(size.trim());
+            }
+
             waitForDataToLoad();
         } catch (Exception e) {
-            log("⚠️ Không tìm thấy nút đổi page size.");
+            log("⚠️ Không đổi được page size: " + e.getMessage());
         }
     }
 
     // ===================== MODAL =====================
-
     private By btnViewDetail(int rowIndex) {
-        return By.xpath("(//table//tbody/tr)[" + rowIndex + "]//button[contains(.,'Xem') or .//*[name()='svg']]");
+        return By.xpath("(//table//tbody/tr)[" + rowIndex + "]//button[.//*[name()='svg' and contains(@class,'lucide-eye')]]");
     }
 
     public void clickViewDetail(int rowIndex) {
@@ -511,7 +483,6 @@ public class HistoryPage {
         try {
             wait.until(ExpectedConditions.visibilityOfElementLocated(modalDialog));
         } catch (TimeoutException e) {
-            // ✅ rất quan trọng: nếu modal không lên mà overlay lên -> dọn ngay
             dismissBlockingOverlayIfAny();
             throw e;
         }
@@ -549,7 +520,6 @@ public class HistoryPage {
     }
 
     // ===================== PAGINATION =====================
-
     public boolean isPaginationDisplayed() {
         try {
             return driver.findElement(paginationNext).isDisplayed();
@@ -579,7 +549,7 @@ public class HistoryPage {
 
     public boolean isNextButtonDisabled() {
         List<WebElement> els = driver.findElements(nextButton);
-        if (els.isEmpty()) return true; // không có nút => coi như disabled
+        if (els.isEmpty()) return true;
         WebElement btn = els.get(0);
 
         String ariaDisabled = btn.getAttribute("aria-disabled");
@@ -606,7 +576,6 @@ public class HistoryPage {
     }
 
     // ===================== ICONS =====================
-
     public boolean isImportIconDisplayed(int rowIndex) {
         try {
             By iconImport = By.xpath("(//tbody/tr)[" + rowIndex + "]/td[1]//*[name()='svg' and contains(@class, 'arrow-down-to-line')]");
@@ -626,7 +595,6 @@ public class HistoryPage {
     }
 
     // ===================== WAIT =====================
-
     public void waitForDataToLoad() {
         try {
             wait.withTimeout(Duration.ofSeconds(8)).until(d -> {

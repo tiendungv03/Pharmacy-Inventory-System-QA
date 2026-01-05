@@ -12,10 +12,7 @@ import java.util.List;
 
 import static vn.pis.ui.util.TestEnv.*;
 
-/**
- * PIS-7: Lịch sử nhập/xuất thuốc
- * User Story: Xem lại lịch sử giao dịch để đối soát.
- */
+
 @Listeners(PIS2_ConsoleLogger.class)
 public class PIS7_InventoryHistory extends BaseTest {
 
@@ -223,7 +220,6 @@ public class PIS7_InventoryHistory extends BaseTest {
             log("⚠ Không có dữ liệu Nhập kho để kiểm tra.");
         }
     }
-
     @Test(priority = 10, description = "TC_010 (PIS-7-TC-07): Filter type = Export")
     public void TC_010_Filter_Export() {
         page.filterByType("Xuất kho");

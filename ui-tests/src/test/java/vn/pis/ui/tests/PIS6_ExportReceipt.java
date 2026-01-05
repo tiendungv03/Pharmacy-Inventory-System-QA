@@ -19,10 +19,7 @@ import java.time.format.DateTimeFormatter;
 
 import static vn.pis.ui.util.TestEnv.*;
 
-/**
- * PIS-6: Tạo phiếu xuất kho
- * Bao gồm các TC từ TC-01 đến TC-18
- */
+
 @Listeners(PIS2_ConsoleLogger.class)
 public class PIS6_ExportReceipt extends BaseTest {
 
@@ -124,7 +121,7 @@ public class PIS6_ExportReceipt extends BaseTest {
         page.setRowDrugNameAndChooseSuggestion(1, DRUG_NAME);
 
         // ✅ tăng timeout auto-fill cho ổn định
-        page.waitRowAutoFilled(1, 20);
+        page.waitRowAutoFilledFull(1, 20);
 
         page.setRowQuantity(1, String.valueOf(STOCK_SAFE_QTY));
         blurToTriggerValidation();
@@ -271,7 +268,7 @@ public class PIS6_ExportReceipt extends BaseTest {
 
         page.setNotes("Auto PIS6 - missing dept");
         page.setRowDrugNameAndChooseSuggestion(1, DRUG_NAME);
-        page.waitRowAutoFilled(1, 15);
+        page.waitRowAutoFilledFull(1, 15);
         page.setRowQuantity(1, "1");
         blurToTriggerValidation();
 
@@ -337,7 +334,7 @@ public class PIS6_ExportReceipt extends BaseTest {
         page.selectDepartment(DEPARTMENT_NAME);
         page.setNotes("Auto PIS6 - qty 0");
         page.setRowDrugNameAndChooseSuggestion(1, DRUG_NAME);
-        page.waitRowAutoFilled(1, 15);
+        page.waitRowAutoFilledFull(1, 15);
 
         page.setRowQuantity(1, "0");
         blurToTriggerValidation();
@@ -361,7 +358,7 @@ public class PIS6_ExportReceipt extends BaseTest {
         page.selectDepartment(DEPARTMENT_NAME);
         page.setNotes("Auto PIS6 - qty negative");
         page.setRowDrugNameAndChooseSuggestion(1, DRUG_NAME);
-        page.waitRowAutoFilled(1, 15);
+        page.waitRowAutoFilledFull(1, 15);
 
         page.setRowQuantity(1, "-1");
         blurToTriggerValidation();
@@ -454,7 +451,7 @@ public class PIS6_ExportReceipt extends BaseTest {
         page.selectDepartment(DEPARTMENT_NAME);
         page.setNotes("@#$%^&*()_+{}[]<>?/\\|~` - PIS6 Special");
         page.setRowDrugNameAndChooseSuggestion(1, DRUG_NAME);
-        page.waitRowAutoFilled(1, 20);
+        page.waitRowAutoFilledFull(1, 20);
         page.setRowQuantity(1, String.valueOf(STOCK_SAFE_QTY));
         blurToTriggerValidation();
 
